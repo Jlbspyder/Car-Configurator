@@ -1,0 +1,19 @@
+.build-btn.electric  {
+    font-size: 13px;
+    width: 35%;
+    margin-right: -50px;
+}
+.model_text_mobile {
+    width: 80%;
+}
+.model_text_desktop {
+    display: none;
+}
+@media (min-width: 650px) {
+    .model_text_desktop {
+        display: block ;
+    }
+    .model_text_mobile {
+        display: none;
+    }
+}

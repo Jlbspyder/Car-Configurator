@@ -1,0 +1,9 @@
+.protection-btn {
+    font-size: 20px;
+}
+.list-disc li {
+    list-style-type: disc;
+}
+.protect button:hover {
+    text-decoration: underline;
+}

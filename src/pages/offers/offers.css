@@ -1,0 +1,25 @@
+.offers-btn {
+  color: #000;
+  transform: rotate(-90deg);
+  margin-top: 2px;
+}
+@media (min-width: 768px) {
+  .offers-button-wrapper {
+    width: 34%;
+  }
+}
+@media (min-width: 1200px) {
+    .offers-button-wrapper {
+    width: 22%;
+  }
+  .offers-button-wrapper button:hover {
+    background: black;
+  }
+  .offers {
+    position: absolute;
+    top: 20px;
+    left: 4px;
+    right: 0;
+
+  }
+}

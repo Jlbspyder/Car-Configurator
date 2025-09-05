@@ -1,0 +1,62 @@
+.benefits-img {
+    width: 350px;
+}
+.reject {
+    margin-right: 10px;
+    font-size: 20px;
+    color: red;
+}
+.check {
+  font-size: 20px;
+  color: green;  
+}
+.mile {
+    margin-left: -8px;
+}
+.benefits-chart {
+    border-top: 5px solid red;
+}
+.cpo-answer, .cpo-question {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+    .benefits-img {
+    width: 680px;
+}
+.cpo-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 100px;
+    min-height: 400px;
+}
+.mile {
+    margin-left: -13px;
+} 
+.cpo-answer, .cpo-question {
+    padding-bottom: 25px;
+}
+}
+@media (min-width: 1200px) {
+    .cpo-grid-container {
+    display: flex;
+    flex-direction: column;
+}
+ .benefits-img {
+    width: 750px;
+}
+.benefits-btn {
+    cursor: pointer;
+    font-size: 15px;
+}
+.benefits-btn:hover {
+    border-bottom: 1px solid red;
+}
+.reject {
+    margin-right: 50px;
+}
+.benefits-chart {
+    border-top: 5px solid #000;
+}
+}

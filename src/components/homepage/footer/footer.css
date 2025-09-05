@@ -1,0 +1,92 @@
+.socials {
+  position: absolute;
+  top: 10px;
+  left: 12.5px;
+  font-size: 25px;
+}
+#desktop-footer a:hover {
+  color: #000;
+}
+.footer-logo {
+  width: 75px;
+}
+.heart {
+  font-size: 18px;
+}
+.footer-list {
+  margin-top: 1rem;
+}
+.footer-accordion {
+  border-top: 1px solid #4d4b4b;
+}
+.footer-arrow {
+  font-size: 20px;
+  color: #f9f9f9;
+}
+.mobile-foot a:hover, .desktop-foot a:hover {
+  background: #f9f9f9;
+  color: #000;
+}
+.foot-left button:hover {
+  background: white;
+  color: #000;
+}
+.down {
+  animation: rotate-down 0.5s ease-in-out;
+}
+.up {
+  animation: rotate 0.5s ease-in-out;
+}
+.accordion-open {
+  animation: lightUp 0.3s ease-in-out;
+}
+.footer small {
+  font-size: 20px;
+  font-weight: 700;
+  color: #c2bfbf;
+}
+.last-border {
+  border-bottom: 1px solid #4d4b4b;
+  padding-bottom: 15px;
+}
+@keyframes lightUp {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@media (min-width: 768px) {
+  .socials {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+  }
+  .footer small {
+    font-size: 16px;
+    font-weight: 700;
+    color: #858484;
+  }
+  .last-border {
+    padding-bottom: 25px;
+  }
+}
+@media (min-width: 1000px) {
+  .socials {
+    top: 12px;
+    left: 12px;
+    font-size: 25px;
+  }
+  #mobile-footer {
+    display: none;
+  }
+  .footer-logo {
+  margin-bottom: 2rem;
+  margin-left: -5px;
+}
+.table-border {
+    border-left: 1px solid #4d4b4b;
+}
+}

@@ -1,0 +1,41 @@
+.calc {
+  font-size: 50px;
+}
+ #close {
+   display: none;
+  }
+@media (min-width: 768px) {
+  .shop {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+  }
+}
+@media (min-width: 1200px) {
+   #shop {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .shop {
+    grid-template-columns: repeat(4, 1fr);
+    padding-inline: 120px;
+    letter-spacing: -1px;
+    z-index: 1000;
+  }
+  .calc {
+    font-size: 60px;
+    height: 90px;
+  }
+  #tm {
+    display: inline-block;
+    font-size: 13px;
+  }
+  #close {
+    display: block;
+    position: absolute;
+    font-size: 20px;
+    top: 20px;
+    right: 20px;
+    color: #000;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,133 @@
+.inventory-box input {
+  border: 1px solid rgb(177, 172, 172);
+  height: 60px;
+  padding: 10px;
+}
+.inventory-location:hover {
+  color: red;
+}
+.inventory-box {
+  border-bottom: 1px solid rgb(177, 172, 172);
+}
+.inventory-box select {
+  height: 60px;
+  border: 1px solid rgb(177, 172, 172);
+  padding: 10px;
+  appearance: none;
+  background-image: url("/arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  cursor: pointer;
+}
+select:focus {
+  outline: none;
+  border-color: rgb(177, 172, 172);
+}
+.car-options {
+  margin-top: 0;
+  border-bottom: 1px solid rgb(177, 172, 172);
+}
+.active-group {
+  border-top: 4px solid #000;
+  height: 40px;
+  transition: all 0.1s ease-in;
+}
+.close-option {
+  position: fixed;
+  font-size: 60px;
+  top: 55px;
+  right: 10px;
+  color: #000;
+  cursor: pointer;
+  z-index: 1000;
+}
+.close {
+  display: none;
+}
+.open {
+  display: block;
+}
+.bullet, .bullet-inactive {
+  display: none;
+}
+#inventory button:hover {
+ text-decoration: underline;
+ background: #000;
+ transition: all 0.3s ease-in;
+}
+@media (min-width: 768px) {
+  .inventory-box {
+    border-bottom: none;
+  }
+  .inventory-box select {
+    width: 85%;
+  }
+  .inventory-box input {
+    width: 85%;
+  }
+  .active-group {
+    border-top: 5px solid #000;
+  }
+  .car-brand {
+    width: 250px;
+  }
+  .car-options {
+    height: 140px;
+  }
+  .right-border {
+    border-right: 1px solid rgb(177, 172, 172);
+  }
+}
+@media (min-width:1000px) {
+   .close-option {
+    display: none;
+  }
+}
+@media (min-width: 1200px) {
+  .right-border {
+    border-right: 1px solid rgb(177, 172, 172);
+  }
+  .second-right-border {
+    border-right: 1px solid rgb(177, 172, 172);
+  }
+  .inventory-box select {
+    width: 70%;
+  }
+  .inventory-box input {
+    width: 87%;
+  }
+  .inventory-btn {
+    margin-top: 60px;
+  }
+  .modal {
+    position: absolute;
+    top: 670px;
+    left: 513px;
+    height: 400px;
+    width: 50%;
+    overflow: hidden;
+    border: 1px solid rgb(177, 172, 172);
+  }
+  .car-brand {
+    width: 120px;
+  }
+  .car-options {
+    height: 100px;
+  }
+  .active-group {
+    border-top: none;
+  }
+  .bullet {
+    color: #000;
+    font-size: 8px;
+    display: inline-block;
+    margin-right: 10px;
+    opacity: 1;
+    transition: all 0.5s ease-in;
+  }
+  .bullet-inactive {
+    font-size: 8px;
+    opacity: 0;
+  }
+}

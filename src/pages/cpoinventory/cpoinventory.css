@@ -1,0 +1,9 @@
+.cpo p:hover, .cpo-list li:hover {
+    border-bottom: 2px solid  #fff;
+}
+.cpo-stripe {
+    border-left: 1px solid #fff;
+}
+.cpo-para:hover {
+   border-bottom: 2px solid  #fff; 
+}

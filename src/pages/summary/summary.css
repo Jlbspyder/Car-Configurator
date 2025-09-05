@@ -1,0 +1,29 @@
+.summary {
+    background-image: url('/images/bg-summary-mobile.jpg');
+    height: 100vh;
+    background-position-y: -550px;
+    background-position-x: 950px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+    padding-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .summary {
+    background-image: url('/images/bg-summary-desktop.jpg');
+    margin-top: 50px;
+    padding-bottom: 0;
+    background-position-y: -450px;
+    background-position-x: 950px;
+    flex-direction: row;
+}  
+}
+
+@media (min-width: 1200px) {
+  .summary {
+    background-position-x: 830px;
+}  
+}
+

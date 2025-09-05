@@ -1,0 +1,86 @@
+.cpo-img {
+  width: 100%;
+}
+.cpo-logo {
+  width: 80px;
+  padding-top: 5px;
+}
+.cpo-menu {
+  padding-top: 5px;
+  font-size: 40px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.header-stripe {
+  padding-left: 8px;
+  border-left: 1px solid #ccc;
+  height: 35px;
+}
+.cpo-nav li {
+  margin-bottom: 0.5rem;
+}
+.cpo-nav li:hover {
+  color: #716f6f;
+}
+.cpo-nav {
+  position: fixed;
+  background: #fff;
+  color: #000;
+  transform: translateX(120%);
+  transition: all 0.3s ease-in;
+  inset: 60px 0 0 0;
+  z-index: 9999;
+}
+.cpo-nav.open-cpo {
+  transform: translateX(0);
+  transition: all 0.3s ease-in;
+}
+.cpo-menu-item {
+  border-bottom: 2px solid #000;
+}
+.cpo-menu-item:hover {
+  border-bottom: none;
+}
+@media (min-width: 768px) {
+  .cpo-logo {
+    width: 90px;
+  }
+  .cpo-services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .warranty-pix {
+    width: 400px;
+  }
+  .icons button {
+    cursor: pointer;
+  }
+  .icons:hover {
+    border-bottom: 1px solid red;
+  }
+  .cpo-para1:hover, .cpo-para2:hover {
+    border-bottom: 2px solid #000;
+  }
+}
+@media (min-width: 1200px) {
+  .offers-button-wrapper {
+    width: 30%;
+    padding-left: 30px;
+  }
+  .warranty-pix {
+    width: 650px;
+  }
+  .cpo-services {
+    display: flex;
+  }
+  .cpo-nav {
+    display: none;
+  }
+  .cpo-menu {
+    display: none;
+  }
+   .cpo-box input {
+    width: 87%;
+  }
+}

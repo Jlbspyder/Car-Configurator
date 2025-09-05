@@ -1,0 +1,48 @@
+.vehicles-grid {
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  .avatar {
+    width: 90%;
+    height: 100px;
+  }
+  .ev {
+    font-size: 15px;
+  }
+  .show-header {
+    transform: translateY(0);
+    transition: all 0.5s ease-in;
+  }
+  .hide {
+    transform: translateY(-100%);
+    transition: all 0.5s ease-in;
+  }
+@media (min-width: 768px) {
+    .vehicles-grid {
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  .avatar {
+    width: 60%;
+    height: 100px;
+  }
+    .ev {
+    font-size: 15px;
+  }
+}
+@media (min-width: 1200px) {
+  .vehicles-grid {
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+  }
+  .avatar {
+    width: 60%;
+    height: 100px;
+  }
+}

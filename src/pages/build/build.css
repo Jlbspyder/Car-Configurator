@@ -1,0 +1,294 @@
+.build {
+  scrollbar-width: none;
+}
+
+.build nav li {
+  width: 80px;
+  text-align: center;
+  font-weight: 600;
+  color: #fff;
+}
+.build-strip {
+  margin-top: 20px;
+  height: 4px;
+  width: 100%;
+  background: gray;
+}
+.model-build {
+  background-image: url("/images/build-bg-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: -40px;
+}
+.electric-build {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("/niro/build-bg-mobile.jpg");
+  background-position-y: -70px;
+}
+.build-arrow-left {
+  position: absolute;
+  top: 23%;
+  left: 10px;
+  border-radius: 50%;
+  font-size: 35px;
+  color: #ccc;
+  cursor: pointer;
+}
+.build-arrow-right {
+  position: absolute;
+  top: 23%;
+  right: 10px;
+  font-size: 35px;
+  color: #ccc;
+  cursor: pointer;
+}
+.build-arrow-left:hover,
+.build-arrow-right:hover {
+  color: #fff;
+}
+.build-arrow {
+  font-size: 25px;
+  margin-top: 4px;
+}
+.spec-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  overflow-x: scroll;
+  gap: 20px;
+  width: 370px;
+  scrollbar-width: none;
+}
+.builder {
+  border: 5px solid #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  min-width: 80%;
+  height: 160px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  overflow-x: scroll;
+  transition: all 0.1s ease-in;
+}
+.builder-inactive {
+  min-width: 80%;
+  height: 130px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  overflow-x: scroll;
+  transition: all 0.1s ease-in;
+}
+.bold {
+  width: 40px;
+  height: 40px;
+  border: 5px solid rgba(0, 0, 0, 0.7);
+}
+.bold:hover {
+  scale: 1.15;
+  border: 9px solid #ccc;
+  transition: all 0.3s ease-in;
+}
+.match {
+  aspect-ratio: 1;
+  width: 60px;
+  height: 60px;
+  border: 8px solid #ccc;
+}
+.dols {
+  position: absolute;
+  bottom: 0;
+  right: -10px;
+  font-size: 15px;
+  color: #fff;
+  background: #424141;
+  border-radius: 50%;
+}
+.model-img {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.model-img.loaded {
+  opacity: 1;
+}
+.dols:hover {
+  background-color: #000;
+}
+.spec-list {
+  display: none;
+}
+.point {
+  margin-top: 7px;
+}
+.feat-wrapper {
+  position: fixed;
+  background: #fff;
+  inset: 0 0 0 0;
+  color: #000;
+  transform: translateX(100%);
+  transition: all 0.3s ease-in;
+}
+.feat-wrapper.active {
+  transform: translateX(0);
+  transition: all 0.3s ease-in;
+}
+.feat-back-arrow {
+  font-size: 25px;
+}
+
+@media (min-width: 760px) {
+  .build-strip {
+    margin-top: 20px;
+  }
+  .build nav a {
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+  }
+  .model-build {
+    margin-top: 44px;
+    background-image: url("/images/build-bg-desktop.jpg");
+    background-repeat: repeat;
+    background-size: cover;
+    background-position-y: -200px;
+  }
+  .electric-build {
+    background-image: url("/niro/build-bg-desktop.jpg");
+    background-repeat: repeat;
+    background-position-y: -200px;
+  }
+  .spec-container {
+    overflow-x: auto;
+    width: 650px;
+    height: 170px;
+    cursor: pointer;
+  }
+  .builder {
+    min-width: 45%;
+    height: 160px;
+    padding: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+  }
+  .builder-inactive {
+    min-width: 45%;
+    height: 140px;
+    padding: 10px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .build-arrow-left {
+    top: 23%;
+    left: 10px;
+    font-size: 45px;
+  }
+  .build-arrow-right {
+    top: 23%;
+    right: 10px;
+    font-size: 45px;
+  }
+  .bold {
+    width: 70px;
+    height: 70px;
+    border: 9px solid rgb(81, 83, 87);
+  }
+  .match {
+    aspect-ratio: 1;
+    width: 80px;
+    height: 80px;
+    border: 9px solid #ccc;
+  }
+  .dark-border {
+    border: 8px solid rgba(0, 0, 0, 0.7);
+  }
+  .dols {
+    font-size: 20px;
+  }
+  .spec-list {
+    display: block;
+    position: absolute;
+    bottom: 48%;
+    right: 1%;
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    background: #000;
+    border-radius: 20px;
+    color: #fff;
+  }
+  .feat-wrapper {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    inset: 0 0 0 0;
+    color: #000;
+    transform: translateX(100%);
+    transition: all 0.3s ease-in;
+  }
+  .feat {
+    background: #fff;
+    position: absolute;
+    inset: 0 0 0 38%;
+    overflow-y: scroll;
+    padding-bottom: 40px;
+  }
+  .point {
+    font-size: 10px;
+  }
+}
+@media (min-width: 1200px) {
+  .spec-container {
+    gap: 20px;
+    width: 1200px;
+    height: 170px;
+  }
+  .model-build,
+  .electric-build {
+    margin-top: 44px;
+    background-image: url("/images/build-bg-desktop.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -400px;
+  }
+  .electric-build {
+    background-image: url("/niro/build-bg-desktop.jpg");
+  }
+  .builder {
+    min-width: 25%;
+    height: 170px;
+    padding: 10px;
+  }
+  .builder-inactive {
+    min-width: 25%;
+    height: 140px;
+    padding: 10px;
+  }
+  .build-arrow-left {
+    top: 30%;
+    left: 30%;
+    font-size: 45px;
+  }
+  .build-arrow-right {
+    top: 30%;
+    right: 1%;
+    font-size: 45px;
+  }
+  .spec-list {
+    bottom: 45%;
+  }
+  .build-strip {
+    margin-bottom: 10px;
+  }
+  .feat {
+    background: #fff;
+    position: absolute;
+    inset: 0 0 0 60%;
+  }
+  .in-trim {
+    width: 28px;
+    height: 28px;
+  }
+}

@@ -1,0 +1,28 @@
+.upcoming-btn {
+    border-bottom: 1px solid #ccc;
+  }
+@media (min-width: 650px) {
+  .upcoming-btn {
+    border-left: 1px solid #ccc;
+    border-bottom: none;
+  }
+  .container {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+     margin: 7rem auto 0 auto;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 10px;
+  }
+    .upcoming-btn button:hover {
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
+  }
+}

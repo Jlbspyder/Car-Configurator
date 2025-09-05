@@ -1,0 +1,10 @@
+@media (min-width: 1200px) {
+    .care-pointer {
+        border: none;
+        width: 8px;
+        height: 8px;
+    }
+    .care-active {
+        background: #000;
+    }
+}

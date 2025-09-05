@@ -1,0 +1,26 @@
+.innovation-icon {
+  width: 50px;
+}
+.innovation-btn {
+  font-size: 20px;
+  align-self: self-end;
+}
+#close-innovation {
+  display: none;
+}
+@media (min-width: 1200px) {
+  #innovation {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .innovation-icon {
+    width: 80px;
+  }
+  #close-innovation {
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+}

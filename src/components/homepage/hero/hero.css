@@ -1,0 +1,860 @@
+#hero {
+  position: relative;
+}
+.hero_dets {
+  position: absolute;
+  bottom: 7%;
+  left: 10%;
+}
+.hero_dets h1 {
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 500;
+}
+.hero_btn {
+  margin-top: 2rem;
+  display: flex;
+  font-size: 18px;
+  gap: 10px;
+}
+.hero_btn span {
+  color: #000;
+}
+.hero_dets p {
+  color: #ccc;
+  margin-top: 1rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.left-btn {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+}
+.left-btn:hover {
+  background: #000;
+  color: #fff;
+  transition: all 0.3s ease-in;
+}
+.right-btn {
+  background: transparent;
+  border: 2px solid #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+.right-btn:hover {
+  background: #fff;
+  color: #000;
+  transition: all 0.3s ease-in;
+}
+.dot {
+  margin: 0 5px 0 3px;
+  background: transparent;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+.alive {
+  background: #fff;
+}
+.car-list {
+  display: none;
+}
+#desktop-disclaimer {
+  display: none;
+}
+.consumer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#hero_3 {
+  background-image: url("/images/landscape.jpg");
+  background-repeat: no-repeat;
+  padding-bottom: 1rem;
+}
+.consumer-note {
+  display: none;
+}
+.cr-badge {
+  width: 200px;
+  height: 50px;
+  background: green;
+}
+.cr-main_text {
+  text-align: center;
+}
+.right-arrow {
+  font-size: 30px;
+  margin-top: 4px;
+}
+.suv_bg {
+  position: relative;
+  background-image: url("/images/kia-homepage-bottom.jpg");
+  background-size: 100% 320px;
+  background-repeat: no-repeat;
+}
+.electric_bg {
+  position: relative;
+  background-image: url("/images/kia_homepage_electric-bg.jpg");
+  background-size: 100% 320px;
+  background-repeat: no-repeat;
+}
+.sedan_bg {
+  position: relative;
+  background-image: url("/images/sedan_homepage.jpg");
+  background-size: 100% 320px;
+  background-repeat: no-repeat;
+}
+.left {
+  position: absolute;
+  top: 300px;
+  left: 10px;
+  aspect-ratio: 1;
+  width: 30px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.right {
+  position: absolute;
+  top: 300px;
+  right: 10px;
+  aspect-ratio: 1;
+  width: 30px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.go-left {
+  position: absolute;
+  top: 6px;
+  left: 5px;
+  font-size: 20px;
+  color: #000;
+}
+.go-right {
+  position: absolute;
+  top: 6px;
+  right: 5px;
+  font-size: 20px;
+  color: #000;
+}
+.hero_4 {
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+.hero_4_info {
+  margin: 3rem 0 0.5rem 0;
+}
+.hero_4_info h1 {
+  font-size: 2.2rem;
+  color: #fff;
+  text-align: center;
+  line-height: 1;
+  width: 95%;
+}
+.model {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 13px;
+  height: 40px;
+  width: 90%;
+  
+}
+.model span {
+  display: none;
+}
+.model li {
+  color: #c2bfbf;
+  font-size: 12px;
+  font-weight: bold;
+}
+.model li.act {
+  color: #fff;
+}
+.model li:hover {
+  color: #fff;
+}
+.list_hover {
+  border-bottom: 1px solid #fff;
+}
+.light-up_hover {
+  background: #fff;
+  color: #000;
+}
+.model-active {
+  border-top: 5px solid #fff;
+  height: 100%;
+  padding-top: 6px;
+}
+.all-btn {
+  color: #c2bfbf;
+  margin-left: -10px;
+}
+.car-name {
+  width: 300px;
+  margin-bottom: 1rem;
+  animation: moveIn 0.7s ease-in-out;
+}
+.animme {
+  animation: lightUp 0.7s ease-in-out;
+}
+.inactiv {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+.hero_4_brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-inline: 0;
+}
+.dots {
+  margin: 0 5px 0 3px;
+  background: transparent;
+  display: flex;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+.active {
+  background: #000;
+}
+.hero_4_spec {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.specs_wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 0;
+}
+.specs {
+  padding-inline: 10px;
+  width: 100%;
+  font-size: 15px;
+  text-align: left;
+}
+.specs p {
+  color: #686666;
+}
+.specs h1 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+#spec1 {
+  margin-left: 2rem;
+}
+.build-btn {
+  display: none;
+}
+
+@keyframes moveIn {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lightUp {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@media(max-width:400px) {
+.left-btn {
+  padding: 1em;
+}
+.hero_dets h1 {
+  font-size: 2.7rem;
+}
+.hero_dets {
+  left: 8%;
+}
+ #mobile-disclaimer {
+    font-size: 10px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+@media (min-width: 450px) {
+  .car-name {
+    width: 380px;
+    margin-top: 1rem;
+  }
+  .left,
+  .right {
+    top: 300px;
+  }
+}
+
+@media (min-width: 650px) {
+  .slideshow {
+    display: none;
+  }
+  .hero_dets {
+    left: 5%;
+  }
+  .hero_dets h1 {
+    font-size: 2.4rem;
+  }
+  .hero_btn {
+    margin-top: 1rem;
+  }
+  .left-btn {
+    padding: 0.5em 1em;
+    font-size: 1rem;
+    width: 150px;
+  }
+  .right-btn {
+    padding: 0.5em 1em;
+    border: 1px solid #fff;
+  }
+  #mobile-disclaimer {
+    display: none;
+  }
+  #desktop-disclaimer {
+    display: block;
+    position: absolute;
+    right: 8%;
+    bottom: 10%;
+    font-size: 10px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .car-list {
+    display: flex;
+    padding-block: 40px;
+  }
+  .cars:hover {
+    transform: scale(1);
+  }
+  .cars button:hover {
+    background: white;
+    color: #000;
+  }
+  .meet {
+    top: 57%;
+  }
+  .meet h4 {
+    font-size: 8px;
+  }
+  .meet h1 {
+    font-size: 16px;
+  }
+  .meet-btn {
+    padding-block: 0.5em;
+    padding-inline: 1em;
+    font-size: 10px;
+  }
+  #hero_3 {
+    background-image: url("/images/cr-consumer.avif");
+    background-size: cover;
+  }
+  .consumer-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-inline: 1rem;
+  }
+
+  .consumer-note {
+    display: none;
+  }
+  .cr-badge {
+    display: none;
+  }
+  .right-arrow {
+    font-size: 20px;
+    margin-right: 250px;
+  }
+  .hero_4 {
+    margin-top: 0;
+  }
+  .suv_bg {
+    background-image: url("/images/kia-homepage-bottom.jpg");
+    background-size: 100% 430px;
+    background-repeat: no-repeat;
+  }
+  .electric_bg {
+    background-image: url("/images/kia_homepage_electric-bg.jpg");
+    background-size: 100% 430px;
+    background-repeat: no-repeat;
+  }
+  .sedan_bg {
+    background-image: url("/images/sedan_homepage.jpg");
+    background-size: 100% 430px;
+    background-repeat: no-repeat;
+  }
+
+  .left {
+    top: 400px;
+    left: 30px;
+    width: 35px;
+    background: #c9c6c6;
+  }
+  .right {
+    top: 400px;
+    right: 30px;
+    width: 35px;
+    background: #c9c6c6;
+  }
+  .go-left {
+    top: 5px;
+    left: 5px;
+    font-size: 25px;
+    color: #2e2c2c;
+  }
+  .go-right {
+    top: 5px;
+    right: 5px;
+    font-size: 25px;
+    color: #5f5d5d;
+  }
+  .left:hover,
+  .right:hover {
+    background: #000;
+  }
+  .go-left:hover,
+  .go-right:hover {
+    color: #fff;
+  }
+  .hero_4_info {
+    margin-bottom: 1.2rem;
+  }
+  .hero_4_info h1 {
+    margin-top: 2rem;
+    font-size: 2.5rem;
+    width: 100%;
+  }
+  .model {
+    justify-content: center;
+    font-size: 18px;
+  }
+  .model span {
+    display: inline-block;
+  }
+  .model-active {
+    border-top: 3px solid #fff;
+    height: 100%;
+    padding-top: 2px;
+  }
+  .car-name {
+    margin-top: 3rem;
+    width: 500px;
+  }
+  .hero_4_brand {
+    width: 85%;
+    padding-inline: 3rem;
+  }
+
+  .specs_wrapper {
+    padding-inline: 3rem;
+  }
+  .specs {
+    padding-inline: 10px;
+    width: 80%;
+  }
+  #spec1 {
+    width: 80%;
+    text-align: center;
+  }
+  .all-btn {
+    color: #c2bfbf;
+    margin-left: -10px;
+    margin-top: 5px;
+  }
+  .all-btn:hover {
+    transform: translateX(50%);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+}
+@media (min-width: 760px) and (max-width: 1000px) {
+  .car-name {
+    width: 100%;
+    margin-top: 2rem;
+  }
+  .suv_bg {
+    background-image: url("/images/kia-homepage-bottom.jpg");
+    background-size: 100% 430px;
+    background-repeat: no-repeat;
+  }
+  .electric_bg {
+    background-image: url("/images/kia_homepage_electric-bg.jpg");
+    background-size: 100% 430px;
+    background-repeat: no-repeat;
+  }
+  .sedan_bg {
+    background-image: url("/images/sedan_homepage.jpg");
+    background-size: 100% 430px;
+    background-repeat: no-repeat;
+  }
+  .cr-main_text {
+    width: 85%;
+  }
+  .cr-text {
+    width: 75%;
+    font-size: 16px;
+    margin-left: 35px;
+  }
+  .consumer-info {
+    margin: 0;
+  }
+  .left,
+  .right {
+    top: 420px;
+    width: 30px;
+  }
+  .go-left,
+  .go-right {
+    font-size: 18px;
+  }
+  .hero_4_info h1 {
+    margin-top: 0;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  .model {
+    height: 60px;
+    margin-top: 0;
+  }
+  .model-active {
+    border-top: 3px solid #fff;
+    padding-top: 12px;
+    height: 45px;
+  }
+  .extra {
+    border-top: 4px solid #fff;
+    padding-top: 0;
+  }
+  .model li {
+    font-size: 12px;
+  }
+  .recommend {
+    margin-right: 0;
+  }
+  .right-arrow {
+    margin-right: 250px;
+  }
+  .hero_4_spec {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 90%;
+    padding-bottom: 10px;
+  }
+  .learn {
+    padding: 1em 3em;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: -15px;
+    cursor: pointer;
+  }
+  .specs_wrapper {
+    width: 70%;
+  }
+  .specs h1 {
+    font-size: 18px;
+  }
+  .specs p {
+    font-size: 10px;
+  }
+  #spec1 {
+    text-align: left;
+  }
+  .build-btn {
+    display: block;
+    font-weight: 600;
+    display: flex;
+    margin-right: 10px;
+    gap: 0.5rem;
+  }
+  .build-btn p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .right-arow {
+    font-size: 20px;
+    margin-top: 4px;
+    margin-right: 0;
+  }
+  .dots {
+    display: none;
+  }
+}
+
+@media (min-width: 1000px) {
+  .hero_dets {
+    bottom: 35%;
+    left: 5%;
+  }
+  .hero_dets h1 {
+    font-size: 3.5rem;
+  }
+  .hero_btn {
+    margin-top: 2rem;
+  }
+  .left-btn {
+    padding: 0.5em 2em;
+    font-size: 1rem;
+    width: 50%;
+  }
+  .right-btn {
+    padding: 0.5em 2em;
+    width: 50%;
+  }
+  .hero_dets p {
+    margin-top: 1rem;
+  }
+  .meet-btn {
+    padding: 1em 2em;
+    font-size: 15px;
+  }
+  .meet {
+    top: 65%;
+  }
+  .right-arrow {
+    margin-right: 200px;
+  }
+  .recommend {
+    margin-right: 0;
+    margin-top: 100px;
+  }
+  .right-arrow {
+    margin-right: 20px;
+  }
+  .suv_bg {
+    background-image: url("/images/kia-homepage-bottom.jpg");
+    background-size: 100% 430px;
+    background-repeat: no-repeat;
+  }
+  .electric_bg {
+    background-image: url("/images/kia_homepage_electric-bg.jpg");
+    background-size: 100% 430px;
+    background-repeat: no-repeat;
+  }
+  .sedan_bg {
+    background-image: url("/images/sedan_homepage.jpg");
+    background-size: 100% 430px;
+    background-repeat: no-repeat;
+  }
+  .left {
+    top: 410px;
+    left: 50px;
+    width: 40px;
+  }
+  .right {
+    top: 410px;
+    right: 50px;
+    width: 40px;
+  }
+  .go-left,
+  .go-right {
+    top: 7px;
+    left: 8px;
+    font-size: 25px;
+  }
+  .hero_4_info {
+    margin-top: 1rem;
+  }
+  .hero_4_info h1 {
+    margin-top: 0;
+    font-size: 3rem;
+    font-weight: 500;
+  }
+  .model {
+    font-weight: 500;
+  }
+  .model-active {
+    border-top: 3px solid #fff;
+    padding-top: 3px;
+    height: 100%;
+  }
+  .extra {
+    border-top: 4px solid #fff;
+    padding-top: 0;
+  }
+  .car-name {
+    margin-top: 6rem;
+    width: 700px;
+  }
+  .hero_4_brand {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    width: 70%;
+    padding-left: 3rem;
+  }
+  .hero_4_spec {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    padding-bottom: 10px;
+  }
+  .learn {
+    padding: 1em 5em;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 40px;
+    margin-top: -40px;
+    cursor: pointer;
+  }
+  .learn:hover {
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
+    opacity: 1;
+    transition: all 0.3s ease-in;
+  }
+  .build-btn {
+    display: block;
+    font-weight: 600;
+    display: flex;
+    gap: 0.5rem;
+  }
+  .build-btn p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .right-arow {
+    font-size: 20px;
+    margin-top: 4px;
+    margin-right: 20px;
+  }
+  .md-screen {
+    width: 95%;
+  }
+  .specs_wrapper {
+    width: 100%;
+  }
+  #spec1 {
+    text-align: left;
+  }
+  .recommend {
+    margin-right: 0;
+  }
+  .right-arrow {
+    margin-right: 450px;
+  }
+  .consumer-info {
+    padding-left: 20px;
+  }
+  .car-list {
+    padding-inline: 48px;
+  }
+}
+@media (min-width: 1200px) {
+  .car-list {
+    padding-inline: 4rem;
+  }
+  .consumer-info {
+    margin-inline: 0;
+    padding-inline: 3rem;
+  }
+  .cr-main_text {
+    font-size: 33px;
+    text-align: left;
+  }
+  .cr-text {
+    width: 60%;
+  }
+  .car-name {
+    margin-top: 2rem;
+  }
+  .suv_bg {
+    background-image: url("/images/kia-homepage-bottom.jpg");
+    background-size: 100% 430px;
+    background-repeat: no-repeat;
+  }
+  .electric_bg {
+    background-image: url("/images/kia_homepage_electric-bg.jpg");
+    background-size: 100% 430px;
+    background-repeat: no-repeat;
+  }
+  .sedan_bg {
+    background-image: url("/images/sedan_homepage.jpg");
+    background-size: 100% 430px;
+    background-repeat: no-repeat;
+  }
+  .hero_4_brand {
+    width: 100%;
+    padding-inline: 2rem;
+    align-items: center;
+  }
+  .hero_4_spec {
+    width: 59%;
+    height: 100px;
+    padding-bottom: 10px;
+  }
+  .build-btn {
+    margin-right: 0;
+  }
+  .recommend {
+    margin-right: 0;
+  }
+  .right-arrow {
+    margin-right: 10px;
+  }
+  .left,
+  .right {
+    top: 410px;
+  }
+  .go-left,
+  .go-right {
+    right: 10px;
+    font-size: 25px;
+  }
+  .md-screen {
+    width: 50%;
+  }
+  .model-active {
+    border-top: 3px solid #fff;
+    padding-top: 13px;
+    height: 100%;
+  }
+  .model li {
+    font-size: 14px;
+  }
+  .extra {
+    border-top: 4px solid #fff;
+    padding-top: 0;
+    height: 50px;
+  }
+  .learn {
+    padding: 1em 4.5em;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 55px;
+    margin-top: -40px;
+    cursor: pointer;
+  }
+  .meet h4 {
+    font-size: 10px;
+  }
+  .meet h1 {
+    font-size: 20px;
+  }
+}
