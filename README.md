@@ -17,7 +17,7 @@ A fully interactive car configurator inspired by the official Kia website.  Buil
 
 ### Links
 
-- Live Site URL: []()
+- Live Site URL: [https://car-configurator-clone.netlify.app](https://car-configurator-clone.netlify.app)
 
 
 ### Tech Stack:
@@ -30,6 +30,7 @@ A fully interactive car configurator inspired by the official Kia website.  Buil
 - [Express](https://expressjs.com/) - Server
 - [JWT](https://jwt.io/) - For authentication
 - [Mongoose](https://mongoosejs.com/) - For data modelling
+- [TailwindCSS](https://tailwindcss.com/) - For styling
 - CSS custom properties
 - Flexbox
 - CSS Grid
