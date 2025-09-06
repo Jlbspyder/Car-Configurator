@@ -913,7 +913,11 @@ const CarDetails = () => {
                     <source src={int.vid} type="video/mp4" />
                   </video>
                 )}
-                <div className="gal">
+                <div 
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove} 
+                  // style={{ transform: `translateX(-${interiorIdx * 100}%)` }}
+                  className="gal">
                   <h1 className="my-2 font-semibold text-[20px]">
                     {int.title}
                   </h1>
