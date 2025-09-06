@@ -222,12 +222,10 @@ const CarDetails = () => {
 
     if (diff > 5) {
       moveDown();
-      moveIntDown()
     }
 
     if (diff < -5) {
       moveUp();
-      moveIntUp()
     }
 
     setTouchPosition(null);
@@ -900,8 +898,6 @@ const CarDetails = () => {
           <div className="int-gal">
             {car.interior?.map((int, idx) => (
               <div
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
                 className="interior-gallery-track md:flex md:gap-10 px-4"
                 key={idx}
                 style={{ transform: `translateX(-${interiorIdx * 100}%)` }}
@@ -914,9 +910,6 @@ const CarDetails = () => {
                   </video>
                 )}
                 <div 
-                  onTouchStart={handleTouchStart}
-                  onTouchMove={handleTouchMove} 
-                  // style={{ transform: `translateX(-${interiorIdx * 100}%)` }}
                   className="gal">
                   <h1 className="my-2 font-semibold text-[20px]">
                     {int.title}
