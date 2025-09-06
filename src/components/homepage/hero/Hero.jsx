@@ -40,16 +40,16 @@ const handleBuild = () => {
   const suvModelLength = suvModel.length;
 
   const prevSlide = () => {
-     if (currentIndex > 0) {
-      setCurrentIndex((prev) => prev - 1);
-    }
-    // setCurrentIndex(currentIndex === 0 ? length - 1 : currentIndex - 1);
+    //  if (currentIndex > 0) {
+    //   setCurrentIndex((prev) => prev - 1);
+    // }
+    setCurrentIndex(currentIndex === 0 ? length - 1 : currentIndex - 1);
   };
   const nextSlide = () => {
-    if (currentIndex < length - 1 ) {
-      setCurrentIndex((prev) => prev + 1);
-    }
-    // setCurrentIndex(currentIndex === length - 1 ? 0 : currentIndex + 1);
+    // if (currentIndex < length - 1 ) {
+    //   setCurrentIndex((prev) => prev + 1);
+    // }
+    setCurrentIndex(currentIndex === length - 1 ? 0 : currentIndex + 1);
   };
 
   const prevModelSlide = () => {
@@ -487,7 +487,7 @@ const handleBuild = () => {
                     <div className="flex items-center justify-center gap-4 py-4 ">
                       <Link to={`/vehicles/${model.name}`} >
                         <button className="learn hover:bg-white hover:text-black duration-500 cursor-pointer py-4 px-12 border-1 text-white bg-black">
-                          Learn
+                          Learn more
                         </button>
                       </Link>
                       <Link to={`/vehicles/${model.name}`}>

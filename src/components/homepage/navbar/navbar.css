@@ -123,8 +123,7 @@ input:focus {
 }
 .search-bloc {
   background: #212121;
-  width: 40%;
-  font-size: 40px;
+  font-size: 55px;
   cursor: pointer;
 }
 .hamburger {

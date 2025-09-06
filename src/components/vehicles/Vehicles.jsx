@@ -22,7 +22,7 @@ const Vehicles = ({ close }) => {
 
   return (
     <div id="vehicles">
-      <div className="fixed top-[50px] lg:top-0 left-0 right-0 h-[550px] md:h-[450px] lg:h-[550px] lg:pb-10 overflow-auto bg-white z-100">
+      <div className="fixed top-[50px] lg:top-0 left-0 right-0 h-[100%] md:h-[450px] lg:h-[550px] pb-15 lg:pb-10 overflow-auto bg-white z-100">
         <div className="fixed right-0 left-0 vehicle-header font-normal flex items-center justify-center lg:justify-start lg:pl-15 gap-5 md:gap-12 lg:gap-8  h-[40px] md:h-[70px] lg:h-[60px] bg-[#323233] text-gray-300">
           <GrClose id="close" onClick={close} color="white" />
           <h3 className="text-[12px] md:text-[17px] lg:text-[13px] cursor-pointer">

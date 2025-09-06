@@ -222,10 +222,12 @@ const CarDetails = () => {
 
     if (diff > 5) {
       moveDown();
+      moveIntDown()
     }
 
     if (diff < -5) {
       moveUp();
+      moveIntUp()
     }
 
     setTouchPosition(null);
@@ -391,7 +393,7 @@ const CarDetails = () => {
             <li>Vehicles</li>
           </Link>
         </div>
-        <div className="text-black font-semibold w-full md:w-[65%] flex justify-between items-center px-8 py-3 ">
+        <div className="text-black font-semibold w-full md:w-[65%] flex justify-between items-center px-8 py-3">
           <div className="md:flex border-r border-gray-300 justify-between items-center md:w-[65%]">
             <h2 className="md:text-[15px]">
               {car.year} <span>{car.name}</span>
@@ -412,18 +414,18 @@ const CarDetails = () => {
           </div>
         </div>
         <div className="flex items-center w-full  md:w-[34%]">
-          <button className="bg-black elect-dets-btn cursor-pointer w-full text-white border-black h-[100%] md:text-[13px] py-3 px-4 font-semibold">
+          <button className="bg-black elect-dets-btn cursor-pointer w-full text-white border-black h-[100%] md:text-[13px] md:py-3 py-2 px-4 font-semibold">
             View Inventory
           </button>
           <button
             onClick={handleClick}
-            className="text-black elect-dets-btn border w-full md:border-0 cursor-pointer  py-2 px-4 h-[100%]  md:text-[13px]  font-semibold"
+            className="text-black bg-white elect-dets-btn border w-full md:border-0 cursor-pointer  py-2 px-4 h-[100%]  md:text-[13px]  font-semibold"
           >
             Build Yours
           </button>
         </div>
       </div>
-      <section className="mt-20 md:mt-27 relative video-bg">
+      <section className="mt-20 md:mt-25 relative video-bg">
         <h2 className="car-desc md:text-[28px] font-semibold">
           {" "}
           {(car.name === "Sportage" && "The new") ||
@@ -898,6 +900,8 @@ const CarDetails = () => {
           <div className="int-gal">
             {car.interior?.map((int, idx) => (
               <div
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
                 className="interior-gallery-track md:flex md:gap-10 px-4"
                 key={idx}
                 style={{ transform: `translateX(-${interiorIdx * 100}%)` }}
@@ -1074,10 +1078,10 @@ const CarDetails = () => {
         {car.technology && (
           <div className="text-black relative pb-30 mt-10">
             <div className="px-10">
-              <h4 className="font-semibold text-center text-sm md:text-[10px] xl:text-[12px] md:text-left">
+              <h4 className="font-semibold text-center text-sm md:text-[10px] xl:text-[12px]">
                 TECHNOLOGY
               </h4>
-              <h1 className="text-center text-[27px] md:text-left font-semibold mb-4">
+              <h1 className="text-center text-[27px] font-semibold mb-4">
                 {car.techHeader}
               </h1>
             </div>
