@@ -524,7 +524,7 @@ const ElectricDetails = () => {
               )
           )}
         </div>
-        <div className="flex items-center w-[90%] mt-4 pb-4 md:w-[50%] md:mt-4 m-auto xl:w-[35%] ">
+        <div className="flex items-center w-[90%] mt-4 pb-4 md:w-[50%] md:mt-4 m-auto xl:w-[35%]">
           {Object.entries(car.colors).map(([_, { hex, name }], idx) => (
             <div key={idx} className="w-full flex justify-center">
               <button
@@ -599,7 +599,7 @@ const ElectricDetails = () => {
                     })}
                   </div>
                   <Link
-                    to={`/build/${car.name}/${spec.id}`}
+                    to={`/electricbuild/${car.name}/${spec.id}`}
                     className="bg-white border-t border-gray-400  py-4 flex items-center text-[19px] px-6 font-semibold"
                   >
                     <button className="cursor-pointer">Build</button>
@@ -906,7 +906,7 @@ const ElectricDetails = () => {
       <section>
         <div className="text-black relative pb-30 mt-10">
           <h4 className="font-semibold text-center">INTERIOR</h4>
-          <h1 className="text-center text-[30px] font-semibold mb-4">
+          <h1 className="text-center text-[25px] font-semibold mb-4">
             {car.interiorHeader}
           </h1>
           <div className="int-gal">
@@ -1285,7 +1285,7 @@ const ElectricDetails = () => {
         {car.connectivity && (
           <div className="text-black relative pb-30 mt-10">
             <h4 className="font-semibold text-center">CONNECTIVITY</h4>
-            <h1 className="text-center text-[30px] font-semibold mb-4">
+            <h1 className="text-center text-[25px] font-semibold mb-4">
               {car.connectHeader}
             </h1>
             <div className="int-gal">
@@ -1472,7 +1472,7 @@ const ElectricDetails = () => {
         <section>
           <div className="text-black relative pb-30 mt-10">
             <h4 className="font-semibold text-center">PERFORMANCE</h4>
-            <h1 className="text-center text-[30px] font-semibold mb-4">
+            <h1 className="text-center text-[25px] font-semibold mb-4">
               {car.perfHeader}
             </h1>
             <div className="int-gal">
@@ -1672,7 +1672,7 @@ const ElectricDetails = () => {
                 <h4 className="font-semibold text-center md:text-left">
                   EXTERIOR
                 </h4>
-                <h1 className="text-center text-[30px] md:text-left font-semibold mb-4">
+                <h1 className="text-center text-[25px]/6 md:text-left font-semibold mb-4">
                   {car.exteriorHeader}
                 </h1>
               </div>
@@ -1877,7 +1877,7 @@ const ElectricDetails = () => {
               <h4 className="font-semibold text-center md:text-left">
                 DRIVER ASSISTANCE TECHNOLOGY
               </h4>
-              <h1 className="text-center text-[30px] md:text-left font-semibold mb-4">
+              <h1 className="text-center text-[25px] md:text-left font-semibold mb-4">
                 {car.driveHeader}
               </h1>
             </div>

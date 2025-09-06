@@ -666,6 +666,7 @@ export const suvModels = [
     name: "Soul",
     price: 20490,
     powerTrain: 147,
+    fuel: "30-31",
   },
 
   {

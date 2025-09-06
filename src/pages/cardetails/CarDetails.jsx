@@ -892,7 +892,7 @@ const CarDetails = () => {
       <section>
         <div className="text-black relative pb-30 mt-10">
           <h4 className="font-semibold text-center">INTERIOR</h4>
-          <h1 className="text-center text-[30px] font-semibold mb-4">
+          <h1 className="text-center text-[25px] font-semibold mb-4">
             {car.interiorHeader}
           </h1>
           <div className="int-gal">
@@ -1077,7 +1077,7 @@ const CarDetails = () => {
               <h4 className="font-semibold text-center md:text-left">
                 TECHNOLOGY
               </h4>
-              <h1 className="text-center text-[30px] md:text-left font-semibold mb-4">
+              <h1 className="text-center text-[27px] md:text-left font-semibold mb-4">
                 {car.techHeader}
               </h1>
             </div>
@@ -1271,7 +1271,7 @@ const CarDetails = () => {
         {car.connectivity && (
           <div className="text-black relative pb-30 mt-10">
             <h4 className="font-semibold text-center">CONNECTIVITY</h4>
-            <h1 className="text-center text-[30px] font-semibold mb-4">
+            <h1 className="text-center text-[25px] font-semibold mb-4">
               {car.connectHeader}
             </h1>
             <div className="int-gal">
@@ -1458,7 +1458,7 @@ const CarDetails = () => {
         <section>
           <div className="text-black relative pb-30 mt-10">
             <h4 className="font-semibold text-center">PERFORMANCE</h4>
-            <h1 className="text-center text-[30px] font-semibold mb-4">
+            <h1 className="text-center text-[25px] font-semibold mb-4">
               {car.perfHeader}
             </h1>
             <div className="int-gal">
@@ -1658,7 +1658,7 @@ const CarDetails = () => {
                 <h4 className="font-semibold text-center md:text-left">
                   EXTERIOR
                 </h4>
-                <h1 className="text-center text-[30px] md:text-left font-semibold mb-4">
+                <h1 className="text-center text-[25px]/6 md:text-left font-semibold mb-4">
                   {car.exteriorHeader}
                 </h1>
               </div>

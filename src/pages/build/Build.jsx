@@ -30,7 +30,6 @@ const Build = () => {
   const { id, name } = useParams();
   const navigate = useNavigate();
 
-    
   useEffect(() => {
     if (viewFeatures) {
       document.body.style.overflow = "hidden";
@@ -39,12 +38,9 @@ const Build = () => {
     }
   }, [viewFeatures]);
 
-    useEffect(() => {
-    setIsloaded(false)
-  },[currentModelIdx, currentTrimIdx])
-
- 
-
+  useEffect(() => {
+    setIsloaded(false);
+  }, [currentModelIdx, currentTrimIdx]);
 
   const car = suvModels?.flatMap((model) => model.specs);
 
@@ -62,7 +58,6 @@ const Build = () => {
   const [price, setPrice] = useState(null);
 
   const choiceCar = spec?.colors[selectedColor].map((color) => color);
-
 
   const handleUpdateSpec = (idx, id, name) => {
     setSelectedOption(spec.name);
@@ -91,7 +86,6 @@ const Build = () => {
 
   let carChoice = spec.hex.map((spe) => spe.name.replace(/\s+/g, ""));
   const [selectedTrim, setSelectedTrim] = useState(carChoice[0]);
-
 
   const nextImage = () => {
     setCurrentModelIdx((prev) => (prev === 7 ? 0 : prev + 1));
@@ -128,28 +122,38 @@ const Build = () => {
 
   return (
     <>
-    <div onClick={() => setViewFeatures(false)} className={`feat-wrapper z-100 ${viewFeatures ? "active" : ""}`}>
-            <div className="feat">
-                <div onClick={() => setViewFeatures(false)} className="flex items-center cursor-pointer bg-gray-100 pt-2 pl-2">
-                    <IoIosArrowBack className="feat-back-arrow" />
-                    <p className="text-[20px]">Back</p>
-                </div>
-                {spec?.features?.map((feature, idx) => (
-                    <div key={idx}>
-                        {idx === currentTrimIdx && <h1 className="text-4xl mt-4 pl-4 pt-4 mb-4 md:pt-0 font-semibold">Features</h1>}
-                        <div className="flex items-start gap-1 pt-2 px-4 ">
-                            <TbPointFilled className="point" />
-                            <p className="text-[20px] md:text-[18px]">{feature}</p>
-                        </div>
-                    </div>
-                ))}
+      <div
+        onClick={() => setViewFeatures(false)}
+        className={`feat-wrapper z-100 ${viewFeatures ? "active" : ""}`}
+      >
+        <div className="feat">
+          <div
+            onClick={() => setViewFeatures(false)}
+            className="flex items-center cursor-pointer bg-gray-100 pt-2 pl-2"
+          >
+            <IoIosArrowBack className="feat-back-arrow" />
+            <p className="text-[20px]">Back</p>
+          </div>
+          {spec?.features?.map((feature, idx) => (
+            <div key={idx}>
+              {idx === currentTrimIdx && (
+                <h1 className="text-4xl mt-4 pl-4 pt-4 mb-4 md:pt-0 font-semibold">
+                  Features
+                </h1>
+              )}
+              <div className="flex items-start gap-1 pt-2 px-4 ">
+                <TbPointFilled className="point" />
+                <p className="text-[20px] md:text-[18px]">{feature}</p>
+              </div>
             </div>
+          ))}
         </div>
+      </div>
       <Navbar />
       {
         <div className="mt-15 text-black">
           <div className="xl:hidden build flex overflow-x-hidden">
-            <nav className="bg-black fixed left-0 right-0 md:top-[50px] z-50 md:w-full text-white h-[70px] md:h-[70px] px-6 md:px-4 gap-1 flex flex-col items-center">
+            <nav className="bg-black fixed left-0 right-0 md:top-[50px] z-50 md:w-full text-white h-[70px] md:h-[70px] px-3 md:px-4 gap-1 flex flex-col items-center">
               <div className="relative h-[6px] mt-[20px] w-[100%] bg-[#9ea1a2]">
                 <div
                   style={{
@@ -165,10 +169,17 @@ const Build = () => {
                 ></div>
               </div>
               <div className="flex items-center justify-between w-full md:h-[40px]">
-                <li>Model</li>
-                <li>Fuel Type</li>
-                <li onClick={() => setcurrentStep(0)}>Trim</li>
-                <li onClick={() => setcurrentStep(1)}>Exterior</li>
+                <li className="flex self-start">Model</li>
+                <li className="flex">Fuel Type</li>
+                <li className="" onClick={() => setcurrentStep(0)}>
+                  Trim
+                </li>
+                <li
+                  className="flex self-start"
+                  onClick={() => setcurrentStep(1)}
+                >
+                  Exterior
+                </li>
                 <li>Summary</li>
               </div>
             </nav>
@@ -232,7 +243,7 @@ const Build = () => {
             </div>
           )}
           {currentStep !== 2 && (
-            <section className="relative model-build pt-4 pb-75 md:pt-5 md:pb-[100%] xl:pb-30">
+            <section className="relative model-build pt-10 pb-40 md:pt-5 md:pb-[100%] xl:pb-30">
               <FiArrowLeftCircle
                 onClick={nextImage}
                 className="build-arrow-left"
@@ -297,7 +308,7 @@ const Build = () => {
                     {idx === currentTrimIdx && (
                       <>
                         {currentStep === 1 && (
-                          <p className="text-center w-full xl:w-[50%] mt-15 mb-8 md:mt-20 xl:mt-0">
+                          <p className="text-center w-full xl:w-[50%] mt-35 mb-8 md:mt-20 xl:mt-0">
                             {trim.name} {trim.price && "+$"} {trim.price}
                           </p>
                         )}
@@ -308,10 +319,20 @@ const Build = () => {
                 <div className="mt-40 md:mt-0 xl:mt-[-50px]">
                   {currentStep === 0 && (
                     <div className="flex items-center xl:pl-[5px] space-x-4 mb-6 xl:mb-3">
-                      <h3 onClick={() => setExterior(false)} className={`text-gray-300 cursor-pointer hover:text-white ${exterior ? "" : "border-t-3 text-white"}`}>
+                      <h3
+                        onClick={() => setExterior(false)}
+                        className={`text-gray-300 cursor-pointer hover:text-white ${
+                          exterior ? "" : "border-t-3 text-white"
+                        }`}
+                      >
                         Features
                       </h3>
-                      <h3 onClick={() => setExterior(true)} className={`text-gray-300 cursor-pointer hover:text-white ${exterior ? "border-t-3 text-white" : ""}`}>
+                      <h3
+                        onClick={() => setExterior(true)}
+                        className={`text-gray-300 cursor-pointer hover:text-white ${
+                          exterior ? "border-t-3 text-white" : ""
+                        }`}
+                      >
                         Exterior Colors
                       </h3>
                     </div>
@@ -319,38 +340,56 @@ const Build = () => {
                   {currentStep === 0 && (
                     <div className="spec-container">
                       {model?.specs?.map((spec, idx) => (
-                    <Fragment key={spec.id}>
-                        <div
-                          onClick={() =>
-                            handleUpdateSpec(idx, spec.id, spec.name)
-                          }
-                          
-                          className={
-                            spec.name === selectedOption
-                              ? "builder"
-                              : "builder-inactive"
-                          }
-                        >
-                          <h1 className="text-[24px]">{spec.name}</h1>
-                          {!exterior ? <h1 className="text-[20px] font-bold">
-                            ${spec?.price?.toLocaleString()}{" "}
-                            <span className="text-[10px]">Starting MSRP*</span>
-                          </h1> : (<h1 className="mb-1">Available In {spec.hex.length} Exterior Colors</h1>)}
-                          {exterior && <div className="flex gap-[2px]">
-                              {spec?.hex?.map((trim) => (
-                                <div key={trim.name}>
-                                    <button className="color in-trim" style={{backgroundColor: trim.hex}} ></button>
-                                </div>
-                              ))}
-                          </div>}
-                          {idx === currentIdx && amount && (
-                            <div onClick={() => setViewFeatures(true)} className="flex items-center font-bold mt-2">
-                              { <p>View Features</p>}
-                              <MdKeyboardArrowRight className="build-arrow" />
-                            </div>
-                          )}
-                        </div>
-                        <div className="spec-list"><span className="mr-1">{currentIdx + 1}</span>/<span className="ml-1">{model.specs.length}</span></div>
+                        <Fragment key={spec.id}>
+                          <div
+                            onClick={() =>
+                              handleUpdateSpec(idx, spec.id, spec.name)
+                            }
+                            className={
+                              spec.name === selectedOption
+                                ? "builder"
+                                : "builder-inactive"
+                            }
+                          >
+                            <h1 className="text-[24px]">{spec.name}</h1>
+                            {!exterior ? (
+                              <h1 className="text-[20px] font-bold">
+                                ${spec?.price?.toLocaleString()}{" "}
+                                <span className="text-[10px]">
+                                  Starting MSRP*
+                                </span>
+                              </h1>
+                            ) : (
+                              <h1 className="mb-1">
+                                Available In {spec.hex.length} Exterior Colors
+                              </h1>
+                            )}
+                            {exterior && (
+                              <div className="flex gap-[2px]">
+                                {spec?.hex?.map((trim) => (
+                                  <div key={trim.name}>
+                                    <button
+                                      className="color in-trim"
+                                      style={{ backgroundColor: trim.hex }}
+                                    ></button>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                            {idx === currentIdx && amount && (
+                              <div
+                                onClick={() => setViewFeatures(true)}
+                                className="flex items-center font-bold mt-2"
+                              >
+                                {<p>View Features</p>}
+                                <MdKeyboardArrowRight className="build-arrow" />
+                              </div>
+                            )}
+                          </div>
+                          <div className="spec-list">
+                            <span className="mr-1">{currentIdx + 1}</span>/
+                            <span className="ml-1">{model.specs.length}</span>
+                          </div>
                         </Fragment>
                       ))}
                     </div>
@@ -358,12 +397,9 @@ const Build = () => {
                 </div>
               </div>
               {currentStep === 1 && (
-                <div className="absolute top-[35%] left-5 flex md:left-[5%] md:right-[5%] md:top-[36%] xl:top-[60%] gap-1 md:gap-2 justify-center items-center xl:justify-center right-0 ">
+                <div className="absolute top-[45%] left-5 flex md:left-[5%] md:right-[5%] md:top-[36%] xl:top-[60%] gap-1 md:gap-2 justify-center items-center xl:justify-center right-0 ">
                   {spec?.hex?.map((trim, idx) => (
-                    <div
-                      key={idx}
-                      className="relative"
-                    >
+                    <div key={idx} className="relative">
                       <button
                         className={`color  ${
                           trim.name.replace(/\s+/g, "") === selectedTrim

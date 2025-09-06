@@ -110,7 +110,7 @@ const Warranty = () => {
         </div>
         <div className="warranty-bg">
           <img src="/images/homepage-mountain-pix.avif" alt="" />
-          <div className="absolute bottom-0 left-[20px] warranty-info">
+          <div className="absolute top-[65%] left-[20px] warranty-info">
             <p className="text-[10px] md:text-[12px] lg:text-[14px] md:font-semibold">
               INDUSTRY-LEADING WARRANTY
             </p>

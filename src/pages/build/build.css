@@ -29,7 +29,7 @@
 }
 .build-arrow-left {
   position: absolute;
-  top: 23%;
+  top: 26%;
   left: 10px;
   border-radius: 50%;
   font-size: 35px;
@@ -38,7 +38,7 @@
 }
 .build-arrow-right {
   position: absolute;
-  top: 23%;
+  top: 26%;
   right: 10px;
   font-size: 35px;
   color: #ccc;
@@ -128,6 +128,7 @@
   inset: 0 0 0 0;
   color: #000;
   transform: translateX(100%);
+  overflow-y: scroll;
   transition: all 0.3s ease-in;
 }
 .feat-wrapper.active {

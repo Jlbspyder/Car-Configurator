@@ -23,13 +23,13 @@ const CpoNavbar = () => {
               onClick={() => setOpenMobileMenu(!openMobileMenu)}
               to="/cpo/inventory"
             >
-              <li className="cpo-menu-item w-[36%] md:w-[52%]">Inventory</li>
+              <li className="cpo-menu-item w-[40%] md:w-[52%]">Inventory</li>
             </Link>
             <Link
               onClick={() => setOpenMobileMenu(!openMobileMenu)}
               to="/cpo/benefits"
             >
-              <li className="md:mt-4 cpo-menu-item w-[33%] md:w-[45%]">
+              <li className="md:mt-4 cpo-menu-item w-[35%] md:w-[45%]">
                 Benefits
               </li>
             </Link>
@@ -37,7 +37,7 @@ const CpoNavbar = () => {
               onClick={() => setOpenMobileMenu(!openMobileMenu)}
               to="/cpo/protection"
             >
-              <li className="md:mt-4 cpo-menu-item w-[65%] md:w-[100%]">
+              <li className="md:mt-4 cpo-menu-item w-[70%] md:w-[100%]">
                 Protection Plans
               </li>
             </Link>
@@ -45,7 +45,7 @@ const CpoNavbar = () => {
               onClick={() => setOpenMobileMenu(!openMobileMenu)}
               to="/cpo/maintenance"
             >
-              <li className="md:mt-4 cpo-menu-item w-[74%] md:w-[100%]">
+              <li className="md:mt-4 cpo-menu-item w-[78%] md:w-[100%]">
                 Maintenance Plans
               </li>
             </Link>

@@ -160,29 +160,25 @@ const handleBuild = () => {
       <section id="hero_2">
         <div className="hero_2 ">
           <div
-            className="slideshow relative bg-gray-900 md:flex md:flex-row gap-8 px-8"
+            className="slideshow relative bg-gray-900 md:flex md:flex-row gap-8 md:px-8"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
           >
             {cars.map((car, idx) => (
               <div
                 key={car.name}
-                className={
-                  idx === currentIndex
-                    ? "relative transition-all duration-2000 ease-linear md:hover:scale-110 md:transform duration-300 cursor-pointer"
-                    : ""
-                }
-              >
-                {idx === currentIndex && <img src={car.img} alt={car.name} />}
+                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                className="slideshow-gallery-track md:flex md:gap-10">
+                {<img src={car.img} alt={car.name} />}
                 {idx === currentIndex && (
-                  <div className="absolute bottom-10 left-4">
+                  <div className="absolute bottom-10 left-10">
                     <h4 className="text-white text-xs font-semibold">
                       {car.info}
                     </h4>
                     <h1 className="text-white text-xl font-bold mt-2">
                       {car.name}
                     </h1>
-                    <button className="bg-transparent border-1 border-white py-4 px-9 mt-4 text-white font-semibold hover:bg-white hover:text-black duration-300 cursor-pointer">
+                    <button className="bg-transparent border-1 border-white py-4 px-12 mt-4 text-white font-semibold hover:bg-white hover:text-black duration-300 cursor-pointer">
                       {car.meet}
                     </button>
                   </div>
@@ -284,21 +280,23 @@ const handleBuild = () => {
                 <li className={activeSuv ? "act" : ""}>SUV / CUV / MPV</li>
               </label>
               {activeSuv ? (
-                <span
+                <Link to={``} ><span
                   className={`font-bold text-[8px] text-white py-[3px] px-[5px] rounded-full border-1 bg-transparent cursor-pointer hover:bg-white hover:text-black ${
                     suv ? "light-up_hover" : ""
                   }`}
                 >
                   Show all
                 </span>
+                </Link>
               ) : (
-                <span
+                <Link to={``}><span
                   className={`font-bold text-[10px] text-[#c2bfbf] py-[2px] px-[6px] rounded-full bg-gray-600 cursor-pointer hover:bg-white hover:text-black ${
                     suv ? "light-up_hover" : ""
                   }`}
                 >
                   {suvModel.length}
                 </span>
+                </Link>
               )}
             </div>
             <div

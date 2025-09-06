@@ -72,6 +72,20 @@
   flex-direction: column;
   align-items: center;
 }
+.slideshow {
+  position: relative;
+  display: flex;
+  width: 100%;
+  gap: 25px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+.slideshow-gallery-track {
+  flex: 0 0 90%;
+  scroll-snap-align: center;
+  transition: transform 0.3s ease-in-out;
+}
 #hero_3 {
   background-image: url("/images/landscape.jpg");
   background-repeat: no-repeat;
@@ -246,16 +260,16 @@
   padding-inline: 0;
 }
 .specs {
-  padding-inline: 10px;
+  /* padding-inline: 10px; */
   width: 100%;
-  font-size: 15px;
+  font-size: 13px;
   text-align: left;
 }
 .specs p {
   color: #686666;
 }
 .specs h1 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 #spec1 {
@@ -580,7 +594,7 @@
     font-size: 18px;
   }
   .specs p {
-    font-size: 10px;
+    font-size: 12px;
   }
   #spec1 {
     text-align: left;
