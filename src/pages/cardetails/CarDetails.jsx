@@ -617,7 +617,7 @@ const CarDetails = () => {
             <h1 className="text-4xl font-semibold md:text-[30px] ">Gallery</h1>
             <div
               onClick={() => setGallery(!gallery)}
-              className="relative cursor-pointer mb-4 md:mb-0 flex items-center justify-between font-semibold w-[40%] md:w-[22%] xl:w-[13%] md:h-[45px] z-500 px-2 h-[50px] border"
+              className="relative cursor-pointer mb-4 md:mb-0 flex items-center justify-between font-semibold w-[40%] md:w-[22%] xl:w-[13%] md:h-[40px] z-100 px-2 h-[45px] border"
             >
               {gallery && (
                 <div className="absolute bg-white text-black flex flex-col items-start gap-4 p-6 border top-[100%] left-0 right-0">
@@ -1863,7 +1863,7 @@ const CarDetails = () => {
               <h4 className="font-semibold text-center md:text-left">
                 DRIVER ASSISTANCE TECHNOLOGY
               </h4>
-              <h1 className="text-center text-[30px] md:text-left font-semibold mb-4">
+              <h1 className="text-center text-[25px] md:text-left font-semibold mb-4">
                 {car.driveHeader}
               </h1>
             </div>
@@ -1879,7 +1879,7 @@ const CarDetails = () => {
                       src={int.img}
                       alt="interior"
                       onLoad={() => setIsloaded(true)}
-                      className={`tech-img ${isLoaded ? "loaded" : ""}`}
+                      className={`drive-img ${isLoaded ? "loaded" : ""}`}
                     />
                   ) : (
                     <video autoPlay loop muted playsInline>
@@ -1905,7 +1905,7 @@ const CarDetails = () => {
                           <img
                             src={int.img}
                             alt="interior"
-                            className={`tech-img ${isLoaded ? "loaded" : ""}`}
+                            className={`drive-img ${isLoaded ? "loaded" : ""}`}
                             onLoad={() => setIsloaded(true)}
                           />
                         ) : (

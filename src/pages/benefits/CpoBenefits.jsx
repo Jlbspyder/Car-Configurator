@@ -236,7 +236,7 @@ const CpoBenefits = () => {
         </p>
       </div>
       <div className="md:flex lg:gap-14 items-center">
-        <img src="/cpo-warranty.jpg" alt="warranty" className="warranty-pix" />
+        <img src="/cpo/limited-warranty.avif" alt="warranty" className="warranty-pix" />
         <div className="mx-6 my-8 pb-8 text-black">
           <h1 className="text-[38px] lg:text-[45px] font-semibold">
             Limited Warranty

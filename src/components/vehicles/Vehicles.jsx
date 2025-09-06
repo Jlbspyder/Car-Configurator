@@ -46,7 +46,7 @@ const Vehicles = ({ close }) => {
             </span>
           </Link>
         </div>
-        <div className="vehicle-images px-6 py-3 md:px-10 lg:px-15 lg:mt-10 text-[18px] text-black">
+        <div className="px-6 py-3 md:px-10 lg:px-15 lg:mt-10 text-[18px] text-black">
           <h1 className="font-semibold mt-12 md:mt-18 lg:mt-12 md:text-[20px] lg:text-[30px]">
             SUV / CUV / MPV
           </h1>

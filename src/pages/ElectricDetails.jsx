@@ -797,8 +797,8 @@ const ElectricDetails = () => {
         <div
           className={
             car.name === "Telluride" || car.name === "Soul"
-              ? "bg-[#F2F2F2] mt-10 md:flex flex-row-reverse justify-between md:items-start md:pt-0 pb-0 text-black"
-              : "bg-[#F2F2F2] mt-10 md:flex flex-row justify-between md:items-center md:pt-0 pb-0 text-black"
+              ? "bg-[#F2F2F2] mt-10 md:flex flex-row-reverse justify-between md:items-start md:pt-0 pb-15 text-black"
+              : "bg-[#F2F2F2] mt-10 md:flex flex-row justify-between md:items-center md:pt-0 pb-15 text-black"
           }
         >
           <div className="md:w-[100%] xl:w-[50%]">
@@ -808,7 +808,7 @@ const ElectricDetails = () => {
             <h5 className="font-semibold md:text-[12px] md:tracking-wider xl:text-[12px]">
               {car.teaser}
             </h5>
-            <h1 className="text-[40px]/7 md:text-[30px] xl:text-[40px]/10 my-2 md:my-0 font-semibold">
+            <h1 className="text-[35px]/10 md:text-[30px] xl:text-[40px]/10 my-2 md:my-0 font-semibold">
               {car.header}
             </h1>
             <p className="mt-4 text-[18px] md:font-semibold md:mb-2 md:text-[13px]/4 xl:font-normal xl:pb-5 xl:text-[17px]/6">
@@ -849,7 +849,7 @@ const ElectricDetails = () => {
             <h5 className="font-semibold md:text-[12px] xl:text-[12px]">
               {car.standardTrim}
             </h5>
-            <h1 className="text-[40px]/7 md:text-[30px] xl:text-[40px]/10 my-2 md:my-0 font-semibold">
+            <h1 className="text-[35px]/7 md:text-[30px] xl:text-[40px]/10 my-2 md:my-0 font-semibold">
               {car.exclusiveHeader}
             </h1>
             <p className="mt-4 text-[18px] md:font-semibold md:mb-2 md:text-[13px]/4 xl:pb-5 xl:text-[17px]/6 xl:font-normal">
@@ -1893,7 +1893,7 @@ const ElectricDetails = () => {
                       src={int.img}
                       alt="interior"
                       onLoad={() => setIsloaded(true)}
-                      className={`tech-img ${isLoaded ? "loaded" : ""}`}
+                      className={`drive-img ${isLoaded ? "loaded" : ""}`}
                     />
                   ) : (
                     <video autoPlay loop muted playsInline>
@@ -1919,7 +1919,7 @@ const ElectricDetails = () => {
                           <img
                             src={int.img}
                             alt="interior"
-                            className={`tech-img ${isLoaded ? "loaded" : ""}`}
+                            className={`drive-img ${isLoaded ? "loaded" : ""}`}
                             onLoad={() => setIsloaded(true)}
                           />
                         ) : (

@@ -45,11 +45,11 @@ const CpoMaintenance = () => {
           </div>
         </div>
         <div className="lg:w-[50%]">
-          <div className="lg:hidden flex items-center justify-between py-4 w-[97%] pl-5 text-[15px] md:w-[80%] md:pl-0 md:mx-15 md:text-[20px]">
+          <div className="lg:hidden flex items-center justify-between py-4 w-[97%] pl-3 text-[15px] md:w-[80%] md:pl-0 md:mx-15 md:text-[20px]">
             {cpoMaintenance.map((item, idx) => (
-              <div key={item.id} onClick={()=> setCurrentIndex(idx)} className={idx === currentIndex ? "border-t-2 md:border-t-5 border-black text-black cursor-pointer" : "text-gray-400 cursor-pointer"}>
+              <p key={item.id} onClick={()=> setCurrentIndex(idx)} className={idx === currentIndex ? "border-t-2 md:border-t-5 border-black text-black cursor-pointer text-[12px] md:text-[18px]" : "text-gray-400 text-[12px] md:text-[18px] cursor-pointer"}>
                 {item.title}
-              </div>
+              </p>
             ))}
           </div>
           <div>

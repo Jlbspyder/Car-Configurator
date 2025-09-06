@@ -218,12 +218,12 @@
   scroll-snap-type: x mandatory;
 }
 .interior-gallery-track {
-  flex: 0 0 380px;
+  flex: 0 0 350px;
   scroll-snap-align: center;
   transition: transform 0.3s ease-in-out;
 }
 .interior-img {
-  width: 400px;
+  width: 100%;
   height: 380px;
   object-fit: cover;
   cursor: pointer;
@@ -232,12 +232,19 @@
 }
 .tech-img {
   width: 100%;
+  height: 380px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.drive-img {
+  width: 100%;
   height: 155px;
   opacity: 0;
   transition: opacity 0.5s ease-in;
 }
 .tech-img.loaded,
-.interior-img {
+.interior-img,
+.drive-img.loaded {
   opacity: 1;
 }
 .int_arrow_up {
@@ -543,6 +550,9 @@
   .tech-img {
     width: 100%;
     height: 280px;
+  }
+  .drive-img {
+    height: 300px;
   }
   .tech-arrow-right {
     display: block;

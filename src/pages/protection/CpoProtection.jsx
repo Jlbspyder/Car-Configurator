@@ -159,7 +159,7 @@ const CpoProtection = () => {
             <p  className="lg:ml-6">Ding Shield Plus*</p>
             <p className="mr-4 md:mr-20 lg:mr-80">Ding Shield Ultimate*</p>
           </div>
-          <div className="bg-gray-100 lg:border-y lg:border-gray-300 flex justify-between text-[12px] md:text-[15px]/4 lg:text-[15px]/5 lg:mx-6 py-4 mt-4">
+          <div className="bg-gray-100 lg:border-y lg:border-gray-300 flex justify-between text-[12px] md:text-[15px]/4 lg:text-[15px]/5 md:mx-6 py-4 mt-4">
             <p className="w-[48%] md:w-[30%] lg:w-[15%] mx-6">
               Dent & Dings*
               <br />
@@ -173,7 +173,7 @@ const CpoProtection = () => {
               other road debris that may hit your windshield.
             </p>
           </div>
-          <div className="flex justify-between lg:border-y lg:border-gray-300 text-[12px] lg:mx-6 md:text-[15px]/4 py-4">
+          <div className="flex justify-between lg:border-y lg:border-gray-300 text-[12px] mx-6 md:text-[15px]/4 py-4">
             <p className="w-[48%] md:w-[30%] lg:w-[15%] mx-6">
               Rental Reimbursment: <br /> Reinbursment of actual rental vehicle
               cost for a maximun of one day, not to exceed $50.{" "}
@@ -182,7 +182,7 @@ const CpoProtection = () => {
               Headlight Brightening: Reconditions foggy or yellowed headlights.
             </p>
           </div>
-          <div className="bg-gray-100 lg:border-y lg:border-gray-300 mx-6 flex justify-between text-[12px] md:text-[15px]/4 py-4">
+          <div className="bg-gray-100 lg:border-y lg:border-gray-300 md:mx-6 flex justify-between text-[12px] md:text-[15px]/4 py-4">
             <p className="w-[48%] md:w-[30%] lg:w-[15%] mx-6"></p>
             <p className="w-[48%] lg:w-[70%] mx-6">
               Interior Repair Services: Unlimited repairs of minor rips, burns,
