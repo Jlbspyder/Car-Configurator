@@ -77,7 +77,7 @@
   display: flex;
   width: 100%;
   gap: 25px;
-  overflow-x: auto;
+  overflow-x: hidden;
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
 }
@@ -260,7 +260,7 @@
   padding-inline: 0;
 }
 .specs {
-  /* padding-inline: 10px; */
+  padding-inline: 10px;
   width: 100%;
   font-size: 13px;
   text-align: left;

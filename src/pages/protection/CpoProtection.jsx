@@ -173,7 +173,7 @@ const CpoProtection = () => {
               other road debris that may hit your windshield.
             </p>
           </div>
-          <div className="flex justify-between lg:border-y lg:border-gray-300 text-[12px] mx-6 md:text-[15px]/4 py-4">
+          <div className="flex justify-between lg:border-y lg:border-gray-300 text-[12px] md:mx-6 md:text-[15px]/4 py-4">
             <p className="w-[48%] md:w-[30%] lg:w-[15%] mx-6">
               Rental Reimbursment: <br /> Reinbursment of actual rental vehicle
               cost for a maximun of one day, not to exceed $50.{" "}

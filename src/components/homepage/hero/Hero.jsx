@@ -40,10 +40,16 @@ const handleBuild = () => {
   const suvModelLength = suvModel.length;
 
   const prevSlide = () => {
-    setCurrentIndex(currentIndex === 0 ? length - 1 : currentIndex - 1);
+     if (currentIndex > 0) {
+      setCurrentIndex((prev) => prev - 1);
+    }
+    // setCurrentIndex(currentIndex === 0 ? length - 1 : currentIndex - 1);
   };
   const nextSlide = () => {
-    setCurrentIndex(currentIndex === length - 1 ? 0 : currentIndex + 1);
+    if (currentIndex < length - 1 ) {
+      setCurrentIndex((prev) => prev + 1);
+    }
+    // setCurrentIndex(currentIndex === length - 1 ? 0 : currentIndex + 1);
   };
 
   const prevModelSlide = () => {
@@ -170,7 +176,7 @@ const handleBuild = () => {
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                 className="slideshow-gallery-track md:flex md:gap-10">
                 {<img src={car.img} alt={car.name} />}
-                {idx === currentIndex && (
+                {(
                   <div className="absolute bottom-10 left-10">
                     <h4 className="text-white text-xs font-semibold">
                       {car.info}

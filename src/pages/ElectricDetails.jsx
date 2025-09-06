@@ -546,7 +546,7 @@ const ElectricDetails = () => {
       </section>
       <section>
         <div className="relative text-black bg-gray-100">
-          <h1 className="px-6 font-semibold text-[40px] text-center xl:text-[50px] xl:pb-10 pt-20 pb-4 ">
+          <h1 className="px-6 font-semibold text-[40px]/10 text-center xl:text-[50px] xl:pb-10 pt-20 pb-4 ">
             {car.specHeader}
           </h1>
           <div
@@ -579,7 +579,7 @@ const ElectricDetails = () => {
                       <img
                         src={spec.image}
                         alt={spec.name}
-                        className="mt-[-65px] md:mt-[-75px] xl:mt-[-85px] pb-10"
+                        className="mt-[-60px] md:mt-[-75px] xl:mt-[-85px] pb-10"
                       />
                       <h1 className="absolute text-[17px]/5 bottom-0 h-[42px] right-0 left-3 md:w-[85%] font-semibold">
                         {spec.info}
@@ -905,7 +905,7 @@ const ElectricDetails = () => {
       </section>
       <section>
         <div className="text-black relative pb-30 mt-10">
-          <h4 className="font-semibold text-center">INTERIOR</h4>
+          <h4 className="font-semibold text-sm md:text-[10px] xl:text-[12px] text-center">INTERIOR</h4>
           <h1 className="text-center text-[25px] font-semibold mb-4">
             {car.interiorHeader}
           </h1>
@@ -1284,7 +1284,7 @@ const ElectricDetails = () => {
       <section>
         {car.connectivity && (
           <div className="text-black relative pb-30 mt-10">
-            <h4 className="font-semibold text-center">CONNECTIVITY</h4>
+            <h4 className="font-semibold text-sm md:text-[10px] xl:text-[12px] text-center">CONNECTIVITY</h4>
             <h1 className="text-center text-[25px] font-semibold mb-4">
               {car.connectHeader}
             </h1>
@@ -1471,7 +1471,7 @@ const ElectricDetails = () => {
       {car.performance && (
         <section>
           <div className="text-black relative pb-30 mt-10">
-            <h4 className="font-semibold text-center">PERFORMANCE</h4>
+            <h4 className="font-semibold text-sm md:text-[10px] xl:text-[12px] text-center">PERFORMANCE</h4>
             <h1 className="text-center text-[25px] font-semibold mb-4">
               {car.perfHeader}
             </h1>
@@ -1669,7 +1669,7 @@ const ElectricDetails = () => {
           {car.exterior && (
             <div className="text-black relative pb-30 mt-10">
               <div className="px-10">
-                <h4 className="font-semibold text-center md:text-left">
+                <h4 className="font-semibold text-sm md:text-[10px] xl:text-[12px] text-center md:text-left">
                   EXTERIOR
                 </h4>
                 <h1 className="text-center text-[25px]/6 md:text-left font-semibold mb-4">
@@ -1874,7 +1874,7 @@ const ElectricDetails = () => {
         {car.driver && (
           <div className="text-black relative pb-30 mt-10">
             <div className="px-10">
-              <h4 className="font-semibold text-center md:text-left">
+              <h4 className="font-semibold text-sm md:text-[10px] xl:text-[12px] text-center text-sm md:text-[10px] xl:text-[12px] md:text-left">
                 DRIVER ASSISTANCE TECHNOLOGY
               </h4>
               <h1 className="text-center text-[25px] md:text-left font-semibold mb-4">

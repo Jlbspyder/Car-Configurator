@@ -45,7 +45,7 @@ const CpoNavbar = () => {
               onClick={() => setOpenMobileMenu(!openMobileMenu)}
               to="/cpo/maintenance"
             >
-              <li className="md:mt-4 cpo-menu-item w-[78%] md:w-[100%]">
+              <li className="md:mt-4 cpo-menu-item w-[80%] md:w-[100%]">
                 Maintenance Plans
               </li>
             </Link>
