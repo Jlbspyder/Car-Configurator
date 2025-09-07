@@ -417,7 +417,7 @@ const ElectricDetails = () => {
           </button>
           <button
             onClick={handleClick}
-            className="text-black elect-dets-btn border w-full md:border-0 cursor-pointer  py-2 px-4 h-[100%]  md:text-[13px]  font-semibold"
+            className="text-black bg-white elect-dets-btn border w-full md:border-0 cursor-pointer  py-2 px-4 h-[100%]  md:text-[13px]  font-semibold"
           >
             Build Yours
           </button>
@@ -943,7 +943,8 @@ const ElectricDetails = () => {
                           <img
                             src={int.img}
                             alt="interior"
-                            className={`tech-img ${isLoaded ? "loaded" : ""}`}
+                            className="tech-img"
+                            // className={`tech-img ${isLoaded ? "loaded" : ""}`}
                             onLoad={() => setIsloaded(true)}
                           />
                         ) : (
@@ -989,9 +990,10 @@ const ElectricDetails = () => {
                           <img
                             src={int.img}
                             alt="interior"
-                            className={`interior-img ${
-                              isLoaded ? "loaded" : ""
-                            }`}
+                            className="interior-img"
+                            // className={`interior-img ${
+                            //   isLoaded ? "loaded" : ""
+                            // }`}
                             onLoad={() => setIsloaded(true)}
                           />
                         ) : (
@@ -1105,9 +1107,10 @@ const ElectricDetails = () => {
                   {int.img ? (
                     <img
                       src={int.img}
-                      alt="interior"
+                      alt="technology"
                       onLoad={() => setIsloaded(true)}
-                      className={`tech-img ${isLoaded ? "loaded" : ""}`}
+                      className="tech-img"
+                      // className={`tech-img ${isLoaded ? "loaded" : ""}`}
                     />
                   ) : (
                     <video autoPlay loop muted playsInline>
@@ -1133,10 +1136,11 @@ const ElectricDetails = () => {
                           {int.img ? (
                             <img
                               src={int.img}
-                              alt="interior"
-                              className={`interior-img ${
-                                isLoaded ? "loaded" : ""
-                              }`}
+                              alt="technology"
+                              className="interior-img"
+                              // className={`interior-img ${
+                              //   isLoaded ? "loaded" : ""
+                              // }`}
                               onLoad={() => setIsloaded(true)}
                             />
                           ) : (
@@ -1182,8 +1186,9 @@ const ElectricDetails = () => {
                           {int.img ? (
                             <img
                               src={int.img}
-                              alt="interior"
-                              className={`tech-img ${isLoaded ? "loaded" : ""}`}
+                              alt="technology"
+                              className="tech-img"
+                              // className={`tech-img ${isLoaded ? "loaded" : ""}`}
                               onLoad={() => setIsloaded(true)}
                             />
                           ) : (
@@ -1325,8 +1330,9 @@ const ElectricDetails = () => {
                           {int.img ? (
                             <img
                               src={int.img}
-                              alt="interior"
-                              className={`tech-img ${isLoaded ? "loaded" : ""}`}
+                              alt="connectivity"
+                              className="tech-img"
+                              // className={`tech-img ${isLoaded ? "loaded" : ""}`}
                               onLoad={() => setIsloaded(true)}
                             />
                           ) : (
@@ -1372,10 +1378,11 @@ const ElectricDetails = () => {
                           {int.img ? (
                             <img
                               src={int.img}
-                              alt="interior"
-                              className={`interior-img ${
-                                isLoaded ? "loaded" : ""
-                              }`}
+                              alt="connectivity"
+                              className="interior-img"
+                              // className={`interior-img ${
+                              //   isLoaded ? "loaded" : ""
+                              // }`}
                               onLoad={() => setIsloaded(true)}
                             />
                           ) : (
@@ -1512,8 +1519,9 @@ const ElectricDetails = () => {
                           {int.img ? (
                             <img
                               src={int.img}
-                              alt="interior"
-                              className={`tech-img ${isLoaded ? "loaded" : ""}`}
+                              alt="performance"
+                              className="tech-img"
+                              // className={`tech-img ${isLoaded ? "loaded" : ""}`}
                               onLoad={() => setIsloaded(true)}
                             />
                           ) : (
@@ -1562,10 +1570,11 @@ const ElectricDetails = () => {
                           {int.img ? (
                             <img
                               src={int.img}
-                              alt="interior"
-                              className={`interior-img ${
-                                isLoaded ? "loaded" : ""
-                              }`}
+                              alt="performance"
+                              className="interior-img"
+                              // className={`interior-img ${
+                              //   isLoaded ? "loaded" : ""
+                              // }`}
                               onLoad={() => setIsloaded(true)}
                             />
                           ) : (
@@ -1686,9 +1695,10 @@ const ElectricDetails = () => {
                     {int.img ? (
                       <img
                         src={int.img}
-                        alt="interior"
+                        alt="exterior"
                         onLoad={() => setIsloaded(true)}
-                        className={`tech-img ${isLoaded ? "loaded" : ""}`}
+                        className="tech-img"
+                        // className={`tech-img ${isLoaded ? "loaded" : ""}`}
                       />
                     ) : (
                       <video autoPlay loop muted playsInline>
@@ -1714,10 +1724,11 @@ const ElectricDetails = () => {
                             {int.img ? (
                               <img
                                 src={int.img}
-                                alt="interior"
-                                className={`interior-img ${
-                                  isLoaded ? "loaded" : ""
-                                }`}
+                                alt="exterior"
+                                className="interior-img"
+                                // className={`interior-img ${
+                                //   isLoaded ? "loaded" : ""
+                                // }`}
                                 onLoad={() => setIsloaded(true)}
                               />
                             ) : (
@@ -1763,10 +1774,11 @@ const ElectricDetails = () => {
                             {int.img ? (
                               <img
                                 src={int.img}
-                                alt="interior"
-                                className={`tech-img ${
-                                  isLoaded ? "loaded" : ""
-                                }`}
+                                alt="exterior"
+                                className="tech-img"
+                                // className={`tech-img ${
+                                //   isLoaded ? "loaded" : ""
+                                // }`}
                                 onLoad={() => setIsloaded(true)}
                               />
                             ) : (
@@ -1891,9 +1903,10 @@ const ElectricDetails = () => {
                   {int.img ? (
                     <img
                       src={int.img}
-                      alt="interior"
+                      alt="driver assiatance"
                       onLoad={() => setIsloaded(true)}
-                      className={`drive-img ${isLoaded ? "loaded" : ""}`}
+                      className="drive-img"
+                      // className={`drive-img ${isLoaded ? "loaded" : ""}`}
                     />
                   ) : (
                     <video autoPlay loop muted playsInline>
@@ -1918,8 +1931,9 @@ const ElectricDetails = () => {
                         {int.img ? (
                           <img
                             src={int.img}
-                            alt="interior"
-                            className={`drive-img ${isLoaded ? "loaded" : ""}`}
+                            alt="driver assistance"
+                            className="drive-img"
+                            // className={`drive-img ${isLoaded ? "loaded" : ""}`}
                             onLoad={() => setIsloaded(true)}
                           />
                         ) : (

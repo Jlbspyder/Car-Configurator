@@ -930,7 +930,8 @@ const CarDetails = () => {
                           <img
                             src={int.img}
                             alt="interior"
-                            className={`tech-img ${isLoaded ? "loaded" : ""}`}
+                            className="tech-img"
+                            // className={`tech-img ${isLoaded ? "loaded" : ""}`}
                             onLoad={() => setIsloaded(true)}
                           />
                         ) : (
@@ -976,9 +977,10 @@ const CarDetails = () => {
                           <img
                             src={int.img}
                             alt="interior"
-                            className={`interior-img ${
-                              isLoaded ? "loaded" : ""
-                            }`}
+                            className="interior-img"
+                            // className={`interior-img ${
+                            //   isLoaded ? "loaded" : ""
+                            // }`}
                             onLoad={() => setIsloaded(true)}
                           />
                         ) : (
@@ -1092,9 +1094,10 @@ const CarDetails = () => {
                   {int.img ? (
                     <img
                       src={int.img}
-                      alt="interior"
+                      alt="tech"
                       onLoad={() => setIsloaded(true)}
-                      className={`tech-img ${isLoaded ? "loaded" : ""}`}
+                      className="techImg"
+                      // className={`tech-img ${isLoaded ? "loaded" : ""}`}
                     />
                   ) : (
                     <video autoPlay loop muted playsInline>
@@ -1120,10 +1123,11 @@ const CarDetails = () => {
                           {int.img ? (
                             <img
                               src={int.img}
-                              alt="interior"
-                              className={`interior-img ${
-                                isLoaded ? "loaded" : ""
-                              }`}
+                              alt="tech"
+                              className="techImg"
+                              // className={`interior-img ${
+                              //   isLoaded ? "loaded" : ""
+                              // }`}
                               onLoad={() => setIsloaded(true)}
                             />
                           ) : (
@@ -1169,8 +1173,9 @@ const CarDetails = () => {
                           {int.img ? (
                             <img
                               src={int.img}
-                              alt="interior"
-                              className={`tech-img ${isLoaded ? "loaded" : ""}`}
+                              alt="tech"
+                              className="techImg"
+                              // className={`tech-img ${isLoaded ? "loaded" : ""}`}
                               onLoad={() => setIsloaded(true)}
                             />
                           ) : (
@@ -1312,8 +1317,9 @@ const CarDetails = () => {
                           {int.img ? (
                             <img
                               src={int.img}
-                              alt="interior"
-                              className={`tech-img ${isLoaded ? "loaded" : ""}`}
+                              alt="connect"
+                              className="tech-img"
+                              // className={`tech-img ${isLoaded ? "loaded" : ""}`}
                               onLoad={() => setIsloaded(true)}
                             />
                           ) : (
@@ -1359,10 +1365,11 @@ const CarDetails = () => {
                           {int.img ? (
                             <img
                               src={int.img}
-                              alt="interior"
-                              className={`interior-img ${
-                                isLoaded ? "loaded" : ""
-                              }`}
+                              alt="connect"
+                              className="interior-img"
+                              // className={`interior-img ${
+                              //   isLoaded ? "loaded" : ""
+                              // }`}
                               onLoad={() => setIsloaded(true)}
                             />
                           ) : (
@@ -1499,8 +1506,9 @@ const CarDetails = () => {
                           {int.img ? (
                             <img
                               src={int.img}
-                              alt="interior"
-                              className={`tech-img ${isLoaded ? "loaded" : ""}`}
+                              alt="performance"
+                              className="tech-img"
+                              // className={`tech-img ${isLoaded ? "loaded" : ""}`}
                               onLoad={() => setIsloaded(true)}
                             />
                           ) : (
@@ -1549,10 +1557,11 @@ const CarDetails = () => {
                           {int.img ? (
                             <img
                               src={int.img}
-                              alt="interior"
-                              className={`interior-img ${
-                                isLoaded ? "loaded" : ""
-                              }`}
+                              alt="performance"
+                              className="interior-img"
+                              // className={`interior-img ${
+                              //   isLoaded ? "loaded" : ""
+                              // }`}
                               onLoad={() => setIsloaded(true)}
                             />
                           ) : (
@@ -1673,9 +1682,10 @@ const CarDetails = () => {
                     {int.img ? (
                       <img
                         src={int.img}
-                        alt="interior"
+                        alt="exterior"
                         onLoad={() => setIsloaded(true)}
-                        className={`tech-img ${isLoaded ? "loaded" : ""}`}
+                        className="tech-img"
+                        // className={`tech-img ${isLoaded ? "loaded" : ""}`}
                       />
                     ) : (
                       <video autoPlay loop muted playsInline>
@@ -1701,10 +1711,11 @@ const CarDetails = () => {
                             {int.img ? (
                               <img
                                 src={int.img}
-                                alt="interior"
-                                className={`interior-img ${
-                                  isLoaded ? "loaded" : ""
-                                }`}
+                                alt="exterior"
+                                className="interior-img"
+                                // className={`interior-img ${
+                                //   isLoaded ? "loaded" : ""
+                                // }`}
                                 onLoad={() => setIsloaded(true)}
                               />
                             ) : (
@@ -1750,10 +1761,11 @@ const CarDetails = () => {
                             {int.img ? (
                               <img
                                 src={int.img}
-                                alt="interior"
-                                className={`tech-img ${
-                                  isLoaded ? "loaded" : ""
-                                }`}
+                                alt="exterior"
+                                className="tech-img"
+                                // className={`tech-img ${
+                                //   isLoaded ? "loaded" : ""
+                                // }`}
                                 onLoad={() => setIsloaded(true)}
                               />
                             ) : (
@@ -1878,9 +1890,10 @@ const CarDetails = () => {
                   {int.img ? (
                     <img
                       src={int.img}
-                      alt="interior"
+                      alt="driver assistance"
                       onLoad={() => setIsloaded(true)}
-                      className={`drive-img ${isLoaded ? "loaded" : ""}`}
+                      className="drive-img"
+                      // className={`drive-img ${isLoaded ? "loaded" : ""}`}
                     />
                   ) : (
                     <video autoPlay loop muted playsInline>
@@ -1905,8 +1918,9 @@ const CarDetails = () => {
                         {int.img ? (
                           <img
                             src={int.img}
-                            alt="interior"
-                            className={`drive-img ${isLoaded ? "loaded" : ""}`}
+                            alt="driver assistance"
+                            className="drive-img"
+                            // className={`drive-img ${isLoaded ? "loaded" : ""}`}
                             onLoad={() => setIsloaded(true)}
                           />
                         ) : (

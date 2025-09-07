@@ -231,21 +231,28 @@
   height: 380px;
   object-fit: cover;
   cursor: pointer;
-  opacity: 0;
+  /* opacity: 0; */
+  transition: opacity 0.5s ease-in;
+}
+.techImg {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  cursor: pointer;
   transition: opacity 0.5s ease-in;
 }
 .tech-img {
   width: 100%;
   height: 380px;
   object-fit: cover;
-  opacity: 0;
+  /* opacity: 0; */
   transition: opacity 0.5s ease-in;
 }
 .drive-img {
   width: 100%;
   height: 155px;
   object-fit: cover;
-  opacity: 0;
+  /* opacity: 0; */
   transition: opacity 0.5s ease-in;
 }
 .tech-img.loaded,
@@ -321,15 +328,15 @@
     right: 35%;
   }
   .main-nav-mobile {
-  height: 40px;
-}
+    height: 40px;
+  }
   .more-btn {
     width: 10px;
     margin-top: 5px;
   }
   .main-nav-mobile.sticky {
-  transform: translateY(-150%);
-}
+    transform: translateY(-150%);
+  }
   .car-desc {
     position: absolute;
     top: 5%;
@@ -563,6 +570,9 @@
     width: 100%;
     height: 280px;
   }
+  .techImg {
+    height: 280px;
+  }
   .drive-img {
     height: 300px;
   }
@@ -793,6 +803,9 @@
   .interior-img {
     width: 600px;
     height: 480px;
+  }
+  .techImg {
+    height: 380px;
   }
   .__down {
     bottom: 160px;

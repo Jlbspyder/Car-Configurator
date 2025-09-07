@@ -429,7 +429,7 @@ const handleBuild = () => {
                       )}
                     </div>
                     <div className="build-btn">
-                      {currentModelIndex === idx && <Link to={`/vehicles/${model.name}`} ><p>Build yours</p></Link>}
+                      {currentModelIndex === idx && <Link to={`/build/${model.name}/${model.id}`}><p>Build yours</p></Link>}
                       {currentModelIndex === idx && (
                         <MdOutlineKeyboardArrowRight className="right-arow" />
                       )}
@@ -486,11 +486,11 @@ const handleBuild = () => {
                   {currentModelIndex === idx && (
                     <div className="flex items-center justify-center gap-4 py-4 ">
                       <Link to={`/vehicles/${model.name}`} >
-                        <button className="learn hover:bg-white hover:text-black duration-500 cursor-pointer py-4 px-12 border-1 text-white bg-black">
-                          Learn more
+                        <button className="learn hover:bg-white hover:text-black duration-500 cursor-pointer border-1 px-12 py-4 text-white bg-black">
+                          Learn <span className="ml-2 xl:ml-3">more</span>
                         </button>
                       </Link>
-                      <Link to={`/vehicles/${model.name}`}>
+                      <Link to={`/build/${model.name}/${model.id}`}>
                         <button className="py-4 hover:bg-black hover:text-white duration-500 px-12 cursor-pointer border-1 border-solid border-black md:hidden lg:hidden">
                           Build yours
                         </button>

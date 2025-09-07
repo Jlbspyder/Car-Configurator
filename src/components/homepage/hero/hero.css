@@ -581,10 +581,12 @@
     padding-bottom: 10px;
   }
   .learn {
-    padding: 1em 3em;
+    display: flex;
+    padding: 1em 2.5em;
     font-size: 12px;
     font-weight: 600;
-    margin-top: -15px;
+    margin-left: 12px;
+    margin-top: -19px;
     cursor: pointer;
   }
   .specs_wrapper {
@@ -728,14 +730,14 @@
     width: 70%;
     padding-bottom: 10px;
   }
-  .learn {
+  /* .learn {
     padding: 1em 5em;
     font-size: 12px;
     font-weight: 600;
     margin-right: 40px;
     margin-top: -40px;
     cursor: pointer;
-  }
+  } */
   .learn:hover {
     background: #fff;
     border: 1px solid #000;
@@ -858,11 +860,12 @@
     height: 50px;
   }
   .learn {
-    padding: 1em 4.5em;
+    display: flex;
+    padding: 1em 2.5em;
     font-size: 14px;
     font-weight: 600;
-    margin-right: 55px;
-    margin-top: -40px;
+    margin-right: 47px;
+    margin-top: -25px;
     cursor: pointer;
   }
   .meet h4 {

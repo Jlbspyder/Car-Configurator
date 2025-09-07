@@ -129,7 +129,7 @@ const Build = () => {
         <div className="feat">
           <div
             onClick={() => setViewFeatures(false)}
-            className="flex items-center cursor-pointer bg-gray-100 pt-2 pl-2"
+            className="flex items-center cursor-pointer bg-gray-100 pt-20 pl-2"
           >
             <IoIosArrowBack className="feat-back-arrow" />
             <p className="text-[20px]">Back</p>
@@ -446,9 +446,9 @@ const Build = () => {
                   ))}
                 </div>
               </div>
-              <div className="md:hidden flex flex-col justify-start ml-[-20px] w-[35%]">
-                <p>est. lease payments*</p>
-                <h1>$502 / 36mo</h1>
+              <div className="md:hidden flex flex-col justify-start w-[37%]">
+                <p>est. lease pymts*</p>
+                <h1 className="font-semibold">$502 / 36mo</h1>
               </div>
               <div className="md:w-full flex items-center">
                 <nav className="hidden xl:block bg-black md:w-full text-white h-[70px] md:h-[70px] px-6 md:px-4 gap-1 flex flex-col items-center">
