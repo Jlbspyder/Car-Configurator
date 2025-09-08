@@ -73,6 +73,7 @@
   justify-content: center;
   scrollbar-width: none;
   flex-wrap: wrap;
+  margin-top: -50px;
 }
 .builder {
   border: 5px solid #fff;
@@ -111,7 +112,7 @@
 .color-text {
   position: absolute;
   left: 50%;
-  top: 150%;
+  top: 110%;
   transform: translateX(-50%);
   display: flex;
 }

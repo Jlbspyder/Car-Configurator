@@ -368,7 +368,7 @@ const ElectricBuild = () => {
                     )}
                   </Fragment>
                 ))}
-                <div className="mt-20 md:mt-0 xl:mt-[-50px]">
+                <div className="mt-10 md:mt-0 xl:mt-[-50px]">
                   {currentStep === 0 && (
                     <div className="flex items-center xl:pl-[5px] space-x-4 mb-6 xl:mb-8">
                       <h3

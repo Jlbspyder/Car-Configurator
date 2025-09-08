@@ -370,7 +370,7 @@ const Build = () => {
                     )}
                   </Fragment>
                 ))}
-                <div className="mt-20 md:mt-0 xl:mt-[-50px]">
+                <div className="mt-10 md:mt-0 xl:mt-[-50px]">
                   {currentStep === 0 && (
                     <div className="flex items-center xl:pl-[5px] space-x-4 mb-6 xl:mb-8">
                       <h3
@@ -451,7 +451,7 @@ const Build = () => {
                 </div>
               </div>
               {currentStep === 1 && (
-                <div className="absolute color-code flex items-center justify-start gap-2 overflow-x-auto top-[55%] left-5 flex md:left-[5%] md:right-[5%] md:top-[52%] xl:top-[62%] z-100 gap-1 md:gap-2 justify-center items-center xl:justify-center">
+                <div className="absolute color-code flex items-center justify-start gap-2 overflow-x-auto top-[50%] left-5 flex md:left-[5%] md:right-[5%] md:top-[52%] xl:top-[62%] z-100 gap-1 md:gap-2 justify-center items-center xl:justify-center">
                   {spec?.hex?.map((trim, idx) => (
                     <div key={idx} className="relative">
                       <button
@@ -480,7 +480,7 @@ const Build = () => {
             </section>
           )}
           <footer>
-            <div className="fixed bottom-0 left-0 right-0 bg-black h-[80px] xl:h-[70px] border-t md:border-0 text-white flex items-center justify-between md:z-50">
+            <div className="fixed bottom-0 left-0 right-0 bg-black h-[80px] xl:h-[70px] border-t md:border-0 text-white flex items-center justify-between z-50">
               <div className="md:hidden flex items-center w-[35%] px-4 border-r border-gray-300 space-x-1">
                 <IoIosArrowDropup className="build-arrow" />
                 <div className="w-full text-left">
