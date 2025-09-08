@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { suvModels } from "../../data";
 import { FiArrowLeftCircle } from "react-icons/fi";
@@ -10,7 +10,6 @@ import { IoIosArrowBack } from "react-icons/io";
 import { TbPointFilled } from "react-icons/tb";
 import { TbCurrencyDollar } from "react-icons/tb";
 import { MdEdit } from "react-icons/md";
-import Summary from "../summary/Summary";
 import "./build.css";
 import Navbar from "../../components/homepage/navbar/Navbar";
 
@@ -20,7 +19,7 @@ const Build = () => {
   const [currentTrimIdx, setCurrentTrimIdx] = useState(0);
   const [amount, setAmount] = useState(false);
   const [viewFeatures, setViewFeatures] = useState(false);
-  const [isLoaded, setIsloaded] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const [exterior, setExterior] = useState(false);
   const [touchPosition, setTouchPosition] = useState(null);
   const [currentStep, setcurrentStep] = useState(0);
@@ -29,6 +28,27 @@ const Build = () => {
 
   const { id, name } = useParams();
   const navigate = useNavigate();
+  const specContainerRef = useRef(null);
+
+  const scrollToSpecContainer = (idx) => {
+    const container = specContainerRef.current;
+    const box = container.children[idx];
+    if (container && box) {
+      const containerRect = container.getBoundingClientRect();
+      const boxRect = box.getBoundingClientRect();
+
+      const scrollLeft =
+        boxRect.left -
+        containerRect.left +
+        container.scrollLeft -
+        (container.clientWidth / 2 - box.clientWidth / 2);
+
+      container.scrollTo({
+        left: scrollLeft,
+        behaviour: "smooth",
+      });
+    }
+  };
 
   useEffect(() => {
     if (viewFeatures) {
@@ -37,10 +57,6 @@ const Build = () => {
       document.body.style.overflow = "";
     }
   }, [viewFeatures]);
-
-  useEffect(() => {
-    setIsloaded(false);
-  }, [currentModelIdx, currentTrimIdx]);
 
   const car = suvModels?.flatMap((model) => model.specs);
 
@@ -58,6 +74,17 @@ const Build = () => {
   const [price, setPrice] = useState(null);
 
   const choiceCar = spec?.colors[selectedColor].map((color) => color);
+
+  useEffect(() => {
+    setLoaded(false);
+  }, [currentModelIdx]);
+
+  useEffect(() => {
+    if (choiceCar[currentModelIdx + 1]) {
+      const img = new Image();
+      img.src = choiceCar[currentModelIdx + 1];
+    }
+  }, [currentModelIdx, choiceCar]);
 
   const handleUpdateSpec = (idx, id, name) => {
     setSelectedOption(spec.name);
@@ -124,12 +151,12 @@ const Build = () => {
     <>
       <div
         onClick={() => setViewFeatures(false)}
-        className={`feat-wrapper z-100 ${viewFeatures ? "active" : ""}`}
+        className={`feat-wrapper z-700 ${viewFeatures ? "active" : ""}`}
       >
         <div className="feat">
           <div
             onClick={() => setViewFeatures(false)}
-            className="flex items-center cursor-pointer bg-gray-100 pt-20 pl-2"
+            className="flex items-center cursor-pointer bg-gray-100 py-4 md:pt-2 pl-2"
           >
             <IoIosArrowBack className="feat-back-arrow" />
             <p className="text-[20px]">Back</p>
@@ -243,18 +270,22 @@ const Build = () => {
             </div>
           )}
           {currentStep !== 2 && (
-            <section className="relative model-build pt-10 pb-40 md:pt-5 md:pb-[100%] xl:pb-30">
+            <section className="relative border model-build pt-10 pb-100 xl:pb-50">
               <FiArrowLeftCircle
                 onClick={nextImage}
-                className="build-arrow-left"
+                className={`build-arrow-left ${
+                  currentStep === 0 ? "optimize-left" : ""
+                }`}
               />
               <FiArrowRightCircle
                 onClick={prevImage}
-                className="build-arrow-right"
+                className={`build-arrow-right ${
+                  currentStep === 0 ? "optimize-right" : ""
+                }`}
               />
-              <div className="flex flex-col items-center text-white font-semibold">
+              <div className="flex relative flex-col items-center text-white font-semibold">
                 <div className="flex flex-col items-center xl:flex-row xl:justify-between w-full">
-                  <div className="flex flex-col items-center mt-16 md:mt-2 md:items-start md:pl-10 xl:w-[40%] xl:self-start w-full">
+                  <div className="flex flex-col items-center mt-16 md:mt-2 xl:mt-[-20px] md:items-start md:pl-10 xl:w-[40%] xl:self-start w-full">
                     <h1 className="text-2xl md:text-[35px]">{trims.model}</h1>
                     <h1 className="text-[20px]">{spec.name}</h1>
                     {model?.specs?.map((spec, idx) => (
@@ -286,29 +317,32 @@ const Build = () => {
                       </Fragment>
                     ))}
                   </div>
-                  {spec?.colors[selectedColor].map((color, idx) => (
-                    <div
-                      onTouchStart={handleTouchStart}
-                      onTouchMove={handleTouchMove}
-                      key={color}
-                    >
-                      {idx === currentModelIdx && (
+                  {spec?.colors[selectedColor].map((color, idx) =>
+                    idx === currentModelIdx ? (
+                      <div key={color} className="image-wrapper">
+                        {!loaded && (
+                          <img
+                            src={color}
+                            alt={`${spec.name} ${selectedColor}`}
+                            className={`placeholder`}
+                          />
+                        )}
                         <img
                           src={color}
                           alt={`${spec.name} ${selectedColor}`}
-                          className={`model-img ${isLoaded ? "loaded" : ""}`}
-                          onLoad={() => setIsloaded(true)}
+                          onLoad={() => setLoaded(true)}
+                          className={`build-image ${loaded ? "loaded" : ""}`}
                         />
-                      )}
-                    </div>
-                  ))}
+                      </div>
+                    ) : null
+                  )}
                 </div>
                 {spec?.hex?.map((trim, idx) => (
                   <Fragment key={idx}>
                     {idx === currentTrimIdx && (
                       <>
                         {currentStep === 1 && (
-                          <p className="text-center w-full xl:w-[50%] mt-35 mb-8 md:mt-20 xl:mt-0">
+                          <p className="color-text">
                             {trim.name} {trim.price && "+$"} {trim.price}
                           </p>
                         )}
@@ -316,9 +350,9 @@ const Build = () => {
                     )}
                   </Fragment>
                 ))}
-                <div className="mt-40 md:mt-0 xl:mt-[-50px]">
+                <div className="mt-20 md:mt-0 xl:mt-[-50px]">
                   {currentStep === 0 && (
-                    <div className="flex items-center xl:pl-[5px] space-x-4 mb-6 xl:mb-3">
+                    <div className="flex items-center xl:pl-[5px] space-x-4 mb-6 xl:mb-8">
                       <h3
                         onClick={() => setExterior(false)}
                         className={`text-gray-300 cursor-pointer hover:text-white ${
@@ -338,66 +372,66 @@ const Build = () => {
                     </div>
                   )}
                   {currentStep === 0 && (
-                    <div className="spec-container">
+                    <div className="spec-container" ref={specContainerRef}>
                       {model?.specs?.map((spec, idx) => (
-                        <Fragment key={spec.id}>
-                          <div
-                            onClick={() =>
-                              handleUpdateSpec(idx, spec.id, spec.name)
-                            }
-                            className={
-                              spec.name === selectedOption
-                                ? "builder"
-                                : "builder-inactive"
-                            }
-                          >
-                            <h1 className="text-[24px]">{spec.name}</h1>
-                            {!exterior ? (
-                              <h1 className="text-[20px] font-bold">
-                                ${spec?.price?.toLocaleString()}{" "}
-                                <span className="text-[10px]">
-                                  Starting MSRP*
-                                </span>
-                              </h1>
-                            ) : (
-                              <h1 className="mb-1">
-                                Available In {spec.hex.length} Exterior Colors
-                              </h1>
-                            )}
-                            {exterior && (
-                              <div className="flex gap-[2px]">
-                                {spec?.hex?.map((trim) => (
-                                  <div key={trim.name}>
-                                    <button
-                                      className="color in-trim"
-                                      style={{ backgroundColor: trim.hex }}
-                                    ></button>
-                                  </div>
-                                ))}
-                              </div>
-                            )}
-                            {idx === currentIdx && amount && (
-                              <div
-                                onClick={() => setViewFeatures(true)}
-                                className="flex items-center font-bold mt-2"
-                              >
-                                {<p>View Features</p>}
-                                <MdKeyboardArrowRight className="build-arrow" />
-                              </div>
-                            )}
-                          </div>
+                        <div
+                          key={spec.id}
+                          onClick={() => {
+                            handleUpdateSpec(idx, spec.id, spec.name),
+                            scrollToSpecContainer(idx);
+                          }}
+                          className={
+                            spec.name === selectedOption
+                              ? "builder"
+                              : "builder-inactive"
+                          }
+                        >
+                          <h1 className="text-[24px]">{spec.name}</h1>
+                          {!exterior ? (
+                            <h1 className="text-[20px] font-bold">
+                              ${spec?.price?.toLocaleString()}{" "}
+                              <span className="text-[10px]">
+                                Starting MSRP*
+                              </span>
+                            </h1>
+                          ) : (
+                            <h1 className="mb-1">
+                              Available In {spec.hex.length} Exterior Colors
+                            </h1>
+                          )}
+                          {exterior && (
+                            <div className="flex flex-wrap gap-[2px]">
+                              {spec?.hex?.map((trim) => (
+                                <div key={trim.name}>
+                                  <button
+                                    className="color in-trim"
+                                    style={{ backgroundColor: trim.hex }}
+                                  ></button>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                          {idx === currentIdx && amount && (
+                            <div
+                              onClick={() => setViewFeatures(true)}
+                              className="flex items-center font-bold mt-2"
+                            >
+                              {<p>View Features</p>}
+                              <MdKeyboardArrowRight className="build-arrow" />
+                            </div>
+                          )}
                           <div className="spec-list">
                             <span className="mr-1">{currentIdx + 1}</span>/
                             <span className="ml-1">{model.specs.length}</span>
                           </div>
-                        </Fragment>
+                        </div>
                       ))}
                     </div>
                   )}
                 </div>
               </div>
               {currentStep === 1 && (
-                <div className="absolute top-[45%] left-5 flex md:left-[5%] md:right-[5%] md:top-[36%] xl:top-[60%] gap-1 md:gap-2 justify-center items-center xl:justify-center right-0 ">
+                <div className="absolute color-code flex items-center justify-start gap-2 overflow-x-auto top-[55%] left-5 flex md:left-[5%] md:right-[5%] md:top-[52%] xl:top-[62%] z-100 gap-1 md:gap-2 justify-center items-center xl:justify-center">
                   {spec?.hex?.map((trim, idx) => (
                     <div key={idx} className="relative">
                       <button
@@ -426,7 +460,7 @@ const Build = () => {
             </section>
           )}
           <footer>
-            <div className="fixed bottom-0 left-0 right-0 bg-black h-[80px] xl:h-[70px] border-t md:border-0 text-white flex items-center justify-between">
+            <div className="fixed bottom-0 left-0 right-0 bg-black h-[80px] xl:h-[70px] border-t md:border-0 text-white flex items-center justify-between md:z-50">
               <div className="md:hidden flex items-center w-[35%] px-4 border-r border-gray-300 space-x-1">
                 <IoIosArrowDropup className="build-arrow" />
                 <div>
@@ -476,8 +510,8 @@ const Build = () => {
                 </nav>
                 <div className="md:flex justify-between xl:justify-end md:px-8 md:w-full xl:w-[97%] w-[20%]">
                   {
-                    <button className="hidden md:block border-white border-1 cursor-pointer text-white md:ml-0 ml-[-10px] hover:underline px-6 py-2">
-                      {currentStep !== 3 ? "Share Build" : "Compare Trims"}
+                    <button onClick={() => setViewFeatures(true)} className="hidden md:block border-white border-1 cursor-pointer text-white md:ml-0 ml-[-10px] hover:underline px-6 py-2">
+                      {currentStep !== 3 ? "View Features" : ""}
                     </button>
                   }
                   {currentStep !== 2 && (

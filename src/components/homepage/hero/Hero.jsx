@@ -1,9 +1,9 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { GoArrowRight } from "react-icons/go";
 import { GoArrowLeft } from "react-icons/go";
-import { electricModels, sedanModels } from "../../../data";
+import { electricModels, sedanModels, suvModels } from "../../../data";
 import ElectricPage from "../models/ElectricModel";
 import "./hero.css";
 import SedanPage from "../models/sedan/Sedan";
@@ -16,6 +16,7 @@ const Hero = ({ cars, suvModel, electricModelLength, sedanModelLength }) => {
   const [activeElectric, setActiveElectric] = useState(false);
   const [activeSedan, setActiveSedan] = useState(false);
   const [suv, setSuv] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const [electric, setElectric] = useState(false);
   const [sedan, setSedan] = useState(false);
   const [all, setAll] = useState(false);
@@ -24,6 +25,12 @@ const Hero = ({ cars, suvModel, electricModelLength, sedanModelLength }) => {
   });
 
   
+
+  
+const dd = suvModel.map((suv) => suv.specs)
+const kk = dd.map((d) => d[0].id)
+
+console.log(kk)
 
 const navigate = useNavigate();
 
@@ -34,7 +41,26 @@ const handleMeet = () => {
 const handleBuild = () => {
   navigate('/build/Sportage/9')
 }
+const handleBui = (name, id) => {
+  navigate(`/build/${name}/${id}`)
+}
 
+
+
+
+const suvImage = suvModel.map((model) => model.img) 
+
+
+useEffect(() => {
+    setLoaded(false);
+  }, [currentModelIndex]);
+
+  useEffect(() => {
+    if (suvImage[currentModelIndex + 1]) {
+      const img = new Image();
+      img.src = suvImage[currentModelIndex + 1];
+    }
+  }, [currentModelIndex, suvImage]);
 
   const length = cars.length;
   const suvModelLength = suvModel.length;
@@ -402,17 +428,27 @@ const handleBuild = () => {
               onTouchMove={handleModelTouchMove}
             >
               {suvModel.map((model, idx) => (
-                <Fragment key={model.name}>
+                <div key={model.name}>
                   <Link to={`/vehicles/${model.name}`}>
-                    {idx === currentModelIndex && (
-                      <img
-                        src={model.img}
-                        alt={model.name}
-                        className="car-name"
-                      />
-                    )}
+                     {idx === currentModelIndex ? (
+                      <div key={model.name} className="img-wrapper">
+                        {!loaded &&  (
+                          <img
+                            src={model.img}
+                            alt={model.name}
+                            className={`placehold`}
+                          />
+                        )}
+                        <img
+                          src={model.img}
+                          alt={model.name}
+                          onLoad={() => setLoaded(true)}
+                          className={`car-name ${loaded ? "loaded" : ""}`}
+                        />
+                      </div>
+                    ) : null}
                   </Link>
-                  <div className="md-screen flex justify-between items-start sm:items-end w-full px-10 sm:px-3 lg:w-1/2">
+                  <div className="md-screen flex justify-between items-start sm:items-end w-full px-10 sm:px-3">
                     <div>
                       {currentModelIndex === idx && (
                         <h3 className="animme text-xl font-semibold mb-2">
@@ -429,7 +465,7 @@ const handleBuild = () => {
                       )}
                     </div>
                     <div className="build-btn">
-                      {currentModelIndex === idx && <Link to={`/build/${model.name}/${model.id}`}><p>Build yours</p></Link>}
+                      {currentModelIndex === idx && <p>Build yours</p>}
                       {currentModelIndex === idx && (
                         <MdOutlineKeyboardArrowRight className="right-arow" />
                       )}
@@ -447,7 +483,7 @@ const handleBuild = () => {
                       </div>
                     )}
                   </div>
-                </Fragment>
+                </div>
               ))}
             </div>
           )}
@@ -486,15 +522,13 @@ const handleBuild = () => {
                   {currentModelIndex === idx && (
                     <div className="flex items-center justify-center gap-4 py-4 ">
                       <Link to={`/vehicles/${model.name}`} >
-                        <button className="learn hover:bg-white hover:text-black duration-500 cursor-pointer border-1 px-12 py-4 text-white bg-black">
+                        <button className="learn hover:bg-white hover:text-black duration-500 cursor-pointer border-1 px-9 py-4 text-white bg-black">
                           Learn <span className="ml-2 xl:ml-3">more</span>
                         </button>
                       </Link>
-                      <Link to={`/build/${model.name}/${model.id}`}>
-                        <button className="py-4 hover:bg-black hover:text-white duration-500 px-12 cursor-pointer border-1 border-solid border-black md:hidden lg:hidden">
+                        <button className="py-4 hover:bg-black hover:text-white duration-500 px-9 cursor-pointer border-1 border-solid border-black md:hidden lg:hidden">
                           Build yours
                         </button>
-                      </Link>
                     </div>
                   )}
                 </Fragment>

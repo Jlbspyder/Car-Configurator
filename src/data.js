@@ -3087,7 +3087,7 @@ export const suvModels = [
             "/sorento/x-line/es-5.avif",
             "/sorento/x-line/es-6.avif",
             "/sorento/x-line/es-7.avif",
-            "/sorento/x-line/es-8.avif",
+            "/sorento/x-line/es-9.avif",
           ],
           EbonyBlack: [
             "/sorento/x-line/eb.avif",
@@ -3107,7 +3107,7 @@ export const suvModels = [
             "/sorento/x-line/gwp-5.avif",
             "/sorento/x-line/gwp-6.avif",
             "/sorento/x-line/gwp-7.avif",
-            "/sorento/x-line/gwp-8.avif",
+            "/sorento/x-line/gwp-9.avif",
           ],
           WolfGray: [
             "/sorento/x-line/wg.avif",
@@ -3117,7 +3117,7 @@ export const suvModels = [
             "/sorento/x-line/wg-5.avif",
             "/sorento/x-line/wg-6.avif",
             "/sorento/x-line/wg-7.avif",
-            "/sorento/x-line/wg-8.avif",
+            "/sorento/x-line/wg-9.avif",
           ],
           DawningRed: [
             "/sorento/x-line/dr.avif",
@@ -3127,7 +3127,7 @@ export const suvModels = [
             "/sorento/x-line/dr-5.avif",
             "/sorento/x-line/dr-6.avif",
             "/sorento/x-line/dr-7.avif",
-            "/sorento/x-line/dr-8.avif",
+            "/sorento/x-line/dr-9.avif",
           ],
           MidnightLakeBlue: [
             "/sorento/x-line/mlb.avif",
@@ -3137,7 +3137,7 @@ export const suvModels = [
             "/sorento/x-line/mlb-5.avif",
             "/sorento/x-line/mlb-6.avif",
             "/sorento/x-line/mlb-7.avif",
-            "/sorento/x-line/mlb-8.avif",
+            "/sorento/x-line/mlb-9.avif",
           ],
           JungleGreen: [
             "/sorento/x-line/jg.avif",
@@ -3147,7 +3147,7 @@ export const suvModels = [
             "/sorento/x-line/jg-5.avif",
             "/sorento/x-line/jg-6.avif",
             "/sorento/x-line/jg-7.avif",
-            "/sorento/x-line/jg-8.avif",
+            "/sorento/x-line/jg-9.avif",
           ],
           RoadRiderBrown: [
             "/sorento/x-line/rrb.avif",
@@ -3157,7 +3157,7 @@ export const suvModels = [
             "/sorento/x-line/rrb-5.avif",
             "/sorento/x-line/rrb-6.avif",
             "/sorento/x-line/rrb-7.avif",
-            "/sorento/x-line/rrb-8.avif",
+            "/sorento/x-line/rrb-9.avif",
           ],
         },
         hex: [
@@ -3241,7 +3241,7 @@ export const suvModels = [
             "/sorento/x-line/es-5.avif",
             "/sorento/x-line/es-6.avif",
             "/sorento/x-line/es-7.avif",
-            "/sorento/x-line/es-8.avif",
+            "/sorento/x-line/es-9.avif",
           ],
           EbonyBlack: [
             "/sorento/x-line/eb.avif",
@@ -3261,7 +3261,7 @@ export const suvModels = [
             "/sorento/x-line/gwp-5.avif",
             "/sorento/x-line/gwp-6.avif",
             "/sorento/x-line/gwp-7.avif",
-            "/sorento/x-line/gwp-8.avif",
+            "/sorento/x-line/gwp-9.avif",
           ],
           WolfGray: [
             "/sorento/x-line/wg.avif",
@@ -3271,7 +3271,7 @@ export const suvModels = [
             "/sorento/x-line/wg-5.avif",
             "/sorento/x-line/wg-6.avif",
             "/sorento/x-line/wg-7.avif",
-            "/sorento/x-line/wg-8.avif",
+            "/sorento/x-line/wg-9.avif",
           ],
           DawningRed: [
             "/sorento/x-line/dr.avif",
@@ -3281,7 +3281,7 @@ export const suvModels = [
             "/sorento/x-line/dr-5.avif",
             "/sorento/x-line/dr-6.avif",
             "/sorento/x-line/dr-7.avif",
-            "/sorento/x-line/dr-8.avif",
+            "/sorento/x-line/dr-9.avif",
           ],
           MidnightLakeBlue: [
             "/sorento/x-line/mlb.avif",
@@ -3291,7 +3291,7 @@ export const suvModels = [
             "/sorento/x-line/mlb-5.avif",
             "/sorento/x-line/mlb-6.avif",
             "/sorento/x-line/mlb-7.avif",
-            "/sorento/x-line/mlb-8.avif",
+            "/sorento/x-line/mlb-9.avif",
           ],
           JungleGreen: [
             "/sorento/x-line/jg.avif",
@@ -3301,7 +3301,7 @@ export const suvModels = [
             "/sorento/x-line/jg-5.avif",
             "/sorento/x-line/jg-6.avif",
             "/sorento/x-line/jg-7.avif",
-            "/sorento/x-line/jg-8.avif",
+            "/sorento/x-line/jg-9.avif",
           ],
           RoadRiderBrown: [
             "/sorento/x-line/rrb.avif",
@@ -3311,7 +3311,7 @@ export const suvModels = [
             "/sorento/x-line/rrb-5.avif",
             "/sorento/x-line/rrb-6.avif",
             "/sorento/x-line/rrb-7.avif",
-            "/sorento/x-line/rrb-8.avif",
+            "/sorento/x-line/rrb-9.avif",
           ],
         },
         hex: [

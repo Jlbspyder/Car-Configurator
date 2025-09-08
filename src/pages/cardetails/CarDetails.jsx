@@ -38,7 +38,7 @@ const CarDetails = () => {
   const [exterior, setExterior] = useState(false);
   const [interior, setInterior] = useState(false);
   const [gallery, setGallery] = useState(false);
-  const [isLoaded, setIsloaded] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedCar, setSelectedCar] = useState(null);
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
@@ -177,9 +177,18 @@ const CarDetails = () => {
     setExterior(false);
   };
 
-  useEffect(() => {
-    setIsloaded(false);
+    useEffect(() => {
+    setLoaded(false);
   }, [techIdx, interiorIdx, connectIdx, performanceIdx, exteriorIdx, driveIdx]);
+
+  // useEffect(() => {
+  //   if (int[interiorIdx + 1]) {
+  //     const img = new Image();
+  //     img.src = int[interiorIdx + 1];
+  //   }
+  // }, [interiorIdx, int]);
+
+
 
   const carouselRef = useRef();
   const navigate = useNavigate();
@@ -392,7 +401,7 @@ const CarDetails = () => {
           </Link>
         </div>
         <div className="text-black font-semibold w-full md:w-[65%] flex justify-between items-center px-8 py-3">
-          <div className="md:flex border-r border-gray-300 justify-between items-center md:w-[65%]">
+          <div className="md:flex md:border-r border-gray-300 justify-between items-center md:w-[65%]">
             <h2 className="md:text-[15px]">
               {car.year} <span>{car.name}</span>
             </h2>
@@ -891,7 +900,9 @@ const CarDetails = () => {
       </section>
       <section>
         <div className="text-black relative pb-30 mt-10">
-          <h4 className="font-semibold text-center text-sm md:text-[10px] xl:text-[12px]">INTERIOR</h4>
+          <h4 className="font-semibold text-center text-sm md:text-[10px] xl:text-[12px]">
+            INTERIOR
+          </h4>
           <h1 className="text-center text-[25px] font-semibold mb-4">
             {car.interiorHeader}
           </h1>
@@ -909,8 +920,7 @@ const CarDetails = () => {
                     <source src={int.vid} type="video/mp4" />
                   </video>
                 )}
-                <div 
-                  className="gal">
+                <div className="gal">
                   <h1 className="my-2 font-semibold text-[20px]">
                     {int.title}
                   </h1>
@@ -921,9 +931,9 @@ const CarDetails = () => {
           </div>
           {car.name === "Telluride" || car.name === "Soul" ? (
             <div className="hidden relative md:flex flex-col-reverse px-8 md:block">
-              <div className="w-full">
+              <div className="w-full ">
                 {car.interior?.map((int, idx) => (
-                  <div className="mt-10" key={idx}>
+                   <div className="mt-10" key={idx}>
                     {idx === interiorIdx && (
                       <>
                         {int.img ? (
@@ -932,7 +942,7 @@ const CarDetails = () => {
                             alt="interior"
                             className="tech-img"
                             // className={`tech-img ${isLoaded ? "loaded" : ""}`}
-                            onLoad={() => setIsloaded(true)}
+                            onLoad={() => setLoaded(true)}
                           />
                         ) : (
                           <video
@@ -979,9 +989,9 @@ const CarDetails = () => {
                             alt="interior"
                             className="interior-img"
                             // className={`interior-img ${
-                            //   isLoaded ? "loaded" : ""
+                            //   loaded ? "loaded" : ""
                             // }`}
-                            onLoad={() => setIsloaded(true)}
+                            onLoad={() => setLoaded(true)}
                           />
                         ) : (
                           <video
@@ -1017,7 +1027,10 @@ const CarDetails = () => {
           )}
           {car.name === "Telluride" || car.name === "Soul" ? (
             <>
-              <div onClick={moveIntUp} className="gallery_arrow_up int_arrow_up">
+              <div
+                onClick={moveIntUp}
+                className="gallery_arrow_up int_arrow_up"
+              >
                 <FaArrowLeft className="arrow-down" />
               </div>
               <div
@@ -1095,9 +1108,9 @@ const CarDetails = () => {
                     <img
                       src={int.img}
                       alt="tech"
-                      onLoad={() => setIsloaded(true)}
+                      onLoad={() => setLoaded(true)}
                       className="techImg"
-                      // className={`tech-img ${isLoaded ? "loaded" : ""}`}
+                      // className={`tech-img ${loaded ? "loaded" : ""}`}
                     />
                   ) : (
                     <video autoPlay loop muted playsInline>
@@ -1117,7 +1130,7 @@ const CarDetails = () => {
               <div className="hidden relative md:flex px-8 md:block">
                 <div className="w-[80%]">
                   {car.technology?.map((int, idx) => (
-                    <div  key={idx}>
+                    <div key={idx}>
                       {idx === techIdx && (
                         <>
                           {int.img ? (
@@ -1126,9 +1139,9 @@ const CarDetails = () => {
                               alt="tech"
                               className="techImg"
                               // className={`interior-img ${
-                              //   isLoaded ? "loaded" : ""
+                              //   loaded ? "loaded" : ""
                               // }`}
-                              onLoad={() => setIsloaded(true)}
+                              onLoad={() => setLoaded(true)}
                             />
                           ) : (
                             <video
@@ -1175,8 +1188,8 @@ const CarDetails = () => {
                               src={int.img}
                               alt="tech"
                               className="techImg"
-                              // className={`tech-img ${isLoaded ? "loaded" : ""}`}
-                              onLoad={() => setIsloaded(true)}
+                              // className={`tech-img ${loaded ? "loaded" : ""}`}
+                              onLoad={() => setLoaded(true)}
                             />
                           ) : (
                             <video
@@ -1215,7 +1228,10 @@ const CarDetails = () => {
             )}
             {car.name === "Telluride" || car.name === "Soul" ? (
               <>
-                <div onClick={moveTechUp} className="gallery_arrow_up int_arrow_up">
+                <div
+                  onClick={moveTechUp}
+                  className="gallery_arrow_up int_arrow_up"
+                >
                   <FaArrowLeft className="arrow-down" />
                 </div>
                 <div
@@ -1276,7 +1292,9 @@ const CarDetails = () => {
       <section>
         {car.connectivity && (
           <div className="text-black relative pb-30 mt-10">
-            <h4 className="font-semibold text-center text-sm md:text-[10px] xl:text-[12px]">CONNECTIVITY</h4>
+            <h4 className="font-semibold text-center text-sm md:text-[10px] xl:text-[12px]">
+              CONNECTIVITY
+            </h4>
             <h1 className="text-center text-[25px] font-semibold mb-4">
               {car.connectHeader}
             </h1>
@@ -1319,8 +1337,8 @@ const CarDetails = () => {
                               src={int.img}
                               alt="connect"
                               className="tech-img"
-                              // className={`tech-img ${isLoaded ? "loaded" : ""}`}
-                              onLoad={() => setIsloaded(true)}
+                              // className={`tech-img ${loaded ? "loaded" : ""}`}
+                              onLoad={() => setLoaded(true)}
                             />
                           ) : (
                             <video
@@ -1368,9 +1386,9 @@ const CarDetails = () => {
                               alt="connect"
                               className="interior-img"
                               // className={`interior-img ${
-                              //   isLoaded ? "loaded" : ""
+                              //   loaded ? "loaded" : ""
                               // }`}
-                              onLoad={() => setIsloaded(true)}
+                              onLoad={() => setLoaded(true)}
                             />
                           ) : (
                             <video
@@ -1508,8 +1526,8 @@ const CarDetails = () => {
                               src={int.img}
                               alt="performance"
                               className="tech-img"
-                              // className={`tech-img ${isLoaded ? "loaded" : ""}`}
-                              onLoad={() => setIsloaded(true)}
+                              // className={`tech-img ${loaded ? "loaded" : ""}`}
+                              onLoad={() => setLoaded(true)}
                             />
                           ) : (
                             <video
@@ -1560,9 +1578,9 @@ const CarDetails = () => {
                               alt="performance"
                               className="interior-img"
                               // className={`interior-img ${
-                              //   isLoaded ? "loaded" : ""
+                              //   loaded ? "loaded" : ""
                               // }`}
-                              onLoad={() => setIsloaded(true)}
+                              onLoad={() => setLoaded(true)}
                             />
                           ) : (
                             <video
@@ -1683,9 +1701,9 @@ const CarDetails = () => {
                       <img
                         src={int.img}
                         alt="exterior"
-                        onLoad={() => setIsloaded(true)}
+                        onLoad={() => setLoaded(true)}
                         className="tech-img"
-                        // className={`tech-img ${isLoaded ? "loaded" : ""}`}
+                        // className={`tech-img ${loaded ? "loaded" : ""}`}
                       />
                     ) : (
                       <video autoPlay loop muted playsInline>
@@ -1714,9 +1732,9 @@ const CarDetails = () => {
                                 alt="exterior"
                                 className="interior-img"
                                 // className={`interior-img ${
-                                //   isLoaded ? "loaded" : ""
+                                //   loaded ? "loaded" : ""
                                 // }`}
-                                onLoad={() => setIsloaded(true)}
+                                onLoad={() => setLoaded(true)}
                               />
                             ) : (
                               <video
@@ -1764,9 +1782,9 @@ const CarDetails = () => {
                                 alt="exterior"
                                 className="tech-img"
                                 // className={`tech-img ${
-                                //   isLoaded ? "loaded" : ""
+                                //   loaded ? "loaded" : ""
                                 // }`}
-                                onLoad={() => setIsloaded(true)}
+                                onLoad={() => setLoaded(true)}
                               />
                             ) : (
                               <video
@@ -1891,9 +1909,9 @@ const CarDetails = () => {
                     <img
                       src={int.img}
                       alt="driver assistance"
-                      onLoad={() => setIsloaded(true)}
+                      onLoad={() => setLoaded(true)}
                       className="drive-img"
-                      // className={`drive-img ${isLoaded ? "loaded" : ""}`}
+                      // className={`drive-img ${loaded ? "loaded" : ""}`}
                     />
                   ) : (
                     <video autoPlay loop muted playsInline>
@@ -1920,8 +1938,8 @@ const CarDetails = () => {
                             src={int.img}
                             alt="driver assistance"
                             className="drive-img"
-                            // className={`drive-img ${isLoaded ? "loaded" : ""}`}
-                            onLoad={() => setIsloaded(true)}
+                            // className={`drive-img ${loaded ? "loaded" : ""}`}
+                            onLoad={() => setLoaded(true)}
                           />
                         ) : (
                           <video

@@ -58,6 +58,35 @@
   border: 2px solid #fff;
   cursor: pointer;
 }
+.img-wrapper {
+  position: relative;
+  width: 70%;
+  margin: auto;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  pointer-events: none;
+}
+.placehold {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  animation: moveIn 0.7s ease-in-out;
+  pointer-events: none;
+}
+.car-name {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+}
+.car-name.loaded {
+  opacity: 1;
+  animation: moveIn 0.7s ease-in-out;
+}
 .alive {
   background: #fff;
 }
@@ -163,7 +192,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem;
 }
 .hero_4_info {
   margin: 3rem 0 0.5rem 0;
@@ -216,10 +244,10 @@
   color: #c2bfbf;
   margin-left: -10px;
 }
-.car-name {
-  width: 300px;
-  margin-bottom: 1rem;
-  animation: moveIn 0.7s ease-in-out;
+.image-wrapper {
+  height: 100%;
+  object-fit: cover;
+  display: flex;
 }
 .animme {
   animation: lightUp 0.7s ease-in-out;
@@ -236,6 +264,7 @@
   width: 100%;
   padding-inline: 0;
 }
+
 .dots {
   margin: 0 5px 0 3px;
   background: transparent;
@@ -312,10 +341,6 @@
   }
 }
 @media (min-width: 450px) {
-  .car-name {
-    width: 380px;
-    margin-top: 1rem;
-  }
   .left,
   .right {
     top: 300px;
@@ -367,6 +392,10 @@
     background: white;
     color: #000;
   }
+  .img-wrapper {
+  width: 100%;
+  margin: 50px auto  auto;
+}
   .meet {
     top: 57%;
   }
@@ -475,10 +504,6 @@
     height: 100%;
     padding-top: 2px;
   }
-  .car-name {
-    margin-top: 3rem;
-    width: 500px;
-  }
   .hero_4_brand {
     width: 85%;
     padding-inline: 3rem;
@@ -507,10 +532,6 @@
   }
 }
 @media (min-width: 760px) and (max-width: 1000px) {
-  .car-name {
-    width: 100%;
-    margin-top: 2rem;
-  }
   .suv_bg {
     background-image: url("/images/kia-homepage-bottom.jpg");
     background-size: 100% 430px;
@@ -713,10 +734,6 @@
     border-top: 4px solid #fff;
     padding-top: 0;
   }
-  .car-name {
-    margin-top: 6rem;
-    width: 700px;
-  }
   .hero_4_brand {
     display: flex;
     justify-content: space-between;
@@ -730,14 +747,6 @@
     width: 70%;
     padding-bottom: 10px;
   }
-  /* .learn {
-    padding: 1em 5em;
-    font-size: 12px;
-    font-weight: 600;
-    margin-right: 40px;
-    margin-top: -40px;
-    cursor: pointer;
-  } */
   .learn:hover {
     background: #fff;
     border: 1px solid #000;
@@ -759,9 +768,6 @@
     font-size: 20px;
     margin-top: 4px;
     margin-right: 20px;
-  }
-  .md-screen {
-    width: 95%;
   }
   .specs_wrapper {
     width: 100%;
@@ -797,14 +803,12 @@
   .cr-text {
     width: 60%;
   }
-  .car-name {
-    margin-top: 2rem;
-  }
   .suv_bg {
     background-image: url("/images/kia-homepage-bottom.jpg");
     background-size: 100% 430px;
     background-repeat: no-repeat;
   }
+  
   .electric_bg {
     background-image: url("/images/kia_homepage_electric-bg.jpg");
     background-size: 100% 430px;
@@ -826,7 +830,7 @@
     padding-bottom: 10px;
   }
   .build-btn {
-    margin-right: 0;
+    margin-right: 15px;
   }
   .recommend {
     margin-right: 0;
@@ -843,9 +847,9 @@
     right: 10px;
     font-size: 25px;
   }
-  .md-screen {
-    width: 50%;
-  }
+  /* .md-screen {
+    width: 100%;
+  } */
   .model-active {
     border-top: 3px solid #fff;
     padding-top: 13px;
