@@ -112,7 +112,7 @@
 .color-text {
   position: absolute;
   left: 50%;
-  top: 110%;
+  top: 130%;
   transform: translateX(-50%);
   display: flex;
 }
