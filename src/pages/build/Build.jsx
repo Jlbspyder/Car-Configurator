@@ -72,6 +72,7 @@ const Build = () => {
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedOption, setSelectedOption] = useState(spec.name);
   const [price, setPrice] = useState(null);
+  const [estPayments, setEstPayments] = useState(0)
 
   const choiceCar = spec?.colors[selectedColor].map((color) => color);
 
@@ -95,6 +96,7 @@ const Build = () => {
     setCurrentModelIdx(7);
     setCurrentTrimIdx(0);
     setTrim(name);
+    monthlyPayments()
   };
 
   const buildTotal = () => {
@@ -102,6 +104,23 @@ const Build = () => {
     let buildTotal;
     return (buildTotal = Number(delivery) + Number(spec.price) + Number(price));
   };
+
+
+  const monthlyPayments = () => {
+    const downPayment = spec.price / 10
+    const  loanMonths = 60
+    const interestRate = 0.03
+
+    const loanAmount = spec.price - downPayment
+
+    // Monthly payment
+    const monthlyInterestRate = interestRate / 12
+
+    const monthlyPayment = (loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanMonths))) / (Math.pow(1 + monthlyInterestRate, loanMonths) - 1);
+    
+    setEstPayments(monthlyPayment)
+  }
+
 
   useEffect(() => {
     setSelectedOption(spec.name);
@@ -113,6 +132,7 @@ const Build = () => {
 
   let carChoice = spec.hex.map((spe) => spe.name.replace(/\s+/g, ""));
   const [selectedTrim, setSelectedTrim] = useState(carChoice[0]);
+
 
   const nextImage = () => {
     setCurrentModelIdx((prev) => (prev === 7 ? 0 : prev + 1));
@@ -305,7 +325,7 @@ const Build = () => {
                         {idx === currentIdx && (
                           <div className="hidden md:flex flex-row-reverse font-normal gap-1">
                             <p>est. lease payments*</p>
-                            <h1 className="font-semibold">$502 / 36mo</h1>
+                            <h1 className="font-semibold">${estPayments.toFixed(2)} / 60mo</h1>
                           </div>
                         )}
                         {idx === currentIdx && (
@@ -463,11 +483,11 @@ const Build = () => {
             <div className="fixed bottom-0 left-0 right-0 bg-black h-[80px] xl:h-[70px] border-t md:border-0 text-white flex items-center justify-between md:z-50">
               <div className="md:hidden flex items-center w-[35%] px-4 border-r border-gray-300 space-x-1">
                 <IoIosArrowDropup className="build-arrow" />
-                <div>
+                <div className="w-full text-left">
                   {model?.specs?.map((spec, idx) => (
                     <Fragment key={idx}>
                       {idx === currentIdx && (
-                        <p className="text-[11px] font-semibold ">
+                        <p className="text-[10px] font-semibold ">
                           Starting MSRP*
                         </p>
                       )}
@@ -482,7 +502,7 @@ const Build = () => {
               </div>
               <div className="md:hidden flex flex-col justify-start w-[37%]">
                 <p>est. lease pymts*</p>
-                <h1 className="font-semibold">$502 / 36mo</h1>
+                <h1 className="font-semibold">${estPayments.toFixed(2)} / 60mo</h1>
               </div>
               <div className="md:w-full flex items-center">
                 <nav className="hidden xl:block bg-black md:w-full text-white h-[70px] md:h-[70px] px-6 md:px-4 gap-1 flex flex-col items-center">

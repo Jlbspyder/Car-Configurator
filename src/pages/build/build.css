@@ -18,7 +18,7 @@
   background-image: url("/images/build-bg-mobile.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position-y: -40px;
+  background-position-y: -20px;
 }
 .electric-build {
   position: relative;
@@ -73,7 +73,6 @@
   justify-content: center;
   scrollbar-width: none;
   flex-wrap: wrap;
-  z-index: 5;
 }
 .builder {
   border: 5px solid #fff;
