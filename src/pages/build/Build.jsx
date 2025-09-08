@@ -493,7 +493,7 @@ const Build = () => {
                       )}
                       {idx === currentIdx && (
                         <h1 className="text-[18px] font-semibold ">
-                          ${spec.price}
+                          ${spec.price.toLocaleString()}
                         </h1>
                       )}
                     </Fragment>

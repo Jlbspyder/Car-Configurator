@@ -107,7 +107,7 @@ const ElectricBuild = () => {
     useEffect(() => {
       setSelectedOption(spec.name);
     }, [spec.name]);
-
+    
     const monthlyPayments = () => {
     const downPayment = spec.price / 10
     const  loanMonths = 60
@@ -491,7 +491,7 @@ const ElectricBuild = () => {
                       )}
                       {idx === currentIdx && (
                         <h1 className="text-[18px] font-semibold ">
-                          ${spec.price}
+                          ${spec.price.toLocaleString()}
                         </h1>
                       )}
                     </Fragment>

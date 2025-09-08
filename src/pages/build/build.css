@@ -290,6 +290,10 @@
     overflow-y: scroll;
     padding-bottom: 40px;
   }
+  .color-code {
+    z-index: 5;
+    margin-top: 0;
+  }
    .in-trim {
     width: 25px;
     height: 25px;
