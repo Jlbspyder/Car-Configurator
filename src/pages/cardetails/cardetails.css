@@ -33,7 +33,6 @@
 }
 .main-nav-mobile.sticky {
   transform: translateY(-120%);
-  /* top: 0; */
   transition: top 0.3s ease;
   z-index: 1000;
 }
@@ -93,7 +92,7 @@
 }
 .swatch {
   margin: auto;
-  height: 180px;
+  height: auto;
 }
 .trim-container {
   position: relative;
@@ -368,7 +367,6 @@
   .swatch {
     margin: auto;
     width: 100%;
-    height: 350px;
   }
   .trim-container {
     display: flex;
@@ -717,7 +715,6 @@
   .swatch {
     margin: auto;
     width: 80%;
-    height: 400px;
   }
   .color {
     width: 35px;
@@ -728,9 +725,14 @@
   }
   .car-desc {
     position: absolute;
+    width: 100%;
     top: 15%;
     left: 50%;
     transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
   }
   .main-navbar {
     display: block;
