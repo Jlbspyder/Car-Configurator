@@ -112,9 +112,12 @@
 .color-text {
   position: absolute;
   left: 50%;
-  top: 130%;
   transform: translateX(-50%);
+  top: 130%;
+  width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .dols {
   position: absolute;

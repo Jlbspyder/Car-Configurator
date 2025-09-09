@@ -923,6 +923,7 @@ export const suvModels = [
             name: "Fusion Black",
             hex: "rgb(12,12,12)",
             premium: true,
+            price: 395,
           },
           {
             name: "Mars Orange",

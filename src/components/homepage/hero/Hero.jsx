@@ -24,14 +24,6 @@ const Hero = ({ cars, suvModel, electricModelLength, sedanModelLength }) => {
     model: "suv",
   });
 
-  
-
-  
-const dd = suvModel.map((suv) => suv.specs)
-const kk = dd.map((d) => d[0].id)
-
-console.log(kk)
-
 const navigate = useNavigate();
 
 const handleMeet = () => {
@@ -41,12 +33,6 @@ const handleMeet = () => {
 const handleBuild = () => {
   navigate('/build/Sportage/9')
 }
-const handleBui = (name, id) => {
-  navigate(`/build/${name}/${id}`)
-}
-
-
-
 
 const suvImage = suvModel.map((model) => model.img) 
 
@@ -66,15 +52,9 @@ useEffect(() => {
   const suvModelLength = suvModel.length;
 
   const prevSlide = () => {
-    //  if (currentIndex > 0) {
-    //   setCurrentIndex((prev) => prev - 1);
-    // }
     setCurrentIndex(currentIndex === 0 ? length - 1 : currentIndex - 1);
   };
   const nextSlide = () => {
-    // if (currentIndex < length - 1 ) {
-    //   setCurrentIndex((prev) => prev + 1);
-    // }
     setCurrentIndex(currentIndex === length - 1 ? 0 : currentIndex + 1);
   };
 
@@ -429,7 +409,6 @@ useEffect(() => {
             >
               {suvModel.map((model, idx) => (
                 <div key={model.name}>
-                  <Link to={`/vehicles/${model.name}`}>
                      {idx === currentModelIndex ? (
                       <div key={model.name} className="img-wrapper">
                         {!loaded &&  (
@@ -447,7 +426,6 @@ useEffect(() => {
                         />
                       </div>
                     ) : null}
-                  </Link>
                   <div className="md-screen flex justify-between items-start sm:items-end w-full px-10 sm:px-3">
                     <div>
                       {currentModelIndex === idx && (

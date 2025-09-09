@@ -107,7 +107,7 @@ const ElectricBuild = () => {
     useEffect(() => {
       setSelectedOption(spec.name);
     }, [spec.name]);
-    
+
     const monthlyPayments = () => {
     const downPayment = spec.price / 10
     const  loanMonths = 60
@@ -478,7 +478,7 @@ const ElectricBuild = () => {
             </section>
           )}
           <footer>
-            <div className="fixed bottom-0 left-0 right-0 bg-black h-[80px] xl:h-[70px] border-t md:border-0 text-white flex items-center justify-between z-50">
+            <div className="fixed bottom-0 left-0 right-0 bg-black h-[80px] xl:h-[70px] border-t md:border-0 text-white flex items-center justify-between z-100">
               <div className="md:hidden flex items-center w-[35%] px-4 border-r border-gray-300 space-x-1">
                 <IoIosArrowDropup className="build-arrow" />
                 <div className="w-full text-left">
