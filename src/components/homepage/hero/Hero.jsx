@@ -426,7 +426,7 @@ useEffect(() => {
                         />
                       </div>
                     ) : null}
-                  <div className="md-screen flex justify-between items-start sm:items-end w-full px-10 sm:px-3">
+                  <div className="flex justify-between items-start sm:items-end w-full px-10 sm:px-3">
                     <div>
                       {currentModelIndex === idx && (
                         <h3 className="animme text-xl font-semibold mb-2">
@@ -498,10 +498,10 @@ useEffect(() => {
                     </div>
                   )}
                   {currentModelIndex === idx && (
-                    <div className="flex items-center justify-center gap-4 py-4 ">
+                    <div className="flex lg:w-[60%] items-center justify-center lg:justify-end lg:pr-8 gap-4 py-4 ">
                       <Link to={`/vehicles/${model.name}`} >
-                        <button className="learn hover:bg-white hover:text-black duration-500 cursor-pointer border-1 px-9 py-4 text-white bg-black">
-                          Learn <span className="ml-2 xl:ml-3">more</span>
+                        <button className="hover:bg-white hover:text-black duration-500 cursor-pointer xl:mr-4 border-1 px-9 py-4 text-white bg-black">
+                          Learn <span className="ml-2 xl:ml-0">more</span>
                         </button>
                       </Link>
                         <button className="py-4 hover:bg-black hover:text-white duration-500 px-9 cursor-pointer border-1 border-solid border-black md:hidden lg:hidden">

@@ -612,6 +612,7 @@
   }
   .specs_wrapper {
     width: 70%;
+    padding-inline: 50px;
   }
   .specs h1 {
     font-size: 18px;
@@ -626,7 +627,7 @@
     display: block;
     font-weight: 600;
     display: flex;
-    margin-right: 10px;
+    margin-right: 25px;
     gap: 0.5rem;
   }
   .build-btn p:hover {
@@ -771,6 +772,7 @@
   }
   .specs_wrapper {
     width: 100%;
+    padding-inline: 20px;
   }
   #spec1 {
     text-align: left;
@@ -830,7 +832,7 @@
     padding-bottom: 10px;
   }
   .build-btn {
-    margin-right: 15px;
+    margin-right: 0;
   }
   .recommend {
     margin-right: 0;
@@ -847,9 +849,6 @@
     right: 10px;
     font-size: 25px;
   }
-  /* .md-screen {
-    width: 100%;
-  } */
   .model-active {
     border-top: 3px solid #fff;
     padding-top: 13px;
@@ -863,14 +862,9 @@
     padding-top: 0;
     height: 50px;
   }
-  .learn {
-    display: flex;
-    padding: 1em 2.5em;
-    font-size: 14px;
-    font-weight: 600;
-    margin-right: 47px;
-    margin-top: -25px;
-    cursor: pointer;
+  .specs_wrapper {
+    width: 100%;
+    padding-inline: 30px;
   }
   .meet h4 {
     font-size: 10px;

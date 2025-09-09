@@ -197,8 +197,8 @@ const Navbar = () => {
                 )}
               </div>
               <div id="bar"></div>
-              <Link to="/owners">
-                <li className="noc-list lg:py-0 pl-8 lg:pl-0">Owners</li>
+              <Link to="/cpo">
+                <li className="noc-list lg:py-0 pl-8 lg:pl-0">CPO</li>
               </Link>
               <div id="bar"></div>
             </ul>
@@ -385,11 +385,11 @@ const Navbar = () => {
             </div>
             <div id="bar"></div>
             <Link
-              to="/owners"
+              to="/cpo"
               onClick={handleCloseMenu}
               className="flex h-[50px] pl-10 lg:pl-0 gap-2 py-4 lg:py-0"
             >
-              <li className="">Owners</li>
+              <li className="">CPO</li>
             </Link>
             <div id="bar"></div>
             <div id="bar"></div>
