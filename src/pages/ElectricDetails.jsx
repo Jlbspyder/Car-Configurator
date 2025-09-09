@@ -392,7 +392,7 @@ const ElectricDetails = () => {
           </Link>
         </div>
         <div className="text-black font-semibold w-full md:w-[65%] flex justify-between items-center px-8 py-3 ">
-          <div className="md:flex border-r border-gray-300 justify-between items-center md:w-[65%]">
+          <div className="md:flex md:border-r border-gray-300 justify-between items-center md:w-[65%]">
             <h2 className="md:text-[15px]">
               {car.year} <span>{car.name}</span>
             </h2>
@@ -423,7 +423,7 @@ const ElectricDetails = () => {
           </button>
         </div>
       </div>
-      <section className="mt-20 md:mt-27 relative video-bg">
+      <section className="mt-30 md:mt-27 relative video-bg">
         <h2 className="car-desc md:text-[28px] font-semibold">
           {" "}
           {(car.name === "Sportage" && "The new") ||

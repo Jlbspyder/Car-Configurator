@@ -323,7 +323,7 @@ const ElectricBuild = () => {
                         {idx === currentIdx && (
                           <div className="hidden md:flex flex-row-reverse font-normal gap-1">
                             <p>est. lease payments*</p>
-                            <h1 className="font-semibold">${estPayments} / 60mo</h1>
+                            <h1 className="font-semibold">${estPayments.toFixed(2)} / 60mo</h1>
                           </div>
                         )}
                         {idx === currentIdx && (
@@ -449,7 +449,7 @@ const ElectricBuild = () => {
                 </div>
               </div>
               {currentStep === 1 && (
-                <div className="absolute color-code flex items-center justify-start gap-2 overflow-x-auto top-[55%] left-5 flex md:left-[5%] md:right-[5%] md:top-[52%] xl:top-[62%] z-100 gap-1 md:gap-2 justify-center items-center xl:justify-center">
+                <div className="absolute color-code flex items-center justify-start w-full gap-2 overflow-x-auto top-[47%] left-0 flex right-0 md:top-[52%] xl:top-[62%] z-100 gap-1 md:gap-2 justify-center items-center xl:justify-center">
                   {spec?.hex?.map((trim, idx) => (
                     <div key={idx} className="relative">
                       <button
@@ -466,7 +466,7 @@ const ElectricBuild = () => {
                         }}
                         style={{ backgroundColor: trim.hex }}
                       >
-                        {trim.premium && <TbCurrencyDollar className="dols" />}
+                        {trim.price && <TbCurrencyDollar className="dols" />}
                         <span className="font-bold text-[green]">
                           {trim.price}
                         </span>
@@ -485,7 +485,7 @@ const ElectricBuild = () => {
                   {model?.specs?.map((spec, idx) => (
                     <Fragment key={idx}>
                       {idx === currentIdx && (
-                        <p className="text-[11px] font-semibold ">
+                        <p className="text-[11px] font-semibold">
                           Starting MSRP*
                         </p>
                       )}
@@ -499,8 +499,8 @@ const ElectricBuild = () => {
                 </div>
               </div>
               <div className="md:hidden flex flex-col justify-start w-[37%]">
-                <p>est. lease pymts*</p>
-                <h1 className="font-semibold">${estPayments} / 60mo</h1>
+                <p className="text-[11px] font-semibold">est. lease pymts*</p>
+                <h1 className="text-[18px] font-semibold">${estPayments.toFixed(2)} / 60mo</h1>
               </div>
               <div className="md:w-full flex items-center">
                 <nav className="hidden xl:block bg-black md:w-full text-white h-[70px] md:h-[70px] px-6 md:px-4 gap-1 flex flex-col items-center">

@@ -1,3 +1,10 @@
+.care-img {
+    opacity: 0;
+}
+.care-img.loaded {
+    opacity: 1;
+    animation: lightUp 0.7s ease-in-out;
+}
 @media (min-width: 1200px) {
     .care-pointer {
         border: none;

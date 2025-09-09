@@ -432,7 +432,7 @@ const CarDetails = () => {
           </button>
         </div>
       </div>
-      <section className="mt-20 md:mt-25 relative video-bg">
+      <section className="mt-30 md:mt-25 relative video-bg">
         <h2 className="car-desc md:text-[28px] font-semibold">
           {" "}
           {(car.name === "Sportage" && "The new") ||

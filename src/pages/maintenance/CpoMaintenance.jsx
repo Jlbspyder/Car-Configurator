@@ -1,14 +1,25 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { IoIosArrowDown } from "react-icons/io";
+import { useState, useEffect } from "react";
 import { cpoMaintenance } from "../../data";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import ShoppingTools from "../../components/ShoppingTools";
 import "./maintenance.css";
 
 const CpoMaintenance = () => {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+
+  const image = cpoMaintenance.map((item) => item.img);
+
+  useEffect(() => {
+    setLoaded(false);
+  }, []);
+
+  useEffect(() => {
+    if (image[currentIndex + 1]) {
+      const img = new Image();
+      img.src = image[currentIndex + 1];
+    }
+  }, [currentIndex, image]);
 
   return (
     <div className="text-black mt-15 py-8 md:py-14 bg-gray-100">
@@ -25,51 +36,105 @@ const CpoMaintenance = () => {
             </p>
             <br />
             <p className="md:text-[17px] lg:w-[80%]">
-              Choose from Kia Care Essential, Kia Care, Kia Care Plus or Kia Care
-              Premium.
+              Choose from Kia Care Essential, Kia Care, Kia Care Plus or Kia
+              Care Premium.
             </p>
-             <br />
-             <br />
+            <br />
+            <br />
             <div className="hidden lg:flex items-center justify-between lg:flex-col lg:border-t lg:border-gray-300 lg:mx-0 lg:items-start lg:w-[85%] lg:gap-2 lg:text-[20px] py-4 w-[97%] pl-5 text-[15px] md:w-[80%] md:pl-0 md:mx-15 md:text-[20px]">
-            {cpoMaintenance.map((item, idx) => (
-            <div key={item.id} className="lg:flex flex-row-reverse items-center">
-              <div onClick={()=> setCurrentIndex(idx)} className={idx === currentIndex ? "border-t-2 md:border-t-5 lg:border-0 border-black text-black cursor-pointer" : "text-gray-400 cursor-pointer"}>
-                {item.title}
-              </div>
-              <div
-                  className={`dot care-pointer ${currentIndex === idx ? "care-active" : ""}`}
-                ></div>
-              </div>
-            ))}
-          </div>
+              {cpoMaintenance.map((item, idx) => (
+                <div
+                  key={item.id}
+                  className="lg:flex flex-row-reverse items-center"
+                >
+                  <div
+                    onClick={() => setCurrentIndex(idx)}
+                    className={
+                      idx === currentIndex
+                        ? "border-t-2 md:border-t-5 lg:border-0 border-black text-black cursor-pointer"
+                        : "text-gray-400 cursor-pointer"
+                    }
+                  >
+                    {item.title}
+                  </div>
+                  <div
+                    className={`dot care-pointer ${
+                      currentIndex === idx ? "care-active" : ""
+                    }`}
+                  ></div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <div className="lg:w-[50%]">
           <div className="lg:hidden flex items-center justify-between py-4 w-[97%] pl-3 text-[15px] md:w-[80%] md:pl-0 md:mx-15 md:text-[20px]">
             {cpoMaintenance.map((item, idx) => (
-              <p key={item.id} onClick={()=> setCurrentIndex(idx)} className={idx === currentIndex ? "border-t-2 md:border-t-5 border-black text-black cursor-pointer text-[12px] md:text-[18px]" : "text-gray-400 text-[12px] md:text-[18px] cursor-pointer"}>
+              <p
+                key={item.id}
+                onClick={() => setCurrentIndex(idx)}
+                className={
+                  idx === currentIndex
+                    ? "border-t-2 md:border-t-5 border-black text-black cursor-pointer text-[12px] md:text-[18px]"
+                    : "text-gray-400 text-[12px] md:text-[18px] cursor-pointer"
+                }
+              >
                 {item.title}
               </p>
             ))}
           </div>
           <div>
             {cpoMaintenance.map((item, idx) => (
-              <div key={item.id} className={idx === currentIndex ? "relative md:mx-15 lg:mx-0" : "md:mx-15 lg:mx-0"}>
-                {idx === currentIndex && <img src={item.img} alt="kia-care" className="care-img" />}
-                {idx === currentIndex && <p className="absolute bottom-0 text-[12px] p-2 md:text-[15px] md:px-16 ">{item.info}</p>}
+              <div
+                key={item.id}
+                className={
+                  idx === currentIndex
+                    ? "relative md:mx-15 lg:mx-0"
+                    : "md:mx-15 lg:mx-0"
+                }
+              >
+                {idx === currentIndex ? (
+                  <div className="relative">
+                    {!loaded && (
+                      <img
+                        src={item.img}
+                        alt={item.title}
+                        className="placeholder"
+                      />
+                    )}
+                    <img
+                      src={item.img}
+                      alt="kia-care"
+                      onLoad={() => setLoaded(true)}
+                      className={`care-img ${loaded ? "loaded" : ""}`}
+                    />
+                  </div>
+                ) : null}
+                {idx === currentIndex && (
+                  <p className="absolute bottom-0 text-[12px] p-2 md:text-[15px] md:px-16 ">
+                    {item.info}
+                  </p>
+                )}
               </div>
             ))}
           </div>
         </div>
       </div>
       <div className="p-5 flex flex-col gap-2 md:p-14 md:text-[20px] lg:py-14  lg:px-34">
-        <p>To learn more about the various maintenance plans click on the link below: </p>
+        <p>
+          To learn more about the various maintenance plans click on the link
+          below:{" "}
+        </p>
         <div className="flex items-center font-semibold underline">
-          <button className="cursor-pointer">Kia Care Essential Maintenance Brochure</button>
+          <button className="cursor-pointer">
+            Kia Care Essential Maintenance Brochure
+          </button>
           <MdOutlineKeyboardArrowRight className="innovation-btn" />
         </div>
         <div className="flex items-center font-semibold underline">
-          <button className="cursor-pointer">Kia Care Choice Maintenance Brochure</button>
+          <button className="cursor-pointer">
+            Kia Care Choice Maintenance Brochure
+          </button>
           <MdOutlineKeyboardArrowRight className="innovation-btn" />
         </div>
       </div>

@@ -68,6 +68,11 @@
 .play.inactive {
   color: gray;
 }
+.car-desc {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+}
 .color {
   position: relative;
   aspect-ratio: 1;
@@ -88,7 +93,7 @@
 }
 .swatch {
   margin: auto;
-  height: 200px;
+  height: 180px;
 }
 .trim-container {
   position: relative;
