@@ -7,7 +7,6 @@ import { sedanModels } from "../../../../data";
 
 const SedanPage = () => {
   const [currentModelIndex, setCurrentModelIndex] = useState(0);
-  const [touchPosition, setTouchPosition] = useState(null);
   const [loaded, setLoaded] = useState(false);
 
   const models = sedanModels;
@@ -38,30 +37,6 @@ const SedanPage = () => {
     );
   };
 
-  const handleTouchStart = (e) => {
-    const touchDown = e.touches[0].clientX;
-    setTouchPosition(touchDown);
-  };
-
-  const handleTouchMove = (e) => {
-    const touchDown = touchPosition;
-    if (touchDown === null) {
-      return;
-    }
-
-    const currentTouch = e.touches[0].clientX;
-    const diff = touchDown - currentTouch;
-
-    if (diff > 5) {
-      nextSlide();
-    }
-
-    if (diff < -5) {
-      prevSlide();
-    }
-
-    setTouchPosition(null);
-  };
   return (
     <>
       <div className="left">
@@ -106,7 +81,7 @@ const SedanPage = () => {
                         </h1>
                       )}
                     </div>
-                    <div className="build-bt flex font-semibold md:mr-7 xl:mr-1">
+                    <div className="hidden md:flex font-semibold md:mr-7 xl:mr-1">
                       {currentModelIndex === idx && <p>Build yours</p>}
                       {currentModelIndex === idx && (
                         <MdOutlineKeyboardArrowRight className="right-arow" />

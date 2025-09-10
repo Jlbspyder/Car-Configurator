@@ -8,7 +8,6 @@ import { electricModels } from "../../../data";
 
 const ElectricPage = () => {
   const [currentModelIndex, setCurrentModelIndex] = useState(0);
-  const [touchPosition, setTouchPosition] = useState(null);
   const [loaded, setLoaded] = useState(false);
 
   const models = electricModels;
@@ -37,31 +36,6 @@ const ElectricPage = () => {
     setCurrentModelIndex(
       currentModelIndex === modelLength - 1 ? 0 : currentModelIndex + 1
     );
-  };
-
-  const handleTouchStart = (e) => {
-    const touchDown = e.touches[0].clientX;
-    setTouchPosition(touchDown);
-  };
-
-  const handleTouchMove = (e) => {
-    const touchDown = touchPosition;
-    if (touchDown === null) {
-      return;
-    }
-
-    const currentTouch = e.touches[0].clientX;
-    const diff = touchDown - currentTouch;
-
-    if (diff > 5) {
-      nextSlide();
-    }
-
-    if (diff < -5) {
-      prevSlide();
-    }
-
-    setTouchPosition(null);
   };
 
   return (
@@ -112,7 +86,6 @@ const ElectricPage = () => {
                       </h1>
                     )}
                   </div>
-                  {/* </div> */}
                   <div className="flex flex-col justify-between w-[40%]">
                     <div className="font-semibold flex justify-end w-[100%]">
                       {currentModelIndex === idx && <p className="">Build yours</p>}
@@ -125,9 +98,6 @@ const ElectricPage = () => {
                         <button className="hover:bg-white hover:text-black duration-500 cursor-pointer xl:mr-4 border-1 px-7 py-3 text-white bg-black">
                           Learn <span className="ml-2 xl:ml-0">more</span>
                         </button>
-                        {/* <button className="py-4 hover:bg-black hover:text-white duration-500 px-9 cursor-pointer border-1 border-solid border-black md:hidden lg:hidden">
-                            Build yours
-                        </button> */}
                       </div>
                     )}
                   </div>
