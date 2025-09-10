@@ -106,14 +106,27 @@
   display: flex;
   width: 100%;
   gap: 25px;
-  overflow-x: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
 }
 .slideshow-gallery-track {
+  position: relative;
   flex: 0 0 90%;
   scroll-snap-align: center;
   transition: transform 0.3s ease-in-out;
+}
+.slideshow-info {
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  opacity: 0;
+}
+.slideshow-info.active {
+  background: transparent;
+  animation: fadeSlideUp 0.6s ease forwards;
 }
 #hero_3 {
   background-image: url("/images/landscape.jpg");
@@ -261,10 +274,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  padding-inline: 0;
 }
-
 .dots {
   margin: 0 5px 0 3px;
   background: transparent;

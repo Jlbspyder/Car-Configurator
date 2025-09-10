@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { suvModels, electricModels, sedanModels } from "../../../data";
 import "./navbar.css";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
@@ -29,6 +30,12 @@ const Navbar = () => {
     }
   }, [innovationModal, assistModal, vehicleModal]);
 
+  //filter cars based on search
+  const filteredCars = text
+    ? suvModels.filter((car) =>
+        car.name.toLowerCase().includes(text.toLowerCase())
+      )
+    : [];
 
   const handleChange = (e) => {
     setText(e.target.value);
@@ -54,6 +61,7 @@ const Navbar = () => {
     setInnovationModal(false);
   };
   const handleVehicleClick = () => {
+    setOpenMenu(false);
     setVehicleModal(!vehicleModal);
     setAssistModal(false);
     setInnovationModal(false);
@@ -81,24 +89,33 @@ const Navbar = () => {
   return (
     <header className="relative">
       <div
-            className={`xl:hidden transition duration-300 bg-[#1f2c35] flex flex-col items-start fixed top-[50px] right-0 left-0 bottom-0 ${
-              search ? "search-container" : "search-container inactive"
-            } `}
-          >
-            <div className="bg-gray-700 w-full h-[30px]">
-              <IoIosArrowDown
-                className="search-arrow-icon search_history_arrow cursor-pointer"
-                onClick={handleSearch}
-              />
-            </div>
-            <div className="search-input flex justify-between items-center w-5/6 md:w-[90%] py-4 mx-6">
-              <input type="text" placeholder="search" />
-              <IoIosCloseCircle onClick={handleSearch} className="close-search" />
-            </div>
-            <li className="py-4 lg:py-0 pl-8 lg:pl-0">
-              {/* search history */}
-            </li>
-          </div>
+        className={`xl:hidden transition duration-300 bg-[#1f2c35] flex flex-col items-start fixed top-[50px] right-0 left-0 bottom-0 ${
+          search ? "search-container" : "search-container inactive"
+        } `}
+      >
+        <div className="bg-gray-700 w-full h-[30px]">
+          <IoIosArrowDown
+            className="search-arrow-icon search_history_arrow cursor-pointer"
+            onClick={handleSearch}
+          />
+        </div>
+        <div className="search-input flex justify-between items-center w-5/6 md:w-[90%] py-2 mx-6">
+          <input type="text" placeholder="search" onChange={handleChange} />
+          <IoIosCloseCircle onClick={handleSearch} className="close-search" />
+        </div>
+        <ul>
+          {filteredCars.length > 0 ? (
+            filteredCars.map((car) => (
+             <Link onClick={() => setSearch(false)} key={car.id} to={`/vehicles/${car.name}`}><li key={car.id} className="py-4 lg:py-0 pl-8 lg:pl-0">
+                {car.name} ({car.year})
+              </li>
+             </Link>
+            ))
+          ) : (
+            <p className="pl-8">No results found</p>
+          )}
+        </ul>
+      </div>
       <div className="hidden lg:block bb fixed top-0 left-0 right-0 z-10 bg-[#000] pl-4 lg:flex items-center justify-between h-[60px]">
         <div className="flex items-center gap-10">
           <Link onClick={handleCloseMenu} to="/">
@@ -167,7 +184,9 @@ const Navbar = () => {
               </div>
               <div id="bar"></div>
               <Link onClick={closeModal} to="/inventory">
-                <li className="noc-list py-4 lg:py-0 pl-8 lg:pl-0">Inventory</li>
+                <li className="noc-list py-4 lg:py-0 pl-8 lg:pl-0">
+                  Inventory
+                </li>
               </Link>
               <div id="bar"></div>
               <div className="flex pl-8 lg:pl-0 gap-2 py-4 lg:py-0">
@@ -197,7 +216,7 @@ const Navbar = () => {
                 )}
               </div>
               <div id="bar"></div>
-              <Link to="/cpo">
+              <Link to="/cpo" target="_blank">
                 <li className="noc-list lg:py-0 pl-8 lg:pl-0">CPO</li>
               </Link>
               <div id="bar"></div>
@@ -255,10 +274,25 @@ const Navbar = () => {
             onClick={handleSearchClose}
           />
         </div>
+        {
+          <div className={`search-history ${searchClick ? "active" : ""}`}>
+            {filteredCars.length > 0 ? (
+              filteredCars.map((car) => (
+                <Link onClick={() => setSearchClick(false)} key={car.id} to={`/vehicles/${car.name}`}>
+                  <li className="py-4 lg:py-0 pl-8 lg:pl-0">
+                    {car.name} ({car.year})
+                  </li>
+                </Link>
+              ))
+            ) : (
+              <p>No results found</p>
+            )}
+          </div>
+        }
       </div>
       <div className="lg:hidden fixed top-0 right-0 left-0 z-600 bg-black">
         <div className="flex items-center justify-between">
-          <Link  onClick={handleCloseMenu} to="/">
+          <Link onClick={handleCloseMenu} to="/">
             <img
               src="/images/kia-white-logo.jpg"
               alt="logo"
@@ -386,6 +420,7 @@ const Navbar = () => {
             <div id="bar"></div>
             <Link
               to="/cpo"
+              target="_blank"
               onClick={handleCloseMenu}
               className="flex h-[50px] pl-10 lg:pl-0 gap-2 py-4 lg:py-0"
             >

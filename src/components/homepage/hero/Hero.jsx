@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { GoArrowRight } from "react-icons/go";
@@ -24,20 +24,51 @@ const Hero = ({ cars, suvModel, electricModelLength, sedanModelLength }) => {
     model: "suv",
   });
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
+  const containerRef = useRef(null);
 
-const handleMeet = () => {
-  navigate('/vehicles/Sportage')
-}
+  const handleMeet = () => {
+    navigate("/vehicles/Sportage");
+  };
 
-const handleBuild = () => {
-  navigate('/build/Sportage/9')
-}
+  const handleBuild = () => {
+    navigate("/build/Sportage/9");
+  };
 
-const suvImage = suvModel.map((model) => model.img) 
+  const itemWidthPercent = 0.90; // matches css flex-basis percentage
 
+  // Sync bullets with scroll snap on for car-list
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
 
-useEffect(() => {
+    let timeout;
+
+    const handleScroll = () => {
+      const boxWidth = container.clientWidth * itemWidthPercent // matches item width percentage
+      const index = Math.round(container.scrollLeft / boxWidth);
+      setCurrentIndex(index)
+    };
+    container.addEventListener("scroll", handleScroll, { passive: true });
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Bullet click handler
+  const goToSlide = (index) => {
+    const container = containerRef.current;
+    if (container) {
+      const boxWidth = container.clientWidth * itemWidthPercent;
+      container.scrollTo({
+        left: index * boxWidth,
+        behavior: "smooth",
+      });
+      setCurrentIndex(index);
+    }
+  };
+
+  const suvImage = suvModel.map((model) => model.img);
+
+  useEffect(() => {
     setLoaded(false);
   }, [currentModelIndex]);
 
@@ -115,10 +146,6 @@ useEffect(() => {
     setTouchPosition(null);
   };
 
-  const goToSlide = (index) => {
-    setCurrentIndex(index);
-  };
-
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setCar((prevModel) => {
@@ -146,8 +173,8 @@ useEffect(() => {
     <div>
       <section id="hero">
         <div className="relative hero">
-           <video className="hidden md:block" autoPlay loop muted playsInline>
-            <source src='/images/homepage-hero-video.mp4' type="video/mp4"  />
+          <video className="hidden md:block" autoPlay loop muted playsInline>
+            <source src="/images/homepage-hero-video.mp4" type="video/mp4" />
           </video>
           <picture className="md:hidden">
             <source
@@ -161,8 +188,12 @@ useEffect(() => {
               Keep the <br /> adventure going
             </h1>
             <div className="hero_btn">
-              <button onClick={handleMeet} className="left-btn py-5 px-8">Meet Sportage</button>
-              <button onClick={handleBuild} className="right-btn py-5 px-8">Build Yours</button>
+              <button onClick={handleMeet} className="left-btn py-5 px-8">
+                Meet Sportage
+              </button>
+              <button onClick={handleBuild} className="right-btn py-5 px-8">
+                Build Yours
+              </button>
             </div>
             <p id="mobile-disclaimer">Dislaimers</p>
           </div>
@@ -170,20 +201,18 @@ useEffect(() => {
         </div>
       </section>
       <section id="hero_2">
-        <div className="hero_2 ">
+        <div className="relative ">
           <div
             className="slideshow relative bg-gray-900 md:flex md:flex-row gap-8 md:px-8"
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
+            ref={containerRef}
           >
             {cars.map((car, idx) => (
               <div
                 key={car.name}
-                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-                className="slideshow-gallery-track md:flex md:gap-10">
+                className="slideshow-gallery-track md:flex md:gap-10"
+              >
                 {<img src={car.img} alt={car.name} />}
-                {(
-                  <div className="absolute bottom-10 left-10">
+                  <div className={`slideshow-info ${idx === currentIndex ? "active" : ""}`}>
                     <h4 className="text-white text-xs font-semibold">
                       {car.info}
                     </h4>
@@ -194,18 +223,17 @@ useEffect(() => {
                       {car.meet}
                     </button>
                   </div>
-                )}
               </div>
             ))}
-            <div className="absolute bottom-4 right-14 flex">
-              {cars.map((car, idx) => (
-                <div
-                  key={car.id}
-                  className={`dot ${currentIndex === idx ? "alive" : ""}`}
-                  onClick={() => goToSlide(idx)}
-                ></div>
-              ))}
-            </div>
+          </div>
+          <div className="absolute bottom-4 right-14 flex">
+            {cars.map((car, idx) => (
+              <div
+                key={car.id}
+                className={`dot ${currentIndex === idx ? "alive" : ""}`}
+                onClick={() => goToSlide(idx)}
+              ></div>
+            ))}
           </div>
           <div className="car-list relative bg-gray-900 md:flex md:flex-row gap-8 px-8">
             {cars.map((car) => (
@@ -221,9 +249,7 @@ useEffect(() => {
                   <h1 className="text-white text-xl font-bold mt-2">
                     {car.name}
                   </h1>
-                  <button
-                    className="meet-btn bg-transparent border-1 border-white py-4 px-9 mt-4 text-white font-semibold hover:bg-white hover:text-black duration-300 cursor-pointer"
-                  >
+                  <button className="meet-btn bg-transparent border-1 border-white py-4 px-9 mt-4 text-white font-semibold hover:bg-white hover:text-black duration-300 cursor-pointer">
                     {car.meet}
                   </button>
                 </div>
@@ -292,22 +318,24 @@ useEffect(() => {
                 <li className={activeSuv ? "act" : ""}>SUV / CUV / MPV</li>
               </label>
               {activeSuv ? (
-                <Link to={``} ><span
-                  className={`font-bold text-[8px] text-white py-[3px] px-[5px] rounded-full border-1 bg-transparent cursor-pointer hover:bg-white hover:text-black ${
-                    suv ? "light-up_hover" : ""
-                  }`}
-                >
-                  Show all
-                </span>
+                <Link to={``}>
+                  <span
+                    className={`font-bold text-[8px] text-white py-[3px] px-[5px] rounded-full border-1 bg-transparent cursor-pointer hover:bg-white hover:text-black ${
+                      suv ? "light-up_hover" : ""
+                    }`}
+                  >
+                    Show all
+                  </span>
                 </Link>
               ) : (
-                <Link to={``}><span
-                  className={`font-bold text-[10px] text-[#c2bfbf] py-[2px] px-[6px] rounded-full bg-gray-600 cursor-pointer hover:bg-white hover:text-black ${
-                    suv ? "light-up_hover" : ""
-                  }`}
-                >
-                  {suvModel.length}
-                </span>
+                <Link to={``}>
+                  <span
+                    className={`font-bold text-[10px] text-[#c2bfbf] py-[2px] px-[6px] rounded-full bg-gray-600 cursor-pointer hover:bg-white hover:text-black ${
+                      suv ? "light-up_hover" : ""
+                    }`}
+                  >
+                    {suvModel.length}
+                  </span>
                 </Link>
               )}
             </div>
@@ -392,7 +420,9 @@ useEffect(() => {
               onMouseLeave={() => setAll(false)}
               className="flex items-center gap-4"
             >
-              <Link to='/vehicles'><li className="hidden md:block">All Vehicles</li></Link>
+              <Link to="/vehicles">
+                <li className="hidden md:block">All Vehicles</li>
+              </Link>
               <li className="md:hidden">All</li>
               <MdOutlineKeyboardArrowRight
                 className={`all-btn ${all ? "btn_hover " : ""}`}
@@ -409,23 +439,23 @@ useEffect(() => {
             >
               {suvModel.map((model, idx) => (
                 <div key={model.name}>
-                     {idx === currentModelIndex ? (
-                      <div key={model.name} className="img-wrapper">
-                        {!loaded &&  (
-                          <img
-                            src={model.img}
-                            alt={model.name}
-                            className={`placehold`}
-                          />
-                        )}
+                  {idx === currentModelIndex ? (
+                    <div key={model.name} className="img-wrapper">
+                      {!loaded && (
                         <img
                           src={model.img}
                           alt={model.name}
-                          onLoad={() => setLoaded(true)}
-                          className={`car-name ${loaded ? "loaded" : ""}`}
+                          className={`placehold`}
                         />
-                      </div>
-                    ) : null}
+                      )}
+                      <img
+                        src={model.img}
+                        alt={model.name}
+                        onLoad={() => setLoaded(true)}
+                        className={`car-name ${loaded ? "loaded" : ""}`}
+                      />
+                    </div>
+                  ) : null}
                   <div className="flex justify-between items-start sm:items-end w-full px-10 sm:px-3">
                     <div>
                       {currentModelIndex === idx && (
@@ -499,14 +529,14 @@ useEffect(() => {
                   )}
                   {currentModelIndex === idx && (
                     <div className="flex lg:w-[60%] items-center justify-center lg:justify-end lg:pr-8 gap-4 py-4 ">
-                      <Link to={`/vehicles/${model.name}`} >
+                      <Link to={`/vehicles/${model.name}`}>
                         <button className="hover:bg-white hover:text-black duration-500 cursor-pointer xl:mr-4 border-1 px-9 py-4 text-white bg-black">
                           Learn <span className="ml-2 xl:ml-0">more</span>
                         </button>
                       </Link>
-                        <button className="py-4 hover:bg-black hover:text-white duration-500 px-9 cursor-pointer border-1 border-solid border-black md:hidden lg:hidden">
-                          Build yours
-                        </button>
+                      <button className="py-4 hover:bg-black hover:text-white duration-500 px-9 cursor-pointer border-1 border-solid border-black md:hidden lg:hidden">
+                        Build yours
+                      </button>
                     </div>
                   )}
                 </Fragment>

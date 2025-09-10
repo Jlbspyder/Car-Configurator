@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Route,
   createBrowserRouter,
@@ -16,18 +17,18 @@ import CpoBenefits from "./pages/benefits/CpoBenefits";
 import CpoMaintenance from "./pages/maintenance/CpoMaintenance";
 import CpoProtection from "./pages/protection/CpoProtection";
 import VehiclesPage from "./pages/vehicles/VehiclesPage";
-import Navbar from "./components/homepage/navbar/Navbar";
 import CarDetails from "./pages/cardetails/CarDetails";
 import Build from "./pages/build/Build";
-import Summary from "./pages/summary/Summary";
 import ElectricDetails from "./pages/ElectricDetails";
 import ElectricBuild from "./pages/ElectricBuild";
 
-const router = createBrowserRouter(
+
+function App() {
+  const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<MainLayout />}>
-        <Route index element={<HomePage />} />
+        <Route index element={<HomePage  />} />
         <Route path="/inventory" element={<InventoryPage />} />
         <Route path="/owners" element={<OwnersPage />} />
         <Route path="/offers" element={<Offers />} />
@@ -47,8 +48,6 @@ const router = createBrowserRouter(
     </>
   )
 );
-
-function App() {
   return <RouterProvider router={router} />;
 }
 

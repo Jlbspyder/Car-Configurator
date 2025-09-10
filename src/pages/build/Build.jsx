@@ -9,6 +9,7 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { IoIosArrowBack } from "react-icons/io";
 import { TbPointFilled } from "react-icons/tb";
 import { TbCurrencyDollar } from "react-icons/tb";
+import { IoCloseSharp } from "react-icons/io5";
 import { MdEdit } from "react-icons/md";
 import "./build.css";
 import Navbar from "../../components/homepage/navbar/Navbar";
@@ -232,7 +233,8 @@ const Build = () => {
             </nav>
           </div>
           {currentStep === 2 && (
-            <div className="summary text-white">
+            <div className="summary relative text-white">
+              <IoCloseSharp onClick={() => setcurrentStep(0)} className="close-summary" />
               <div className="h-full">
                 <div>
                   <h1 className="text-3xl text-center">{spec.model}</h1>
@@ -482,7 +484,7 @@ const Build = () => {
           <footer>
             <div className="fixed bottom-0 left-0 right-0 bg-black h-[80px] xl:h-[70px] border-t md:border-0 text-white flex items-center justify-between z-100">
               <div className="md:hidden flex items-center w-[35%] px-4 border-r border-gray-300 space-x-1">
-                <IoIosArrowDropup className="build-arrow" />
+                <IoIosArrowDropup onClick={() =>setcurrentStep(2)} className="build-arrow" />
                 <div className="w-full text-left">
                   {model?.specs?.map((spec, idx) => (
                     <Fragment key={idx}>
