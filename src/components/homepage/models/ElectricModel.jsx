@@ -131,7 +131,7 @@ const ElectricPage = () => {
         {models.map((model, idx) => (
           <Fragment key={model.id}>
             {currentModelIndex === idx && (
-              <div className="flex mx-auto w-[90%]">
+              <div className="flex mx-auto w-full md:w-[90%]">
                 <div
                   id="spec1"
                   dir="rtl"
