@@ -1,6 +1,6 @@
 .thumbnail {
   width: 100%;
-  height: 80px;
+  height: auto;
 }
 .vehicle-container {
   margin-top: 20px;
@@ -21,9 +21,8 @@
     gap: 40px;
   }
   .thumbnail {
-  width: 90%;
-  height: 90px;
-}
+    width: 90%;
+  }
   .eco {
     font-size: 12px;
   }
@@ -49,7 +48,6 @@
 @media (min-width: 1200px) {
   .thumbnail {
     width: 70%;
-    height: 100px;
   }
   .vehicle-container {
     margin-top: 20px;

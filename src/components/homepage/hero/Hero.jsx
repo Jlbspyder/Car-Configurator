@@ -35,7 +35,7 @@ const Hero = ({ cars, suvModel, electricModelLength, sedanModelLength }) => {
     navigate("/build/Sportage/9");
   };
 
-  const itemWidthPercent = 0.90; // matches css flex-basis percentage
+  const itemWidthPercent = 0.9; // matches css flex-basis percentage
 
   // Sync bullets with scroll snap on for car-list
   useEffect(() => {
@@ -45,9 +45,9 @@ const Hero = ({ cars, suvModel, electricModelLength, sedanModelLength }) => {
     let timeout;
 
     const handleScroll = () => {
-      const boxWidth = container.clientWidth * itemWidthPercent // matches item width percentage
+      const boxWidth = container.clientWidth * itemWidthPercent; // matches item width percentage
       const index = Math.round(container.scrollLeft / boxWidth);
-      setCurrentIndex(index)
+      setCurrentIndex(index);
     };
     container.addEventListener("scroll", handleScroll, { passive: true });
     return () => container.removeEventListener("scroll", handleScroll);
@@ -212,17 +212,21 @@ const Hero = ({ cars, suvModel, electricModelLength, sedanModelLength }) => {
                 className="slideshow-gallery-track md:flex md:gap-10"
               >
                 {<img src={car.img} alt={car.name} />}
-                  <div className={`slideshow-info ${idx === currentIndex ? "active" : ""}`}>
-                    <h4 className="text-white text-xs font-semibold">
-                      {car.info}
-                    </h4>
-                    <h1 className="text-white text-xl font-bold mt-2">
-                      {car.name}
-                    </h1>
-                    <button className="bg-transparent border-1 border-white py-4 px-12 mt-4 text-white font-semibold hover:bg-white hover:text-black duration-300 cursor-pointer">
-                      {car.meet}
-                    </button>
-                  </div>
+                <div
+                  className={`slideshow-info ${
+                    idx === currentIndex ? "active" : ""
+                  }`}
+                >
+                  <h4 className="text-white text-xs font-semibold">
+                    {car.info}
+                  </h4>
+                  <h1 className="text-white text-xl font-bold mt-2">
+                    {car.name}
+                  </h1>
+                  <button className="bg-transparent border-1 border-white py-4 px-12 mt-4 text-white font-semibold hover:bg-white hover:text-black duration-300 cursor-pointer">
+                    {car.meet}
+                  </button>
+                </div>
               </div>
             ))}
           </div>
@@ -423,7 +427,9 @@ const Hero = ({ cars, suvModel, electricModelLength, sedanModelLength }) => {
               <Link to="/vehicles">
                 <li className="hidden md:block">All Vehicles</li>
               </Link>
-              <li className="md:hidden">All</li>
+              <Link to="/vehicles">
+                <li className="md:hidden">All</li>
+              </Link>
               <MdOutlineKeyboardArrowRight
                 className={`all-btn ${all ? "btn_hover " : ""}`}
               />
@@ -472,12 +478,16 @@ const Hero = ({ cars, suvModel, electricModelLength, sedanModelLength }) => {
                         </h1>
                       )}
                     </div>
-                    <Link to={`/build/${model.name}/${model.id}`}><button disabled={model.name !== "Soul"}  className="build-btn">
-                      {currentModelIndex === idx && <p>Build yours</p>}
-                      {currentModelIndex === idx && (
-                        <MdOutlineKeyboardArrowRight className="right-arow" />
-                      )}
-                    </button>
+                    <Link to={`/build/${model.name}/${model.id}`}>
+                      <button
+                        disabled={model.name !== "Soul"}
+                        className="build-btn"
+                      >
+                        {currentModelIndex === idx && <p>Build yours</p>}
+                        {currentModelIndex === idx && (
+                          <MdOutlineKeyboardArrowRight className="right-arow" />
+                        )}
+                      </button>
                     </Link>
                     {currentModelIndex === idx && (
                       <div className="flex sm:hidden lg:hidden">
@@ -535,10 +545,14 @@ const Hero = ({ cars, suvModel, electricModelLength, sedanModelLength }) => {
                           Learn <span className="ml-2 xl:ml-0">more</span>
                         </button>
                       </Link>
-                      <Link to={`/build/${model.name}/${model.id}`}><button disabled={model.name !== "Soul"} className="py-4 hover:bg-black hover:text-white duration-500 px-9 cursor-pointer border-1 border-solid border-black md:hidden lg:hidden">
-                        Build yours
-                      </button>
-                       </Link>
+                      <Link to={`/build/${model.name}/${model.id}`}>
+                        <button
+                          disabled={model.name !== "Soul"}
+                          className="py-4 hover:bg-black hover:text-white duration-500 px-9 cursor-pointer border-1 border-solid border-black md:hidden lg:hidden"
+                        >
+                          Build yours
+                        </button>
+                      </Link>
                     </div>
                   )}
                 </Fragment>
