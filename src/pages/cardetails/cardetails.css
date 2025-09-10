@@ -149,7 +149,7 @@
   opacity: 1;
   animation: lightUp 0.3s ease-in-out;
   object-fit: cover;
-  height: 400px;
+  height: 300px;
 }
 .gallery-list {
   position: absolute;
