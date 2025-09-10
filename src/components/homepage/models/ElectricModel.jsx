@@ -92,7 +92,7 @@ const ElectricPage = () => {
                 />
               </div>
             ) : null}
-            <div className="flex justify-between items-start sm:items-end w-[100%] sm:px-3">
+            <div className="flex justify-between items-start sm:items-end sm:px-3">
               <div>
                 {currentModelIndex === idx && (
                   <h3 className="animme pl-7 md:pl-3 xl:pl-0 text-xl font-semibold mb-2">
