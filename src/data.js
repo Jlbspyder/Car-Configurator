@@ -1706,7 +1706,7 @@ export const suvModels = [
           },
           {
             name: "Nebular Blue",
-            hex: "rgb(17, 38, 61)",
+            hex: "rgb(53,124,235)",
             premium: false,
           },
         ],
@@ -1837,7 +1837,7 @@ export const suvModels = [
           },
           {
             name: "Nebular Blue",
-            hex: "rgb(17, 38, 61)",
+            hex: "rgb(53,124,235)",
             premium: false,
           },
         ],
@@ -1939,7 +1939,7 @@ export const suvModels = [
           },
           {
             name: "Nebular Blue",
-            hex: "rgb(17, 38, 61)",
+            hex: "rgb(53,124,235)",
             premium: false,
           },
         ],
@@ -2072,7 +2072,7 @@ export const suvModels = [
           },
           {
             name: "Nebular Blue",
-            hex: "rgb(17, 38, 61)",
+            hex: "rgb(53,124,235)",
             premium: false,
           },
         ],
@@ -2215,7 +2215,7 @@ export const suvModels = [
           },
           {
             name: "Nebular Blue",
-            hex: "rgb(17, 38, 61)",
+            hex: "rgb(53,124,235)",
             premium: false,
           },
         ],
@@ -2228,9 +2228,8 @@ export const suvModels = [
         "/sportage/interior_info_cluster.PNG",
         "/sportage/interior_rear.PNG",
         "/sportage/interior_steering.PNG",
+        "/sportage/exterior_trunk.PNG",
         "/sportage/interior_windshield_view.PNG",
-        "/sportage/interior-ample-cargo-room.avif",
-        "/sportage/interior-front-row.avif",
       ],
       exterior: [
         "/sportage/sportage-ice.jpg",
@@ -2251,12 +2250,11 @@ export const suvModels = [
         "/sportage/exterior_trunk.PNG",
         "/sportage/interior_front.PNG",
         "/sportage/interior_gear_system.PNG",
+        "/sportage/interior_steering.PNG",
         "/sportage/interior_info_cluster.PNG",
         "/sportage/interior_rear.PNG",
         "/sportage/interior_steering.PNG",
         "/sportage/interior_windshield_view.PNG",
-        "/sportage/interior-ample-cargo-room.avif",
-        "/sportage/interior-front-row.avif",
       ]
     },
     year: 2026,

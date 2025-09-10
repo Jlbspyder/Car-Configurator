@@ -742,12 +742,11 @@
     right: 0;
     background: #fff;
     transition: top 0.3s ease;
-    z-index: 5;
+    z-index: 200;
   }
   .main-navbar.stick {
     top: 0;
     transition: top 0.3s ease;
-    /* z-index: 50; */
   }
   .trim-container {
     width: 100%;

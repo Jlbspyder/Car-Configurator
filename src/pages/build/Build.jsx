@@ -189,10 +189,9 @@ const Build = () => {
                   Features
                 </h1>
               )}
-              <div className="flex items-start gap-1 pt-2 px-4 ">
-                <TbPointFilled className="point" />
-                <p className="text-[20px] md:text-[18px]">{feature}</p>
-              </div>
+              <ul className="list-disc pl-10 flex items-start gap-1 pt-2 px-4 ">
+                <li className="text-[20px] md:text-[18px]">{feature}</li>
+              </ul>
             </div>
           ))}
         </div>

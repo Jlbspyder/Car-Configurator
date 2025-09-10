@@ -40,17 +40,17 @@ const VehiclesPage = () => {
     <div>
       {!hideHeader && <Navbar />}
       <div className="mt-[60px] lg:pb-10 bg-white">
-        <div className="mt-10 flex items-center justify-start pl-6 md:pl-9 lg:pl-15 gap-5 md:gap-12 lg:gap-8  h-[40px] md:h-[70px] lg:h-[60px] text-black">
+        <div className="mt-10 flex items-center justify-start px-3 md:pl-9 lg:pl-15 gap-5 md:gap-12 lg:gap-8  h-[40px] md:h-[70px] lg:h-[60px] text-black">
           <h3 className="text-[12px] text-black font-semibold md:text-[17px] lg:text-[18px] cursor-pointer">
             SUVs/Crossovers/MPV
           </h3>
-          <h3 className="text-[12px] text-gray-300 md:text-[17px] lg:text-[18px] cursor-pointer">
+          <h3 className="text-[12px] text-gray-300 md:text-[17px] lg:text-[18px] hover:text-black cursor-pointer">
             Hybrid/Electric
           </h3>
-          <h3 className="text-[12px] text-gray-300 md:text-[17px] lg:text-[18px] cursor-pointer">
+          <h3 className="text-[12px] text-gray-300 md:text-[17px] lg:text-[18px] hover:text-black  cursor-pointer">
             Sedan
           </h3>
-          <h3 className="text-[12px] text-gray-300 md:text-[17px] lg:text-[18px] cursor-pointer">
+          <h3 className="text-[12px] text-gray-300 md:text-[17px] lg:text-[18px] hover:text-black  cursor-pointer">
             Upcoming
           </h3>
         </div>

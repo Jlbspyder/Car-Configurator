@@ -69,6 +69,7 @@ const CarDetails = () => {
   const extLength = exter?.length;
   const driveLength = drive?.length;
 
+
   const moveUp = () => {
     if (currentAllIdx > 0) {
       setCurrentAllIdx((prev) => prev - 1);
@@ -177,18 +178,56 @@ const CarDetails = () => {
     setExterior(false);
   };
 
-    useEffect(() => {
+  useEffect(() => {
     setLoaded(false);
   }, [techIdx, interiorIdx, connectIdx, performanceIdx, exteriorIdx, driveIdx]);
 
-  // useEffect(() => {
-  //   if (int[interiorIdx + 1]) {
-  //     const img = new Image();
-  //     img.src = int[interiorIdx + 1];
-  //   }
-  // }, [interiorIdx, int]);
-
-
+  useEffect(() => {
+    if (int[interiorIdx + 1]) {
+      const img = new Image();
+      img.src = int[interiorIdx + 1];
+    }
+    if (tech[techIdx + 1]) {
+      const img = new Image();
+      img.src = tech[techIdx + 1];
+    }
+    if (!connect) {
+      return
+    } else  if (connect[connectIdx + 1]) {
+      const img = new Image();
+      img.src = connect[connectIdx + 1];
+    }
+    if (!performance) {
+      return
+    } else if (performance[performanceIdx + 1]) {
+      const img = new Image();
+      img.src = performance[performanceIdx + 1];
+    }
+    if (!exter) {
+      return
+    } else
+    if (exter[exteriorIdx + 1]) {
+      const img = new Image();
+      img.src = exter[exteriorIdx + 1];
+    }
+    if (drive[driveIdx + 1]) {
+      const img = new Image();
+      img.src = drive[driveIdx + 1];
+    }
+  }, [
+    interiorIdx,
+    techIdx,
+    connectIdx,
+    performanceIdx,
+    exteriorIdx,
+    driveIdx,
+    connect,
+    performance,
+    drive,
+    exter,
+    tech,
+    int,
+  ]);
 
   const carouselRef = useRef();
   const navigate = useNavigate();
@@ -598,12 +637,9 @@ const CarDetails = () => {
                   <div className="bg-white px-6 flex flex-col pb-4 h-[300px] text-[18px] mx-auto overflow-y-scroll">
                     {spec.features.map((feature, idx) => {
                       return (
-                        <div key={idx} className="flex gap-2 items-start">
-                          <div>
-                            <TbPointFilled className="pointer" />
-                          </div>
-                          <div className="md:text-[17px]">{feature}</div>
-                        </div>
+                        <ul key={idx} className="list-disc pl-4 flex gap-2 items-start">
+                          <li className="md:text-[17px]">{feature}</li>
+                        </ul>
                       );
                     })}
                   </div>
@@ -825,23 +861,21 @@ const CarDetails = () => {
             </p>
             <br />
             {car.trim?.map((feature, idx) => (
-              <div key={idx} className="flex items-start gap-1">
-                <TbPointFilled className="pointer" />
-                <p className="text-[18px] md:text-[16px] xl:text-[17px] ">
+              <ul key={idx} className="list-disc pl-4 flex items-start gap-1">
+                <li className="text-[18px] md:text-[16px] xl:text-[17px] ">
                   {feature}
-                </p>
-              </div>
+                </li>
+              </ul>
             ))}
             <h2 className="text-xl md:text-[18px]/5 xl:text-xl font-semibold">
               {car.exclusive && car.exclusive}
             </h2>
             {car.exTrim?.map((feature, idx) => (
-              <div key={idx} className="flex items-start gap-1">
-                <TbPointFilled className="pointer" />
-                <p className="text-[18px] md:text-[16px] xl:text-[17px]">
+              <ul key={idx} className="list-disc pl-4 flex items-start gap-1">
+                <li className="text-[18px] md:text-[16px] xl:text-[17px]">
                   {feature}
-                </p>
-              </div>
+                </li>
+              </ul>
             ))}
             <br />
             <h2 className="text-xl font-semibold md:text-[18px]/5 xl:text-xl">
@@ -851,12 +885,11 @@ const CarDetails = () => {
               {car.standardTrim && car.standardTrim}
             </h1>
             {car.standTrim?.map((feature, idx) => (
-              <div key={idx} className="flex items-start gap-1">
-                <TbPointFilled className="pointer" />
-                <p className="text-[18px] md:text-[16px] xl:text-[18px]">
+              <ul key={idx} className="list-disc pl-4 flex items-start gap-1">
+                <li className="text-[18px] md:text-[16px] xl:text-[18px]">
                   {feature}
-                </p>
-              </div>
+                </li>
+              </ul>
             ))}
           </div>
         </div>
@@ -933,15 +966,14 @@ const CarDetails = () => {
             <div className="hidden relative md:flex flex-col-reverse px-8 md:block">
               <div className="w-full ">
                 {car.interior?.map((int, idx) => (
-                   <div className="mt-10" key={idx}>
+                  <div className="mt-10" key={idx}>
                     {idx === interiorIdx && (
                       <>
                         {int.img ? (
                           <img
                             src={int.img}
                             alt="interior"
-                            className="tech-img"
-                            // className={`tech-img ${isLoaded ? "loaded" : ""}`}
+                            className={`tech-img ${loaded ? "loaded" : ""}`}
                             onLoad={() => setLoaded(true)}
                           />
                         ) : (
@@ -987,10 +1019,7 @@ const CarDetails = () => {
                           <img
                             src={int.img}
                             alt="interior"
-                            className="interior-img"
-                            // className={`interior-img ${
-                            //   loaded ? "loaded" : ""
-                            // }`}
+                            className={`interior-img ${loaded ? "loaded" : ""}`}
                             onLoad={() => setLoaded(true)}
                           />
                         ) : (
@@ -1109,11 +1138,10 @@ const CarDetails = () => {
                       src={int.img}
                       alt="tech"
                       onLoad={() => setLoaded(true)}
-                      className="techImg"
-                      // className={`tech-img ${loaded ? "loaded" : ""}`}
+                      className={`tech-img ${loaded ? "loaded" : ""}`}
                     />
                   ) : (
-                    <video autoPlay loop muted playsInline>
+                    <video autoPlay loop muted playsInline className="tech-img">
                       <source src={int.vid} type="video/mp4" />
                     </video>
                   )}
@@ -1137,15 +1165,14 @@ const CarDetails = () => {
                             <img
                               src={int.img}
                               alt="tech"
-                              className="techImg"
-                              // className={`interior-img ${
-                              //   loaded ? "loaded" : ""
-                              // }`}
+                              className={`interior-img ${
+                                loaded ? "loaded" : ""
+                              }`}
                               onLoad={() => setLoaded(true)}
                             />
                           ) : (
                             <video
-                              className="md:w-[350px] xl:w-[550px] md:block"
+                              className="md:w-[350px] xl:w-[550px] tech-img md:block"
                               autoPlay
                               loop
                               muted
@@ -1187,8 +1214,7 @@ const CarDetails = () => {
                             <img
                               src={int.img}
                               alt="tech"
-                              className="techImg"
-                              // className={`tech-img ${loaded ? "loaded" : ""}`}
+                              className={`tech-img ${loaded ? "loaded" : ""}`}
                               onLoad={() => setLoaded(true)}
                             />
                           ) : (
@@ -1336,8 +1362,7 @@ const CarDetails = () => {
                             <img
                               src={int.img}
                               alt="connect"
-                              className="tech-img"
-                              // className={`tech-img ${loaded ? "loaded" : ""}`}
+                              className={`tech-img ${loaded ? "loaded" : ""}`}
                               onLoad={() => setLoaded(true)}
                             />
                           ) : (
@@ -1384,10 +1409,9 @@ const CarDetails = () => {
                             <img
                               src={int.img}
                               alt="connect"
-                              className="interior-img"
-                              // className={`interior-img ${
-                              //   loaded ? "loaded" : ""
-                              // }`}
+                              className={`interior-img ${
+                                loaded ? "loaded" : ""
+                              }`}
                               onLoad={() => setLoaded(true)}
                             />
                           ) : (
@@ -1525,8 +1549,7 @@ const CarDetails = () => {
                             <img
                               src={int.img}
                               alt="performance"
-                              className="tech-img"
-                              // className={`tech-img ${loaded ? "loaded" : ""}`}
+                              className={`tech-img ${loaded ? "loaded" : ""}`}
                               onLoad={() => setLoaded(true)}
                             />
                           ) : (
@@ -1576,10 +1599,9 @@ const CarDetails = () => {
                             <img
                               src={int.img}
                               alt="performance"
-                              className="interior-img"
-                              // className={`interior-img ${
-                              //   loaded ? "loaded" : ""
-                              // }`}
+                              className={`interior-img ${
+                                loaded ? "loaded" : ""
+                              }`}
                               onLoad={() => setLoaded(true)}
                             />
                           ) : (
@@ -1702,8 +1724,7 @@ const CarDetails = () => {
                         src={int.img}
                         alt="exterior"
                         onLoad={() => setLoaded(true)}
-                        className="tech-img"
-                        // className={`tech-img ${loaded ? "loaded" : ""}`}
+                        className={`tech-img ${loaded ? "loaded" : ""}`}
                       />
                     ) : (
                       <video autoPlay loop muted playsInline>
@@ -1730,10 +1751,9 @@ const CarDetails = () => {
                               <img
                                 src={int.img}
                                 alt="exterior"
-                                className="interior-img"
-                                // className={`interior-img ${
-                                //   loaded ? "loaded" : ""
-                                // }`}
+                                className={`interior-img ${
+                                  loaded ? "loaded" : ""
+                                }`}
                                 onLoad={() => setLoaded(true)}
                               />
                             ) : (
@@ -1780,10 +1800,7 @@ const CarDetails = () => {
                               <img
                                 src={int.img}
                                 alt="exterior"
-                                className="tech-img"
-                                // className={`tech-img ${
-                                //   loaded ? "loaded" : ""
-                                // }`}
+                                className={`tech-img ${loaded ? "loaded" : ""}`}
                                 onLoad={() => setLoaded(true)}
                               />
                             ) : (

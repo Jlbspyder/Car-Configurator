@@ -42,8 +42,6 @@ const Hero = ({ cars, suvModel, electricModelLength, sedanModelLength }) => {
     const container = containerRef.current;
     if (!container) return;
 
-    let timeout;
-
     const handleScroll = () => {
       const boxWidth = container.clientWidth * itemWidthPercent; // matches item width percentage
       const index = Math.round(container.scrollLeft / boxWidth);
