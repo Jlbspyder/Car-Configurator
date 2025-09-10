@@ -233,10 +233,10 @@ const Build = () => {
             </nav>
           </div>
           {currentStep === 2 && (
-            <div className="summary relative text-white">
+            <div className="summary pb-50 xl:pb-20 relative text-white">
               <IoCloseSharp onClick={() => setcurrentStep(0)} className="close-summary" />
               <div className="h-full">
-                <div>
+                <div className="mt-15 md:mt-10">
                   <h1 className="text-3xl text-center">{spec.model}</h1>
                   <h1 className="text-center text-2xl">{spec.name}</h1>
                 </div>
@@ -250,7 +250,7 @@ const Build = () => {
                   </button>
                 </div>
               </div>
-              <div className="border-t md:bg-[rgba(0,0,0,0.7)] border-gray-500 w-[83%] h-full md:h-[50%] xl:h-full md:mt-[-200px] xl:mt-0 xl:mr-0 md:mr-[20px] mt-10 md:w-[80%] xl:w-[50%] md:p-4 xl:px-8 xl:pt-20 xl:mt-[-50px]">
+              <div className="border-t md:bg-[rgba(0,0,0,0.7)] border-gray-500 w-[83%] h-full md:h-[50%] xl:h-[550px] md:mt-0 xl:mt-0 xl:mr-0 md:mr-[20px] mt-10 md:w-[80%] xl:pt-20 xl:w-[50%] md:p-4 xl:px-8  xl:mt-[-50px]">
                 <h1 className="my-4 font-semibold text-[18px] md:text-[15px] xl:text-[20px]">
                   Price Breakdown
                 </h1>

@@ -208,7 +208,6 @@ const VehiclesPage = () => {
                   onMouseLeave={() => setElectricCurrentIndex(null)}
                 >
                   <Link
-                to={`/electric/${model.name}`}
                   onMouseEnter={() => setSuvCurrentIndex(idx)}
                   onMouseLeave={() => setSuvCurrentIndex(null)}
                 >
@@ -247,7 +246,7 @@ const VehiclesPage = () => {
                       onMouseLeave={() => setElectricCurrentIndex(null)}
                       className="flex items-center gap-1"
                     >
-                      <Link onClick={close} to={`/electric/${model.name}`}>
+                      <Link>
                         <button className="cursor-pointer hover:underline">
                           Build
                         </button>

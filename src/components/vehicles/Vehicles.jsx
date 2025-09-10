@@ -167,7 +167,7 @@ const Vehicles = ({ close }) => {
                   onMouseLeave={() => setElectricCurrentIndex(null)}
                 >
                   {idx !== electricCurrentIndex ? (
-                   <Link to={`/electric/${model.name}`}>
+                   <Link>
                       <img
                         src={model.img}
                         alt="kia"
@@ -175,7 +175,7 @@ const Vehicles = ({ close }) => {
                       />
                     </Link>
                   ) : (
-                    <Link to={`/electric/${model.name}`}>
+                    <Link>
                       <img
                         src={model.thumbnailHover}
                         alt="kia"

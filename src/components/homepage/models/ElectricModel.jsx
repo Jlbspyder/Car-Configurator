@@ -100,7 +100,7 @@ const ElectricPage = () => {
                   </h3>
                 )}
                 {currentModelIndex === idx && (
-                  <h1 className="animme text-3xl pl-7 xl:pl-0 md:pl-3 lg:text-5xl font-semibold">
+                  <h1 className="animme w-[90%] text-3xl pl-7 xl:pl-0 md:pl-3 lg:text-5xl font-semibold">
                     {model.name}
                     <span className="text-[9px] text-gray-600 ml-3 cursor-pointer underline">
                       Disclaimers
@@ -115,11 +115,11 @@ const ElectricPage = () => {
                 )}
               </div>
               {currentModelIndex === idx && (
-                <div className="flex sm:hidden lg:hidden">
+                <div className="flex mr-2 sm:hidden lg:hidden">
                   {models.map((model, idx) => (
                     <div
                       key={model.id}
-                      className={`dots ${
+                      className={`dots elect-dot ${
                         currentModelIndex === idx ? "active" : ""
                       }`}
                     ></div>
@@ -158,11 +158,9 @@ const ElectricPage = () => {
             )}
             {currentModelIndex === idx && (
               <div className="flex lg:w-[60%] items-center justify-center lg:justify-end lg:pr-8 gap-4 py-4 ">
-                <Link to={`/vehicles/${model.name}`}>
                   <button className="hover:bg-white hover:text-black duration-500 cursor-pointer xl:mr-4 border-1 px-9 py-4 text-white bg-black">
                     Learn <span className="ml-2 xl:ml-0">more</span>
                   </button>
-                </Link>
                 <button className="py-4 hover:bg-black hover:text-white duration-500 px-9 cursor-pointer border-1 border-solid border-black md:hidden lg:hidden">
                   Build yours
                 </button>

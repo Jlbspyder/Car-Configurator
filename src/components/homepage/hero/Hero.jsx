@@ -472,12 +472,13 @@ const Hero = ({ cars, suvModel, electricModelLength, sedanModelLength }) => {
                         </h1>
                       )}
                     </div>
-                    <div className="build-btn">
+                    <Link to={`/build/${model.name}/${model.id}`}><button disabled={model.name !== "Soul"}  className="build-btn">
                       {currentModelIndex === idx && <p>Build yours</p>}
                       {currentModelIndex === idx && (
                         <MdOutlineKeyboardArrowRight className="right-arow" />
                       )}
-                    </div>
+                    </button>
+                    </Link>
                     {currentModelIndex === idx && (
                       <div className="flex sm:hidden lg:hidden">
                         {suvModel.map((model, idx) => (
@@ -534,9 +535,10 @@ const Hero = ({ cars, suvModel, electricModelLength, sedanModelLength }) => {
                           Learn <span className="ml-2 xl:ml-0">more</span>
                         </button>
                       </Link>
-                      <button className="py-4 hover:bg-black hover:text-white duration-500 px-9 cursor-pointer border-1 border-solid border-black md:hidden lg:hidden">
+                      <Link to={`/build/${model.name}/${model.id}`}><button disabled={model.name !== "Soul"} className="py-4 hover:bg-black hover:text-white duration-500 px-9 cursor-pointer border-1 border-solid border-black md:hidden lg:hidden">
                         Build yours
                       </button>
+                       </Link>
                     </div>
                   )}
                 </Fragment>
