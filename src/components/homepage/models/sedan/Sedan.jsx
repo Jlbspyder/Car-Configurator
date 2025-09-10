@@ -106,7 +106,7 @@ const SedanPage = () => {
                         </h1>
                       )}
                     </div>
-                    <div className="build-btn">
+                    <div className="build-bt flex font-semibold md:mr-7 xl:mr-1">
                       {currentModelIndex === idx && <p>Build yours</p>}
                       {currentModelIndex === idx && (
                         <MdOutlineKeyboardArrowRight className="right-arow" />
@@ -156,7 +156,7 @@ const SedanPage = () => {
             )}
             {currentModelIndex === idx && (
               <div className="flex lg:w-[60%] items-center justify-center lg:justify-end lg:pr-8 gap-4 py-4 ">
-                  <button className="hover:bg-white hover:text-black duration-500 cursor-pointer xl:mr-4 border-1 px-9 py-4 text-white bg-black">
+                  <button className="hover:bg-white hover:text-black duration-500 cursor-pointer xl:mr-4 border-1 px-8 py-3 text-white bg-black">
                     Learn <span className="ml-2 xl:ml-0">more</span>
                   </button>
                 <button className="py-4 hover:bg-black hover:text-white duration-500 px-9 cursor-pointer border-1 border-solid border-black md:hidden lg:hidden">

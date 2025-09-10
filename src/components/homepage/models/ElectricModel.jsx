@@ -92,27 +92,46 @@ const ElectricPage = () => {
                 />
               </div>
             ) : null}
-            <div className="flex justify-between items-start sm:items-end sm:px-3">
-              <div>
-                {currentModelIndex === idx && (
-                  <h3 className="animme pl-7 md:pl-3 xl:pl-0 text-xl font-semibold mb-2">
-                    {model.year}
-                  </h3>
-                )}
-                {currentModelIndex === idx && (
-                  <h1 className="animme w-[90%] text-3xl pl-7 xl:pl-0 md:pl-3 lg:text-5xl font-semibold">
-                    {model.name}
-                    <span className="text-[9px] text-gray-600 ml-3 cursor-pointer underline">
-                      Disclaimers
-                    </span>
-                  </h1>
-                )}
-              </div>
-              <div className="build-btn">
-                {currentModelIndex === idx && <p>Build yours</p>}
-                {currentModelIndex === idx && (
-                  <MdOutlineKeyboardArrowRight className="right-arow" />
-                )}
+            <div className="flex justify-between items-center sm:items-end px-2 ">
+              <div className="w-full">
+                <div>
+                  {currentModelIndex === idx && (
+                    <h3 className="animme xl:w-[20%] pl-7 md:pl-3 xl:pl-0 text-xl font-semibold mb-2">
+                      {model.year}
+                    </h3>
+                  )}
+                </div>
+                <div className="hidden md:flex justify-between w-[100%] ">
+                  <div className="w-[50%]">
+                    {currentModelIndex === idx && (
+                      <h1 className="hidden md:block animme text-3xl pl-7 xl:pl-0 md:pl-3 lg:text-5xl font-semibold">
+                        {model.name}
+                        <span className="text-[9px] text-gray-600 ml-3 cursor-pointer underline">
+                          Disclaimers
+                        </span>
+                      </h1>
+                    )}
+                  </div>
+                  {/* </div> */}
+                  <div className="flex flex-col justify-between w-[40%]">
+                    <div className="font-semibold flex justify-end w-[100%]">
+                      {currentModelIndex === idx && <p className="">Build yours</p>}
+                      {currentModelIndex === idx && (
+                        <MdOutlineKeyboardArrowRight className="right-arow" />
+                      )}
+                    </div>
+                    {currentModelIndex === idx && (
+                      <div className="lg:w-[100%] flex justify-end lg:justify-end gap-4 py-4 ">
+                        <button className="hover:bg-white hover:text-black duration-500 cursor-pointer xl:mr-4 border-1 px-7 py-3 text-white bg-black">
+                          Learn <span className="ml-2 xl:ml-0">more</span>
+                        </button>
+                        {/* <button className="py-4 hover:bg-black hover:text-white duration-500 px-9 cursor-pointer border-1 border-solid border-black md:hidden lg:hidden">
+                            Build yours
+                        </button> */}
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
               {currentModelIndex === idx && (
                 <div className="flex mr-2 sm:hidden lg:hidden">
@@ -127,6 +146,14 @@ const ElectricPage = () => {
                 </div>
               )}
             </div>
+            {currentModelIndex === idx && (
+              <h1 className="animme md:hidden w-[60%] text-3xl pl-10 font-semibold">
+                {model.name}
+                <span className="text-[9px] text-gray-600 ml-3 cursor-pointer underline">
+                  Disclaimers
+                </span>
+              </h1>
+            )}
           </div>
         ))}
       </div>
@@ -134,7 +161,7 @@ const ElectricPage = () => {
         {models.map((model, idx) => (
           <Fragment key={model.id}>
             {currentModelIndex === idx && (
-              <div className="specs_wrapper">
+              <div className="flex mx-auto w-[90%]">
                 <div
                   id="spec1"
                   dir="rtl"
@@ -157,10 +184,10 @@ const ElectricPage = () => {
               </div>
             )}
             {currentModelIndex === idx && (
-              <div className="flex lg:w-[60%] items-center justify-center lg:justify-end lg:pr-8 gap-4 py-4 ">
-                  <button className="hover:bg-white hover:text-black duration-500 cursor-pointer xl:mr-4 border-1 px-9 py-4 text-white bg-black">
-                    Learn <span className="ml-2 xl:ml-0">more</span>
-                  </button>
+              <div className="md:hidden flex lg:w-[60%] items-center justify-center lg:justify-end lg:pr-8 gap-4 py-4 ">
+                <button className="hover:bg-white hover:text-black duration-500 cursor-pointer xl:mr-4 border-1 px-9 py-4 text-white bg-black">
+                  Learn <span className="ml-2 xl:ml-0">more</span>
+                </button>
                 <button className="py-4 hover:bg-black hover:text-white duration-500 px-9 cursor-pointer border-1 border-solid border-black md:hidden lg:hidden">
                   Build yours
                 </button>
