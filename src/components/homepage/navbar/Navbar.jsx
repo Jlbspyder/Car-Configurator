@@ -61,7 +61,6 @@ const Navbar = () => {
     setInnovationModal(false);
   };
   const handleVehicleClick = () => {
-    setOpenMenu(false);
     setVehicleModal(!vehicleModal);
     setAssistModal(false);
     setInnovationModal(false);
