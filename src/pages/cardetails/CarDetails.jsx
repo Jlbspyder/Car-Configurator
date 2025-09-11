@@ -558,21 +558,21 @@ const CarDetails = () => {
             )}
           </div>
         ))}
-        <div className="flex items-center mt-10 mx-auto w-[90%] md:mx-50 xl:w-[35%] xl:m-auto space-x-1">
-          <h1 className="text-black text-xl font-semibold">Paint:</h1>
+        <div className="flex items-center mt-10 mx-auto px-2 w-[100%] md:mx-47 xl:w-[35%] xl:m-auto space-x-1">
+          <h1 className="text-black text-sm font-semibold">Paint:</h1>
           {Object.entries(car.colors).map(
             ([_, { name }], idx) =>
               selectedColor === name && (
                 <small
                   key={idx}
-                  className="text-black text-xl md:text-[15px] md:mt-[5px] mt-[1px]"
+                  className="text-black text-sm md:text-[15px] md:mt-[3\2px] mt-[1px]"
                 >
                   {name}
                 </small>
               )
           )}
         </div>
-        <div className="flex items-center w-[90%] mt-4 pb-4 md:w-[50%] md:mt-4 m-auto xl:w-[35%] ">
+        <div className="flex items-center overflow-x-auto mt-4 pb-4 border-black md:w-[50%] md:mt-4 m-auto xl:w-[35%] ">
           {Object.entries(car.colors).map(([_, { hex, name }], idx) => (
             <div key={idx} className="w-full flex justify-center">
               <button
@@ -1122,7 +1122,7 @@ const CarDetails = () => {
               <h4 className="font-semibold text-center text-sm md:text-[10px] xl:text-[12px]">
                 TECHNOLOGY
               </h4>
-              <h1 className="text-center text-[27px] font-semibold mb-4">
+              <h1 className="text-center text-[27px]/6 font-semibold mb-4">
                 {car.techHeader}
               </h1>
             </div>
