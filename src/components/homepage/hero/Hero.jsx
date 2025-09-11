@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { GoArrowRight } from "react-icons/go";
 import { GoArrowLeft } from "react-icons/go";
-import { electricModels, sedanModels, suvModels } from "../../../data";
 import ElectricPage from "../models/ElectricModel";
 import "./hero.css";
 import SedanPage from "../models/sedan/Sedan";

@@ -270,7 +270,7 @@
   aspect-ratio: 16 / 9;
   object-fit: cover;
   cursor: pointer;
-  transition: opacity 0.5s ease-in;
+  animation: lightUp 0.3s ease-in;
 }
 .techImg {
   width: 100%;
@@ -278,20 +278,21 @@
   object-fit: cover;
   aspect-ratio: 16 / 9;
   cursor: pointer;
-  transition: opacity 0.5s ease-in;
+  animation: lightUp 0.3s ease-in;
 }
 .tech-img {
   width: 100%;
   height: 200px;
   object-fit: cover;
   aspect-ratio: 16 / 9;
-  transition: opacity 0.5s ease-in;
+  animation: lightUp 0.3s ease-in;
+
 }
 .drive-img {
   width: 100%;
   height: 155px;
   object-fit: cover;
-  transition: opacity 0.5s ease-in;
+  animation: lightUp 0.3s ease-in;
 }
 .tech-img.loaded,
 .interior-img.loaded,
@@ -519,12 +520,16 @@
     scroll-snap-align: center;
   }
   .int {
+    position: relative;
     flex-direction: column;
-    overflow-y: auto;
+    overflow-y: hidden;
     max-height: 250px;
     width: 60%;
-    scroll-snap-type: y mandatory;
+    /* scroll-snap-type: y mandatory; */
     scrollbar-width: none;
+  }
+  .int.perf {
+    width: 65%;
   }
   .interior-img {
     width: 350px;
@@ -581,6 +586,9 @@
   ._up:hover,
   ._down:hover {
     color: #fff;
+  }
+  .int {
+    width: 45%;
   }
   .int-list {
     bottom: 120px;
@@ -878,7 +886,7 @@
   }
   .int {
     max-height: 330px;
-    width: 60%;
+    width: 50%;
   }
   .int-list {
     bottom: 180px;

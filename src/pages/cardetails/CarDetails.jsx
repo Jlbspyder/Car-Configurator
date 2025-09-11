@@ -10,7 +10,6 @@ import { IoArrowDown } from "react-icons/io5";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { TbPointFilled } from "react-icons/tb";
 import "./cardetails.css";
 import Footer from "../../components/homepage/footer/Footer";
 import Navbar from "../../components/homepage/navbar/Navbar";
@@ -83,50 +82,57 @@ const CarDetails = () => {
     }
   };
 
+  // interior section button handlers
   const moveIntDown = () => {
-    if (interiorIdx < intLength - 1) {
-      setInteriorIdx((prev) => prev + 1);
-    }
+   setInteriorIdx(
+      (prev) => (prev < intLength - 1 ? prev + 1 : 0) // loop
+    );
   };
   const moveIntUp = () => {
-    if (interiorIdx > 0) {
-      setInteriorIdx((prev) => prev - 1);
-    }
+   setInteriorIdx(
+      (prev) => (prev > 0 ? prev - 1 : intLength - 1) // loop
+    );
   };
 
+// technology section button handlers
   const moveTechDown = () => {
-    if (techIdx < techLength - 1) {
-      setTechIdx((prev) => prev + 1);
-    }
-  };
-  const moveTechUp = () => {
-    if (techIdx > 0) {
-      setTechIdx((prev) => prev - 1);
-    }
+    setTechIdx(
+      (prev) => (prev < techLength - 1 ? prev + 1 : 0) // loop
+    );
   };
 
+  const moveTechUp = () => {
+    setTechIdx(
+      (prev) => (prev > 0 ? prev - 1 : techLength - 1) // loop
+    );
+  };
+
+  // connectivity section button handlers
   const moveConDown = () => {
-    if (connectIdx < connectLength - 1) {
-      setConnectIdx((prev) => prev + 1);
-    }
+    setConnectIdx(
+      (prev) => (prev < connectLength - 1 ? prev + 1 : 0) // loop
+    );
   };
   const moveConUp = () => {
-    if (connectIdx > 0) {
-      setConnectIdx((prev) => prev - 1);
-    }
+    setConnectIdx(
+      (prev) => (prev > 0 ? prev - 1 : connectLength - 1) // loop
+    );
   };
 
+  // performance section button handlers
   const movePerfDown = () => {
-    if (performanceIdx < perfLength - 1) {
-      setPerformanceIdx((prev) => prev + 1);
-    }
+    setPerformanceIdx(
+      (prev) => (prev < perfLength - 1 ? prev + 1 : 0) // loop
+    );
   };
   const movePerfUp = () => {
-    if (performanceIdx > 0) {
-      setPerformanceIdx((prev) => prev - 1);
-    }
+    setPerformanceIdx(
+      (prev) => (prev > 0 ? prev - 1 : perfLength - 1) // loop
+    );
   };
 
+
+  // exterior section button handlers
   const moveExtDown = () => {
     if (exteriorIdx < extLength - 1) {
       setExteriorIdx((prev) => prev + 1);
@@ -138,6 +144,8 @@ const CarDetails = () => {
     }
   };
 
+
+  // driver assistance section button handlers
   const moveDriveDown = () => {
     if (driveIdx < driveLength - 1) {
       setDriveIdx((prev) => prev + 1);
@@ -946,15 +954,15 @@ const CarDetails = () => {
               alt="100 years warranty"
             />
           </picture>
-          <div className="absolute left-[10%] right-[10%] top-[45%] md:left-12 md:top-16 md:text-left text-white text-center">
-            <h1 className="text-4xl md:text-3xl font-semibold">
+          <div className="absolute left-[10%] sm:left-[5%] sm:top-10 right-[10%] top-[45%] md:left-12 md:top-16 md:text-left text-white text-center">
+            <h1 className="text-4xl sm:w-[40%] sm:text-sm md:text-3xl font-semibold">
               Industry-Leading Warranty
             </h1>
-            <p className="mt-4 text-[18px] md:text-[15px] md:w-[59%] xl:w-[50%]">
+            <p className="mt-4  sm:text-sm text-[18px] md:text-[15px] sm:w-[30%] md:w-[59%] xl:w-[50%]">
               Drive with confidence knowing you're covered by Kia's
               industry-leading 10-year/100,000-mile Limited Warranty.
             </p>
-            <button className="border bg-white text-black font-semibold mt-6 px-28 md:px-12 py-3 cursor-pointer hover:underline">
+            <button className="bg-white text-black font-semibold mt-6 px-28 sm:px-12 md:px-12 py-3 cursor-pointer hover:underline">
               Learn More
             </button>
           </div>
@@ -965,7 +973,7 @@ const CarDetails = () => {
           <h4 className="font-semibold text-center text-sm md:text-[10px] xl:text-[12px]">
             INTERIOR
           </h4>
-          <h1 className="text-center text-[25px] font-semibold mb-4">
+          <h1 className="text-center text-[25px] xl:text-[35px] font-semibold mb-4">
             {car.interiorHeader}
           </h1>
           <div className="int-gal">
@@ -1039,7 +1047,7 @@ const CarDetails = () => {
             </div>
           ) : (
             <div className="hidden relative md:flex md:justify-between px-8 md:block">
-              <div className="border w-[60%]">
+              <div className="w-[60%]">
                 {car.interior?.map((int, idx) => (
                   <div key={idx}>
                     {idx === interiorIdx && (
@@ -1071,13 +1079,19 @@ const CarDetails = () => {
                 {car.interior?.map((int, idx) => (
                   <div
                     onClick={() => setInteriorIdx(idx)}
-                    className={`hover:opacity-100 transition duration-300 cursor-pointer ${
-                      idx === interiorIdx ? "opacity-100" : "opacity-25"
-                    }`}
+                     className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${
+                        idx === interiorIdx
+                          ? "opacity-100 translate-y-0 z-10"
+                          : idx < interiorIdx
+                          ? "opacity-50 -translate-y-full z-0"
+                          : "opacity-50 translate-y-full z-0"
+                      }`}
                     key={idx}
                   >
-                    <h1 className="text-xl font-semibold py-3">{int.title}</h1>
-                    <h1>{int.info}</h1>
+                    <div className="flex flex-col">
+                      <h1 className="text-xl xl:text-2xl font-semibold py-3">{int.title}</h1>
+                      <h1 className="xl:text-[20px]">{int.info}</h1>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -1151,7 +1165,7 @@ const CarDetails = () => {
               <h4 className="font-semibold text-center text-sm md:text-[10px] xl:text-[12px]">
                 TECHNOLOGY
               </h4>
-              <h1 className="text-center text-[27px]/6 font-semibold mb-4">
+              <h1 className="text-center text-[25px]/6 xl:text-[35px]/10 font-semibold mb-4">
                 {car.techHeader}
               </h1>
             </div>
@@ -1215,19 +1229,25 @@ const CarDetails = () => {
                     </div>
                   ))}
                 </div>
-                <div className="int w-[50%]">
+                <div className="int perf w-[50%]">
                   {car.technology?.map((int, idx) => (
                     <div
                       onClick={() => setTechIdx(idx)}
-                      className={`hover:opacity-100 transition duration-300 cursor-pointer ${
-                        idx === techIdx ? "opacity-100" : "opacity-25"
+                      className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${
+                        idx === techIdx
+                          ? "opacity-100 translate-y-0 z-10"
+                          : idx < techIdx
+                          ? "opacity-50 -translate-y-full z-0"
+                          : "opacity-50 translate-y-full z-0"
                       }`}
                       key={idx}
                     >
-                      <h1 className="text-xl font-semibold py-3">
-                        {int.title}
-                      </h1>
-                      <h1>{int.info}</h1>
+                      <div className="flex flex-col">
+                        <h1 className="text-xl xl:text-3xl font-semibold py-3">
+                          {int.title}
+                        </h1>
+                        <h1 className="xl:text-[20px]">{int.info}</h1>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -1350,7 +1370,7 @@ const CarDetails = () => {
             <h4 className="font-semibold text-center text-sm md:text-[10px] xl:text-[12px]">
               CONNECTIVITY
             </h4>
-            <h1 className="text-center text-[25px] font-semibold mb-4">
+            <h1 className="text-center text-[25px] xl:text-[35px] font-semibold mb-4">
               {car.connectHeader}
             </h1>
             <div className="int-gal">
@@ -1459,19 +1479,25 @@ const CarDetails = () => {
                     </div>
                   ))}
                 </div>
-                <div className="int w-[50%]">
+                <div className="int w-[50%] ">
                   {car.connectivity?.map((int, idx) => (
                     <div
                       onClick={() => setConnectIdx(idx)}
-                      className={`hover:opacity-100 transition duration-300 cursor-pointer ${
-                        idx === connectIdx ? "opacity-100" : "opacity-25"
+                      className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${
+                        idx === connectIdx
+                          ? "opacity-100 translate-y-0 z-10"
+                          : idx < connectIdx
+                          ? "opacity-50 -translate-y-full z-0"
+                          : "opacity-50 translate-y-full z-0"
                       }`}
                       key={idx}
                     >
-                      <h1 className="text-xl font-semibold py-3">
-                        {int.title}
-                      </h1>
-                      <h1 className="xl:w-[80%] md:w-[90%]">{int.info}</h1>
+                      <div className="flex flex-col">
+                        <h1 className="text-xl xl:w-[80%] xl:text-3xl font-semibold py-3">
+                          {int.title}
+                        </h1>
+                        <h1 className="xl:w-[80%] xl:text-[20px] md:w-[90%]">{int.info}</h1>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -1537,7 +1563,7 @@ const CarDetails = () => {
         <section>
           <div className="text-black relative pb-30 mt-10">
             <h4 className="font-semibold text-center">PERFORMANCE</h4>
-            <h1 className="text-center text-[25px] font-semibold mb-4">
+            <h1 className="text-center text-[25px] xl:text-[35px] font-semibold mb-4">
               {car.perfHeader}
             </h1>
             <div className="int-gal">
@@ -1649,19 +1675,25 @@ const CarDetails = () => {
                     </div>
                   ))}
                 </div>
-                <div className="int w-[50%]">
+                <div className="int perf w-[50%]">
                   {car.performance?.map((int, idx) => (
                     <div
                       onClick={() => setPerformanceIdx(idx)}
-                      className={`hover:opacity-100 transition duration-300 cursor-pointer ${
-                        idx === performanceIdx ? "opacity-100" : "opacity-25"
+                      className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${
+                        idx === performanceIdx
+                          ? "opacity-100 translate-y-0 z-10"
+                          : idx < performanceIdx
+                          ? "opacity-50 -translate-y-full z-0"
+                          : "opacity-50 translate-y-full z-0"
                       }`}
                       key={idx}
                     >
-                      <h1 className="text-xl font-semibold py-3">
-                        {int.title}
-                      </h1>
-                      <h1>{int.info}</h1>
+                      <div className="flex flex-col">
+                        <h1 className="text-xl font-semibold py-3 xl:text-3xl">
+                          {int.title}
+                        </h1>
+                        <h1 className="xl:text-[20px]">{int.info}</h1>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -1737,7 +1769,7 @@ const CarDetails = () => {
                 <h4 className="font-semibold text-center text-sm md:text-[10px] xl:text-[12px] md:text-left">
                   EXTERIOR
                 </h4>
-                <h1 className="text-center text-[25px]/6 md:text-left font-semibold mb-4">
+                <h1 className="text-center text-[25px]/6 xl:text-[35px] md:text-left font-semibold mb-4">
                   {car.exteriorHeader}
                 </h1>
               </div>
@@ -1940,7 +1972,7 @@ const CarDetails = () => {
               <h4 className="font-semibold text-center text-sm md:text-[10px] xl:text-[12px] md:text-left">
                 DRIVER ASSISTANCE TECHNOLOGY
               </h4>
-              <h1 className="text-center text-[25px] md:text-left font-semibold mb-4">
+              <h1 className="text-center text-[25px] xl:text-[35px] md:text-left font-semibold mb-4">
                 {car.driveHeader}
               </h1>
             </div>
@@ -1957,7 +1989,6 @@ const CarDetails = () => {
                       alt="driver assistance"
                       onLoad={() => setLoaded(true)}
                       className="drive-img"
-                      // className={`drive-img ${loaded ? "loaded" : ""}`}
                     />
                   ) : (
                     <video autoPlay loop muted playsInline>
@@ -1984,7 +2015,6 @@ const CarDetails = () => {
                             src={int.img}
                             alt="driver assistance"
                             className="drive-img"
-                            // className={`drive-img ${loaded ? "loaded" : ""}`}
                             onLoad={() => setLoaded(true)}
                           />
                         ) : (
