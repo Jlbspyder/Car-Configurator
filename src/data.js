@@ -2228,7 +2228,6 @@ export const suvModels = [
         "/sportage/interior_info_cluster.PNG",
         "/sportage/interior_rear.PNG",
         "/sportage/interior_steering.PNG",
-        "/sportage/exterior_trunk.PNG",
         "/sportage/interior_windshield_view.PNG",
       ],
       exterior: [
@@ -2253,7 +2252,6 @@ export const suvModels = [
         "/sportage/interior_steering.PNG",
         "/sportage/interior_info_cluster.PNG",
         "/sportage/interior_rear.PNG",
-        "/sportage/interior_steering.PNG",
         "/sportage/interior_windshield_view.PNG",
       ]
     },

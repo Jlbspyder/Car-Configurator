@@ -26,6 +26,7 @@ const CarDetails = () => {
   const [performanceIdx, setPerformanceIdx] = useState(0);
   const [exteriorIdx, setExteriorIdx] = useState(0);
   const [driveIdx, setDriveIdx] = useState(0);
+  const [firstCarIdx, setFirstIdx] = useState(0);
   const [visibleSlides, setVisibleSlides] = useState(null);
   const [touchPosition, setTouchPosition] = useState(null);
   const [hideInitialImg, setHideInitialImg] = useState(false);
@@ -54,6 +55,7 @@ const CarDetails = () => {
   const performance = car.performance?.map((int) => int.img);
   const exter = car.exterior?.map((int) => int.img);
   const drive = car.driver?.map((int) => int.img);
+  const firstCar = Object.entries(car.colors).map((color) => color[1].image);
 
   const exteriorPictures = car.gallery.exterior;
   const interiorPictures = car.gallery.interior;
@@ -68,7 +70,6 @@ const CarDetails = () => {
   const perfLength = performance?.length;
   const extLength = exter?.length;
   const driveLength = drive?.length;
-
 
   const moveUp = () => {
     if (currentAllIdx > 0) {
@@ -178,11 +179,26 @@ const CarDetails = () => {
     setExterior(false);
   };
 
+  // function to handle image flickering before its cached
   useEffect(() => {
     setLoaded(false);
-  }, [techIdx, interiorIdx, connectIdx, performanceIdx, exteriorIdx, driveIdx]);
+  }, [
+    firstCarIdx,
+    techIdx,
+    interiorIdx,
+    connectIdx,
+    performanceIdx,
+    exteriorIdx,
+    driveIdx,
+  ]);
 
   useEffect(() => {
+    if (!firstCar) {
+      return;
+    } else if (firstCar[firstCarIdx + 1]) {
+      const img = new Image();
+      img.src = firstCar[firstCarIdx + 1];
+    }
     if (int[interiorIdx + 1]) {
       const img = new Image();
       img.src = int[interiorIdx + 1];
@@ -192,21 +208,20 @@ const CarDetails = () => {
       img.src = tech[techIdx + 1];
     }
     if (!connect) {
-      return
-    } else  if (connect[connectIdx + 1]) {
+      return;
+    } else if (connect[connectIdx + 1]) {
       const img = new Image();
       img.src = connect[connectIdx + 1];
     }
     if (!performance) {
-      return
+      return;
     } else if (performance[performanceIdx + 1]) {
       const img = new Image();
       img.src = performance[performanceIdx + 1];
     }
     if (!exter) {
-      return
-    } else
-    if (exter[exteriorIdx + 1]) {
+      return;
+    } else if (exter[exteriorIdx + 1]) {
       const img = new Image();
       img.src = exter[exteriorIdx + 1];
     }
@@ -215,6 +230,7 @@ const CarDetails = () => {
       img.src = drive[driveIdx + 1];
     }
   }, [
+    firstCarIdx,
     interiorIdx,
     techIdx,
     connectIdx,
@@ -549,16 +565,26 @@ const CarDetails = () => {
           {car.trimHeader}
         </h1>
         {!hideInitialImg && (
-          <img src={selectedCar} alt="car" className="swatch" />
+          <img src={selectedCar} alt="car" className="swatch swatch-show" />
         )}
         {Object.entries(car.colors).map(([_, { image, name }], idx) => (
           <div key={idx}>
-            {selectedCar === name && (
-              <img src={image} alt={name} className="swatch" />
-            )}
+            {selectedCar === name ? (
+              <div className="swatch-wrapper">
+                {!loaded && (
+                  <img src={image} alt={name} className="placeholder" />
+                )}
+                <img
+                  src={image}
+                  alt={name}
+                  className={`swatch ${loaded ? "loaded" : ""}`}
+                  onLoad={() => setLoaded(true)}
+                />
+              </div>
+            ) : null}
           </div>
         ))}
-        <div className="flex items-center mt-10 mx-auto px-2 w-[100%] md:mx-47 xl:w-[35%] xl:m-auto space-x-1">
+        <div className="flex items-center mx-auto px-2 w-[100%] md:mx-47 xl:w-[35%] xl:m-auto space-x-1">
           <h1 className="text-black text-sm font-semibold">Paint:</h1>
           {Object.entries(car.colors).map(
             ([_, { name }], idx) =>
@@ -637,7 +663,10 @@ const CarDetails = () => {
                   <div className="bg-white px-6 flex flex-col pb-4 h-[300px] text-[18px] mx-auto overflow-y-scroll">
                     {spec.features.map((feature, idx) => {
                       return (
-                        <ul key={idx} className="list-disc pl-4 flex gap-2 items-start">
+                        <ul
+                          key={idx}
+                          className="list-disc pl-4 flex gap-2 items-start"
+                        >
                           <li className="md:text-[17px]">{feature}</li>
                         </ul>
                       );
@@ -1009,8 +1038,8 @@ const CarDetails = () => {
               </div>
             </div>
           ) : (
-            <div className="hidden relative md:flex px-8 md:block">
-              <div className="w-[80%]">
+            <div className="hidden relative md:flex md:justify-between px-8 md:block">
+              <div className="border w-[60%]">
                 {car.interior?.map((int, idx) => (
                   <div key={idx}>
                     {idx === interiorIdx && (

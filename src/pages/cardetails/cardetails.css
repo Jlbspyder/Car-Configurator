@@ -72,6 +72,11 @@
   top: 10%;
   right: 5%;
 }
+.car-spec {
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
 .color {
   position: relative;
   aspect-ratio: 1;
@@ -90,9 +95,25 @@
 .color-swatch.tint {
   color: gray;
 }
+.swatch-wrapper {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+  pointer-events: none;
+}
 .swatch {
+  opacity: 0;
+  width: 100%;
   margin: auto;
   height: auto;
+}
+.swatch-show {
+  opacity: 1;
+}
+.swatch.loaded {
+  opacity: 1;
 }
 .trim-container {
   position: relative;
@@ -146,7 +167,7 @@
   color: red;
 }
 .main-image {
-  opacity: 1;
+  width: 100%;
   animation: lightUp 0.3s ease-in-out;
   object-fit: cover;
   height: 300px;
@@ -359,6 +380,9 @@
     top: 5%;
     left: 50%;
     transform: translateX(-50%);
+  }
+  .swatch-wrapper {
+    aspect-ratio: 16 / 7;
   }
   .swatch {
     margin: auto;
@@ -705,12 +729,29 @@
   .gallery-list {
     left: 91.5%;
   }
+  .main-navbar {
+    display: block;
+    position: fixed;
+    top: 55px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    transition: top 0.3s ease;
+    z-index: 200;
+  }
+  .main-navbar.stick {
+    top: 0;
+    transition: top 0.3s ease;
+  }
 }
 
 @media (min-width: 1200px) {
   .swatch {
     margin: auto;
     width: 80%;
+  }
+  .swatch-wrapper {
+    aspect-ratio: 16 / 6;
   }
   .color {
     width: 35px;
