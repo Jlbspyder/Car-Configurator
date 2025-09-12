@@ -72,6 +72,9 @@
   .last-border {
     padding-bottom: 25px;
   }
+  footer li:hover {
+    color: gray;
+  }
 }
 @media (min-width: 1000px) {
   .socials {

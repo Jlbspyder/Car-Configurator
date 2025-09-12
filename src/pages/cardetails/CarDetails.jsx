@@ -84,51 +84,51 @@ const CarDetails = () => {
 
   // interior section button handlers
   const moveIntDown = () => {
-   setInteriorIdx(
-      (prev) => (prev < intLength - 1 ? prev + 1 : 0) // loop
-    );
+     if (interiorIdx < intLength - 1) {
+      setInteriorIdx((prev) => prev + 1);
+    }
   };
   const moveIntUp = () => {
-   setInteriorIdx(
-      (prev) => (prev > 0 ? prev - 1 : intLength - 1) // loop
-    );
+     if (interiorIdx > 0) {
+      setInteriorIdx((prev) => prev - 1);
+    }
   };
 
 // technology section button handlers
   const moveTechDown = () => {
-    setTechIdx(
-      (prev) => (prev < techLength - 1 ? prev + 1 : 0) // loop
-    );
+     if (techIdx < techLength - 1) {
+      setTechIdx((prev) => prev + 1);
+    }
   };
 
   const moveTechUp = () => {
-    setTechIdx(
-      (prev) => (prev > 0 ? prev - 1 : techLength - 1) // loop
-    );
+     if (techIdx > 0) {
+      setTechIdx((prev) => prev - 1);
+    }
   };
 
   // connectivity section button handlers
   const moveConDown = () => {
-    setConnectIdx(
-      (prev) => (prev < connectLength - 1 ? prev + 1 : 0) // loop
-    );
+     if (connectIdx < connectLength - 1) {
+      setConnectIdx((prev) => prev + 1);
+    }
   };
   const moveConUp = () => {
-    setConnectIdx(
-      (prev) => (prev > 0 ? prev - 1 : connectLength - 1) // loop
-    );
+    if (connectIdx > 0) {
+      setConnectIdx((prev) => prev - 1);
+    }
   };
 
   // performance section button handlers
   const movePerfDown = () => {
-    setPerformanceIdx(
-      (prev) => (prev < perfLength - 1 ? prev + 1 : 0) // loop
-    );
+    if (performanceIdx < perfLength - 1) {
+      setPerformanceIdx((prev) => prev + 1)
+    }
   };
   const movePerfUp = () => {
-    setPerformanceIdx(
-      (prev) => (prev > 0 ? prev - 1 : perfLength - 1) // loop
-    );
+    if (performanceIdx > 0) {
+      setPerformanceIdx((prev) => prev - 1);
+    }
   };
 
 

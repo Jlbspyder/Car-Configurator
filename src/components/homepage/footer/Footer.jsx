@@ -69,10 +69,14 @@ const Footer = () => {
             className="footer-logo"
           />
           <ul className="font-semibold mt-12 pb-6 text-[20px] text-[#f9f9f9]">
-            <li className="footer-list w-[35%] md:w-[15%]">Vehicles</li>
-            <li className="footer-list w-[80%] md:w-[35%]">
-              Certfied Pre-Owned
-            </li>
+            <Link to="/vehicles">
+              <li className="footer-list w-[35%] md:w-[15%]">Vehicles</li>
+            </Link>
+            <Link to="/cpo" target="_blank">
+              <li className="footer-list w-[80%] md:w-[35%]">
+                Certfied Pre-Owned
+              </li>
+            </Link>
             <li className="footer-list w-[40%] md:w-[20%]">
               Why Kia
               <span className="ml-2 inline-block">
@@ -194,8 +198,8 @@ const Footer = () => {
           />
           <div className="flex">
             <ul className="flex mt-6 text-lg flex-col font-semibold h-[220px] justify-between w-[25%]">
-              <li>Vehicles</li>
-              <li>Certified Pre-Owned</li>
+              <Link to="/vehicles"><li>Vehicles</li></Link>
+              <Link to="/cpo" target="_blank"><li>Certified Pre-Owned</li></Link>
               <li>
                 Why Kia
                 <span className="ml-2 inline-block">
